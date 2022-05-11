@@ -1,15 +1,18 @@
 import { useState } from "react";
 import Modal from "./Modal";
+import { useModal } from "../state/ModalProvider";
 
 export default function UserPage() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { setModal } = useModal();
+
+  function modalMessage() {
+    setModal("Eleonora");
+  }
+
   return (
     <div>
       Hello user!
-      <button onClick={() => setIsOpen(true)}>Click</button>
-      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-        'Hello world!'
-      </Modal>
+      <button onClick={modalMessage}>Click</button>
     </div>
   );
 }

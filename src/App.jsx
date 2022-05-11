@@ -4,17 +4,25 @@ import { BrowserRouter } from "react-router-dom";
 import { useUID } from "./state/UIDProvider";
 import logo from "./logo.svg";
 import "./App.css";
+import Modal from "./components/Modal";
+import { ModalProvider } from "./state/ModalProvider";
+import { ContentProvider } from "./state/ContentProvider";
 
 export function App() {
   const { uid } = useUID();
   return (
     <div className="App">
-      <BrowserRouter>
-        <main className="app-content ">
-          {uid && <LoggedRoutes />}
-          {!uid && <UnLoggedRoutes />}
-        </main>
-      </BrowserRouter>
+      <ModalProvider>
+        <ContentProvider>
+          <BrowserRouter>
+            <main className="app-content ">
+              {uid && <LoggedRoutes />}
+              {!uid && <UnLoggedRoutes />}
+            </main>
+          </BrowserRouter>
+          <Modal />
+        </ContentProvider>
+      </ModalProvider>
     </div>
   );
 }
