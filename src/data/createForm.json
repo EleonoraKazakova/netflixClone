@@ -1,13 +1,13 @@
 {
   "title": {
     "label": "Title",
-    "placeholder": "Vincent van Gogh",
+    "placeholder": "Titanic",
     "type": "text",
     "required": true
   },
   "description": {
     "label": "Description",
-    "placeholder": "This course is about...",
+    "placeholder": "This movie is about...",
     "type": "text",
     "required": false
   }

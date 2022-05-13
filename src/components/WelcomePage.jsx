@@ -1,3 +1,11 @@
+import "../styles/welcome-page.sass";
+import LogIn from "./authentication/LogIn";
+
 export default function WelcomePage() {
-  return <div>Welcome!</div>;
+  return (
+    <div className="welcome-page-background">
+      Welcome!
+      <LogIn />
+    </div>
+  );
 }
