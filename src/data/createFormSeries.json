@@ -34,5 +34,11 @@
     "placeholder": "2",
     "type": "text",
     "required": true
+  },
+  "link": {
+    "label": "Link",
+    "placeholder": "4S2Ruqhcz78",
+    "type": "text",
+    "required": true
   }
 }

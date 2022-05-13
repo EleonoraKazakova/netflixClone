@@ -5,24 +5,27 @@ import {
   addDocument,
 } from "../scripts/fireStore";
 import { Link } from "react-router-dom";
+import { createFile } from "../scripts/cloudStorage";
 import Category from "./Category";
 import { useModal } from "../state/ModalProvider";
 import textToUrl from "../scripts/textToUrl";
 import FormMovie from "./FormMovie";
 import FormSeries from "./FormSeries";
+import EmptyImg from "../images/empty.jpg";
 
 export default function AdminPage() {
   const { setModal } = useModal();
   const [categories, setCategories] = useState([]);
   const [title, setTitle] = useState("The Truman show");
   const [description, setDescription] = useState("It is very good movie");
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(null);
   const [epesodeTitle, setEpesodeTitle] = useState("The  show");
   const [epesodeDescription, setEpesodeDescription] = useState(
-    "It is very good movie"
+    "It is very good epesode"
   );
   const [epesode, setEpesode] = useState("1");
   const [season, setSeason] = useState("2");
+  const [link, setLink] = useState("y4WR6HKNeyg");
 
   const path = "netflixClone";
 
@@ -41,13 +44,11 @@ export default function AdminPage() {
   function clearForm() {
     setTitle("");
     setDescription("");
-    // setFile(null);
+    setFile(null);
   }
 
   async function onCreate(event, category) {
     event.preventDefault();
-    const newType = title.toLowerCase();
-
     const id = textToUrl(title);
 
     const newVideo = {
@@ -55,6 +56,7 @@ export default function AdminPage() {
       id: id,
       description: description,
       imgURL: "",
+      link: link,
     };
 
     const newSeries = {
@@ -66,9 +68,26 @@ export default function AdminPage() {
         epesode: epesode,
         season: season,
         title: epesodeTitle,
+        link: link,
       },
       imgURL: "",
     };
+
+    if (file === null) {
+      newVideo.imgURL = EmptyImg;
+    } else {
+      const imgURL = await createFile(`netflixClone/${file.name}`, file);
+      newVideo.imgURL = imgURL;
+    }
+
+    if (file === null) {
+      newSeries.imgURL = EmptyImg;
+    } else {
+      const imgURL = await createFile(`netflixClone/${file.name}`, file);
+      newSeries.imgURL = imgURL;
+    }
+
+    if (newVideo.title === "" || newSeries.title === "") return;
 
     if (category === "series") {
       await addDocument(`netflixClone/${category}/content/${id}`, newSeries);
@@ -93,6 +112,8 @@ export default function AdminPage() {
               epesodeDescription={[epesodeDescription, setEpesodeDescription]}
               epesode={[epesode, setEpesode]}
               season={[season, setSeason]}
+              link={[link, setLink]}
+              file={[file, setFile]}
               onCreate={() => onCreate(event, category.id)}
             />
           )
@@ -107,6 +128,7 @@ export default function AdminPage() {
             <FormMovie
               title={[title, setTitle]}
               description={[description, setDescription]}
+              file={[file, setFile]}
               onCreate={() => onCreate(event, category.id)}
             />
           )

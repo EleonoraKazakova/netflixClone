@@ -1,8 +1,10 @@
+import "../styles/inputField.sass";
+
 export default function InputField({ setup, state }) {
   const { label, placeholder, type, required } = setup;
   const [value, setValue] = state;
   return (
-    <label>
+    <label className="input-field-block">
       {label}
       <input
         placeholder={placeholder}
