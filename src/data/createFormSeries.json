@@ -1,0 +1,38 @@
+{
+  "title": {
+    "label": "Title",
+    "placeholder": "Titanic",
+    "type": "text",
+    "required": true
+  },
+  "description": {
+    "label": "Description",
+    "placeholder": "This movie is about...",
+    "type": "text",
+    "required": false
+  },
+  "epesodeTitle": {
+    "label": "Title of epesode",
+    "placeholder": "One day",
+    "type": "text",
+    "required": true
+  },
+  "epesodeDescription": {
+    "label": "Description of epesode",
+    "placeholder": "This epesode is about...",
+    "type": "text",
+    "required": false
+  },
+  "epesode": {
+    "label": "Epesode",
+    "placeholder": "1",
+    "type": "text",
+    "required": true
+  },
+  "season": {
+    "label": "Season",
+    "placeholder": "2",
+    "type": "text",
+    "required": true
+  }
+}

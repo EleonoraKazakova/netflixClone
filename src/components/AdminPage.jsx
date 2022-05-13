@@ -7,9 +7,9 @@ import {
 import { Link } from "react-router-dom";
 import Category from "./Category";
 import { useModal } from "../state/ModalProvider";
-import createForm from "../data/createForm.json";
 import textToUrl from "../scripts/textToUrl";
 import FormMovie from "./FormMovie";
+import FormSeries from "./FormSeries";
 
 export default function AdminPage() {
   const { setModal } = useModal();
@@ -17,6 +17,12 @@ export default function AdminPage() {
   const [title, setTitle] = useState("The Truman show");
   const [description, setDescription] = useState("It is very good movie");
   const [file, setFile] = useState("");
+  const [epesodeTitle, setEpesodeTitle] = useState("The  show");
+  const [epesodeDescription, setEpesodeDescription] = useState(
+    "It is very good movie"
+  );
+  const [epesode, setEpesode] = useState("1");
+  const [season, setSeason] = useState("2");
 
   const path = "netflixClone";
 
@@ -56,10 +62,10 @@ export default function AdminPage() {
       id: id,
       description: description,
       seasons: {
-        description: "text, text, text",
-        epesode: "1",
-        season: "1",
-        title: "A cat",
+        description: epesodeDescription,
+        epesode: epesode,
+        season: season,
+        title: epesodeTitle,
       },
       imgURL: "",
     };
@@ -73,21 +79,43 @@ export default function AdminPage() {
     clearForm();
     setModal(null);
   }
-  const videoCard = categories.map((category) => (
-    <button
-      onClick={(event) =>
-        setModal(
-          <FormMovie
-            title={[title, setTitle]}
-            description={[description, setDescription]}
-            onCreate={() => onCreate(event, category.id)}
-          />
-        )
-      }
-    >
-      {category.title}
-    </button>
-  ));
+
+  console.log("categories:", categories);
+  const videoCard = categories.map((category) =>
+    category.id === "series" ? (
+      <button
+        onClick={(event) =>
+          setModal(
+            <FormSeries
+              title={[title, setTitle]}
+              description={[description, setDescription]}
+              epesodeTitle={[epesodeTitle, setEpesodeTitle]}
+              epesodeDescription={[epesodeDescription, setEpesodeDescription]}
+              epesode={[epesode, setEpesode]}
+              season={[season, setSeason]}
+              onCreate={() => onCreate(event, category.id)}
+            />
+          )
+        }
+      >
+        {category.title}
+      </button>
+    ) : (
+      <button
+        onClick={(event) =>
+          setModal(
+            <FormMovie
+              title={[title, setTitle]}
+              description={[description, setDescription]}
+              onCreate={() => onCreate(event, category.id)}
+            />
+          )
+        }
+      >
+        {category.title}
+      </button>
+    )
+  );
   console.log("categories");
   return (
     <div>
