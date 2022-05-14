@@ -10,5 +10,11 @@
     "placeholder": "This movie is about...",
     "type": "text",
     "required": false
+  },
+  "link": {
+    "label": "Link",
+    "placeholder": "4S2Ruqhcz78",
+    "type": "text",
+    "required": true
   }
 }
