@@ -9,6 +9,7 @@ import Category from "./Category";
 import { useModal } from "../state/ModalProvider";
 import FormMovie from "./FormMovie";
 import FormSeries from "./FormSeries";
+import MovieEdit from "./MovieEdit";
 
 export default function AdminPage() {
   const { setModal } = useModal();
@@ -41,7 +42,7 @@ export default function AdminPage() {
           )
         }
       >
-        {category.title}
+        Add {category.title}
       </button>
     ) : (
       <button
@@ -54,7 +55,7 @@ export default function AdminPage() {
           )
         }
       >
-        {category.title}
+        Add {category.title}
       </button>
     )
   );

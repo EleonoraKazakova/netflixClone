@@ -14,11 +14,11 @@ export default function FormSeries({ categoryTitle, categoryID }) {
   const [title, setTitle] = useState("The Truman show");
   const [description, setDescription] = useState("It is very good movie");
   const [file, setFile] = useState(null);
-  const [epesodeTitle, setEpesodeTitle] = useState("The  show");
-  const [epesodeDescription, setEpesodeDescription] = useState(
-    "It is very good epesode"
+  const [episodeTitle, setEpisodeTitle] = useState("The  show");
+  const [episodeDescription, setEpisodeDescription] = useState(
+    "It is very good episode"
   );
-  const [epesode, setEpesode] = useState("1");
+  const [episode, setEpisode] = useState("1");
   const [season, setSeason] = useState("2");
   const [link, setLink] = useState("y4WR6HKNeyg");
 
@@ -37,10 +37,10 @@ export default function FormSeries({ categoryTitle, categoryID }) {
       id: id,
       description: description,
       seasons: {
-        description: epesodeDescription,
-        epesode: epesode,
+        description: episodeDescription,
+        episode: episode,
         season: season,
-        title: epesodeTitle,
+        title: episodeTitle,
         link: link,
       },
       imgURL: "",
@@ -70,16 +70,16 @@ export default function FormSeries({ categoryTitle, categoryID }) {
         state={[description, setDescription]}
       />
       <InputField
-        setup={createFormSeries.epesodeTitle}
-        state={[epesodeTitle, setEpesodeTitle]}
+        setup={createFormSeries.episodeTitle}
+        state={[episodeTitle, setEpisodeTitle]}
       />
       <InputField
-        setup={createFormSeries.epesodeDescription}
-        state={[epesodeDescription, setEpesodeDescription]}
+        setup={createFormSeries.episodeDescription}
+        state={[episodeDescription, setEpisodeDescription]}
       />
       <InputField
-        setup={createFormSeries.epesode}
-        state={[epesode, setEpesode]}
+        setup={createFormSeries.episode}
+        state={[episode, setEpisode]}
       />
       <InputField setup={createFormSeries.season} state={[season, setSeason]} />
       <InputField setup={createFormSeries.season} state={[link, setLink]} />

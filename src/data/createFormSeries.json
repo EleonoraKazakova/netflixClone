@@ -11,20 +11,20 @@
     "type": "text",
     "required": false
   },
-  "epesodeTitle": {
-    "label": "Title of epesode",
+  "episodeTitle": {
+    "label": "Title of episode",
     "placeholder": "One day",
     "type": "text",
     "required": true
   },
-  "epesodeDescription": {
-    "label": "Description of epesode",
-    "placeholder": "This epesode is about...",
+  "episodeDescription": {
+    "label": "Description of episode",
+    "placeholder": "This episode is about...",
     "type": "text",
     "required": false
   },
-  "epesode": {
-    "label": "Epesode",
+  "episode": {
+    "label": "Episode",
     "placeholder": "1",
     "type": "text",
     "required": true

@@ -4,8 +4,11 @@ import {
   getDocument,
   deleteDocument,
 } from "../scripts/fireStore";
+import MovieEdit from "./MovieEdit";
+import { useModal } from "../state/ModalProvider";
 
 export default function Category({ category }) {
+  const { setModal } = useModal();
   const [videos, setVideos] = useState([]);
   const path = `netflixClone/${category.id}/content`;
 
@@ -28,6 +31,19 @@ export default function Category({ category }) {
   const videoCards = videos.map((video) => (
     <div>
       {video.title}
+      <button
+        onClick={() =>
+          setModal(
+            <MovieEdit
+              categoryID={category.id}
+              movieID={video.id}
+              movieTitle={video.title}
+            />
+          )
+        }
+      >
+        Edit
+      </button>
       <button onClick={(event) => onDelete(event, video.id)}>Delete</button>
     </div>
   ));
