@@ -3,11 +3,16 @@ import {
   getCollection,
   getDocument,
   deleteDocument,
-} from "../scripts/fireStore";
+} from "../../scripts/fireStore";
 import MovieEdit from "./MovieEdit";
-import { useModal } from "../state/ModalProvider";
+import { useModal } from "../../state/ModalProvider";
+import { Link } from "react-router-dom";
+import SeriesEdit from "./SeriesEdit";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Category({ category }) {
+  const params = useParams();
+  const history = useNavigate();
   const { setModal } = useModal();
   const [videos, setVideos] = useState([]);
   const path = `netflixClone/${category.id}/content`;
@@ -33,13 +38,15 @@ export default function Category({ category }) {
       {video.title}
       <button
         onClick={() =>
-          setModal(
-            <MovieEdit
-              categoryID={category.id}
-              movieID={video.id}
-              movieTitle={video.title}
-            />
-          )
+          category.id === "series"
+            ? history(`/admin/${category.id}/${video.id}`)
+            : setModal(
+                <MovieEdit
+                  categoryID={category.id}
+                  movieID={video.id}
+                  movieTitle={video.title}
+                />
+              )
         }
       >
         Edit

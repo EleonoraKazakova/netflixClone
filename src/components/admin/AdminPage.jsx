@@ -3,10 +3,10 @@ import {
   getCollection,
   deleteDocument,
   addDocument,
-} from "../scripts/fireStore";
+} from "../../scripts/fireStore";
 import { Link } from "react-router-dom";
 import Category from "./Category";
-import { useModal } from "../state/ModalProvider";
+import { useModal } from "../../state/ModalProvider";
 import FormMovie from "./FormMovie";
 import FormSeries from "./FormSeries";
 import MovieEdit from "./MovieEdit";

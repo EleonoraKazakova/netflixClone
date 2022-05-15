@@ -24,19 +24,19 @@
     "required": false
   },
   "episode": {
-    "label": "Episode",
+    "label": "Number of episode",
     "placeholder": "1",
     "type": "text",
     "required": true
   },
   "season": {
-    "label": "Season",
+    "label": "Number of season",
     "placeholder": "2",
     "type": "text",
     "required": true
   },
   "link": {
-    "label": "Link",
+    "label": "Link of episode",
     "placeholder": "4S2Ruqhcz78",
     "type": "text",
     "required": true

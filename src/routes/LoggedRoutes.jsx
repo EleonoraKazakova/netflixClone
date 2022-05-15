@@ -4,9 +4,10 @@ import SignUp from "../components/authentication/SignUp";
 import { authentication } from "../scripts/firesbase";
 import { getDocument } from "../scripts/fireStore";
 import { useState, useEffect } from "react";
-import AdminPage from "../components/AdminPage";
+import AdminPage from "../components/admin/AdminPage";
 import UserPage from "../components/UserPage";
 import "../styles/lougedRoutes.sass";
+import SeriesPage from "../components/admin/SeriesPage";
 
 export default function LoggedRoutes() {
   const currentUser = authentication.currentUser.uid;
@@ -24,8 +25,9 @@ export default function LoggedRoutes() {
     <section className="lougedRoutes-grid">
       <div className="lougedRoutes-content">
         <Routes>
-          <Route path="/" element={<UserPage />} />
-          <Route path="/admin" element={<AdminPage />} />
+          {/*<Route path="/" element={<UserPage />} />*/}
+          <Route path="/" element={<AdminPage />} />
+          <Route path="/admin/series/:seriesTitle" element={<SeriesPage />} />
         </Routes>
       </div>
     </section>

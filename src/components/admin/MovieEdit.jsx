@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { createFile } from "../scripts/cloudStorage";
-import { getDocument, updateDocument } from "../scripts/fireStore";
-import EmptyImg from "../images/empty.jpg";
-import uploadFiles from "../scripts/uploadFile";
-import { useModal } from "../state/ModalProvider";
-import "../styles/form.sass";
-import InputField from "./InputField";
-import createFormMovie from "../data/createFormMovie.json";
+import { createFile } from "../../scripts/cloudStorage";
+import { getDocument, updateDocument } from "../../scripts/fireStore";
+import EmptyImg from "../../images/empty.jpg";
+import uploadFiles from "../../scripts/uploadFile";
+import { useModal } from "../../state/ModalProvider";
+import "../../styles/form.sass";
+import InputField from "../InputField";
+import createFormMovie from "../../data/createFormMovie.json";
 import FormPicture from "./FormPicture";
 
 export default function MovieEdit({ categoryID, movieID, movieTitle }) {

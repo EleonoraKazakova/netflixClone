@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { createFile } from "../scripts/cloudStorage";
-import { deleteDocument, addDocument } from "../scripts/fireStore";
-import InputField from "./InputField";
-import createFormMovie from "../data/createFormMovie.json";
-import "../styles/form.sass";
+import { createFile } from "../../scripts/cloudStorage";
+import { deleteDocument, addDocument } from "../../scripts/fireStore";
+import InputField from "../InputField";
+import createFormMovie from "../../data/createFormMovie.json";
+import "../../styles/form.sass";
 import FormPicture from "./FormPicture";
-import { useModal } from "../state/ModalProvider";
-import textToUrl from "../scripts/textToUrl";
-import EmptyImg from "../images/empty.jpg";
+import { useModal } from "../../state/ModalProvider";
+import textToUrl from "../../scripts/textToUrl";
+import EmptyImg from "../../images/empty.jpg";
 
 export default function FormMovie({ categoryTitle, categoryID }) {
   const { setModal } = useModal();
