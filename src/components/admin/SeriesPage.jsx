@@ -12,6 +12,7 @@ import FormPicture from "./FormPicture";
 import "../../styles/series-page.sass";
 import SeriesEdit from "./SeriesEdit";
 import EpisodeEdit from "./EpisodeEdit";
+import FormCreateEpisode from "./FormCreateEpisode";
 
 export default function SeriesPage() {
   const params = useParams();
@@ -59,7 +60,13 @@ export default function SeriesPage() {
       </button>
 
       <h2>Seasons</h2>
-      <button>Add new episode</button>
+      <button
+        onClick={() =>
+          setModal(<FormCreateEpisode stateSeries={[series, setSeries]} />)
+        }
+      >
+        Add new episode
+      </button>
       {episode}
     </div>
   );

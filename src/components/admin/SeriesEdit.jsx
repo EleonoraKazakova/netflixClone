@@ -16,15 +16,7 @@ export default function SeriesEdit({ seriesID }) {
   console.log("params:", params);
   const [status, setStatus] = useState(1);
   const [series, setSeries] = useState(null);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
-
-  const [episodeTitle, setEpisodeTitle] = useState("");
-  const [episodeDescription, setEpisodeDescription] = useState("");
-  const [episode, setEpisode] = useState("");
-  const [season, setSeason] = useState("");
-  const [link, setLink] = useState("");
 
   const path = `netflixClone/series/content/${seriesID}`;
   useEffect(() => {
