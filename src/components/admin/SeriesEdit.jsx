@@ -6,9 +6,9 @@ import EmptyImg from "../../images/empty.jpg";
 import uploadFiles from "../../scripts/uploadFile";
 import { useModal } from "../../state/ModalProvider";
 import "../../styles/form.sass";
-import InputField from "../InputField";
 import createFormSeries from "../../data/createFormSeries.json";
 import FormPicture from "./FormPicture";
+import InputFieldEvent from "../InputFieldEvent";
 
 export default function SeriesEdit({ seriesID }) {
   const params = useParams();
@@ -26,7 +26,6 @@ export default function SeriesEdit({ seriesID }) {
     }
     loadData(path);
   }, []);
-  console.log("series:", series);
 
   if (series === null) return null;
 
@@ -45,56 +44,45 @@ export default function SeriesEdit({ seriesID }) {
       }
 
       setStatus(0);
-
       await updateDocument(path, { ...series });
-
       setModal(null);
     } catch (error) {
       console.error("There was an error:", error);
-
       setStatus(2);
     }
+  }
+
+  function onChangeTitle(event) {
+    setSeries({ ...series, title: event.target.value });
+  }
+  function onChangeDescription(event) {
+    setSeries({ ...series, description: event.target.value });
+  }
+  function onChangeLink(event) {
+    setSeries({ ...series, link: event.target.value });
   }
 
   return (
     <div>
       <h2>Edit {series.title}</h2>
-      <div>
-        <label>Title</label>
-        <input
-          placeholder="Title"
-          required
-          type="text"
-          value={series.title}
-          onChange={(event) =>
-            setSeries({ ...series, title: event.target.value })
-          }
-        />
-      </div>
-      <div>
-        <label>Description</label>
-        <input
-          placeholder="description"
-          type="text"
-          value={series.description}
-          onChange={(event) =>
-            setSeries({ ...series, description: event.target.value })
-          }
-        />
-      </div>
-      <div>
-        <label>Link</label>
-        <input
-          placeholder="link"
-          type="text"
-          value={series.link}
-          onChange={(event) =>
-            setSeries({ ...series, link: event.target.value })
-          }
-        />
-      </div>
-      <FormPicture state={[file, setFile]} />
 
+      <InputFieldEvent
+        setup={createFormSeries.title}
+        onChange={onChangeTitle}
+        value={series.title}
+      />
+      <InputFieldEvent
+        setup={createFormSeries.description}
+        onChange={onChangeDescription}
+        value={series.description}
+      />
+      <InputFieldEvent
+        setup={createFormSeries.link}
+        onChange={onChangeLink}
+        value={series.link}
+      />
+
+      <FormPicture state={[file, setFile]} />
       <button onClick={onUpdate}>Edit series</button>
     </div>
   );
