@@ -25,14 +25,14 @@ export default function EpisodeEdit({ stateSeries, episode }) {
     try {
       event.preventDefault();
 
-      if (series.imgURL === "") {
-        series.imgURL = EmptyImg;
+      if (currentEpisode.imgURL === "") {
+        currentEpisode.imgURL = EmptyImg;
       } else if (file !== null) {
         const imgURL = await createFile(
           `series-${series.title}/${file.name}`,
           file
         );
-        series.imgURL = imgURL;
+        currentEpisode.imgURL = imgURL;
       }
 
       setStatus(0);
