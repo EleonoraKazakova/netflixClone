@@ -8,6 +8,8 @@ import MovieEdit from "./MovieEdit";
 import { useModal } from "../../state/ModalProvider";
 import { Link } from "react-router-dom";
 import SeriesEdit from "./SeriesEdit";
+import FormSeries from "./FormSeries";
+import FormMovie from "./FormMovie";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function Category({ category }) {
@@ -55,5 +57,38 @@ export default function Category({ category }) {
     </div>
   ));
 
-  return <>{videoCards}</>;
+  return (
+    <div>
+      {category.id === "series" ? (
+        <button
+          onClick={() =>
+            setModal(
+              <FormSeries
+                categoryTitle={category.title}
+                categoryID={category.id}
+                setVideos={setVideos}
+              />
+            )
+          }
+        >
+          Add {category.title}
+        </button>
+      ) : (
+        <button
+          onClick={() =>
+            setModal(
+              <FormMovie
+                categoryTitle={category.title}
+                categoryID={category.id}
+                setVideos={setVideos}
+              />
+            )
+          }
+        >
+          Add {category.title}
+        </button>
+      )}
+      {videoCards}
+    </div>
+  );
 }

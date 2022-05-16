@@ -9,7 +9,7 @@ import { useModal } from "../../state/ModalProvider";
 import textToUrl from "../../scripts/textToUrl";
 import EmptyImg from "../../images/empty.jpg";
 
-export default function FormSeries({ categoryTitle, categoryID }) {
+export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
   const { setModal } = useModal();
   const [title, setTitle] = useState("The Truman show");
   const [description, setDescription] = useState("It is very good movie");
@@ -63,6 +63,7 @@ export default function FormSeries({ categoryTitle, categoryID }) {
 
     await addDocument(`netflixClone/${categoryID}/content/${id}`, newSeries);
 
+    setVideos((oldVideos) => [...oldVideos, newSeries]);
     clearForm();
     setModal(null);
   }

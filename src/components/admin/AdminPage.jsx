@@ -29,8 +29,7 @@ export default function AdminPage() {
     <Category category={category} />
   ));
 
-  console.log("categories:", categories);
-  const videoCard = categories.map((category) =>
+  /*const videoCard = categories.map((category) =>
     category.id === "series" ? (
       <button
         onClick={() =>
@@ -58,12 +57,12 @@ export default function AdminPage() {
         Add {category.title}
       </button>
     )
-  );
+  );*/
 
   return (
     <div>
       {blockVideos}
-      {videoCard}
+      {/*videoCard*/}
     </div>
   );
 }
