@@ -36,6 +36,12 @@
     "required": true
   },
   "link": {
+    "label": "Link of series",
+    "placeholder": "4S2Ruqhcz78",
+    "type": "text",
+    "required": true
+  },
+  "episodeLink": {
     "label": "Link of episode",
     "placeholder": "4S2Ruqhcz78",
     "type": "text",
