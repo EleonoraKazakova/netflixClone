@@ -54,9 +54,7 @@ export default function SeriesEdit({ seriesID }) {
 
       setStatus(0);
 
-      await updateDocument(path, {
-        ...series,
-      });
+      await updateDocument(path, { ...series });
 
       setModal(null);
     } catch (error) {

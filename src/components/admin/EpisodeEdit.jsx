@@ -10,30 +10,13 @@ import InputField from "../InputField";
 import createFormSeries from "../../data/createFormSeries.json";
 import FormPicture from "./FormPicture";
 
-export default function SeriesEdit({ seriesID }) {
-  const params = useParams();
+export default function EpisodeEdit({ stateSeries, episode }) {
+  const [series, setSeries] = stateSeries;
   const { setModal } = useModal();
-  console.log("params:", params);
   const [status, setStatus] = useState(1);
-  const [series, setSeries] = useState(null);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
+  const [currentEpisode, setCurrentEpisode] = useState(episode);
 
-  const [episodeTitle, setEpisodeTitle] = useState("");
-  const [episodeDescription, setEpisodeDescription] = useState("");
-  const [episode, setEpisode] = useState("");
-  const [season, setSeason] = useState("");
-  const [link, setLink] = useState("");
-
-  const path = `netflixClone/series/content/${seriesID}`;
-  useEffect(() => {
-    async function loadData(path) {
-      const data = await getDocument(path);
-      setSeries(data);
-    }
-    loadData(path);
-  }, []);
   console.log("series:", series);
 
   if (series === null) return null;
@@ -54,7 +37,14 @@ export default function SeriesEdit({ seriesID }) {
 
       setStatus(0);
 
-      await updateDocument(path, {
+      setSeries({
+        ...series,
+        seasons: series.seasons.map((el) =>
+          el.id === currentEpisode.id ? currentEpisode : el
+        ),
+      });
+
+      await updateDocument(`netflixClone/series/content/${series.id}`, {
         ...series,
       });
 
@@ -68,39 +58,41 @@ export default function SeriesEdit({ seriesID }) {
 
   return (
     <div>
-      {" "}
-      <h2>Edit {series.title}</h2>
+      <h2>Edit {episode.title}</h2>
       <div>
-        <label>Title</label>
+        <label>Title of the episode</label>
         <input
           placeholder="Title"
           required
           type="text"
-          value={series.title}
+          value={currentEpisode.title}
           onChange={(event) =>
-            setSeries({ ...series, title: event.target.value })
+            setCurrentEpisode({ ...currentEpisode, title: event.target.value })
           }
         />
       </div>
       <div>
-        <label>Description</label>
+        <label>Description of the episode</label>
         <input
           placeholder="description"
           type="text"
-          value={series.description}
+          value={currentEpisode.description}
           onChange={(event) =>
-            setSeries({ ...series, description: event.target.value })
+            setCurrentEpisode({
+              ...currentEpisode,
+              description: event.target.value,
+            })
           }
         />
       </div>
       <div>
-        <label>Link</label>
+        <label>Link of the episode</label>
         <input
           placeholder="link"
           type="text"
           value={series.link}
           onChange={(event) =>
-            setSeries({ ...series, link: event.target.value })
+            setCurrentEpisode({ ...currentEpisode, link: event.target.value })
           }
         />
       </div>

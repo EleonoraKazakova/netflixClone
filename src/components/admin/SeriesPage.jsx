@@ -19,22 +19,12 @@ export default function SeriesPage() {
   console.log("params:", params);
   const [status, setStatus] = useState(1);
   const [series, setSeries] = useState(null);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [file, setFile] = useState(null);
-
-  const [episodeTitle, setEpisodeTitle] = useState("");
-  const [episodeDescription, setEpisodeDescription] = useState("");
-  //const [episode, setEpisode] = useState("");
-  const [seasons, setSeasons] = useState("");
-  const [link, setLink] = useState("");
 
   const path = `netflixClone/series/content/${params.seriesTitle}`;
   useEffect(() => {
     async function loadData(path) {
       const data = await getDocument(path);
       setSeries(data);
-      setSeasons(data.seasons);
     }
     loadData(path);
   }, []);
@@ -42,10 +32,19 @@ export default function SeriesPage() {
 
   if (series === null) return null;
 
-  const episode = seasons.map((season) => (
+  const episode = series.seasons.map((season) => (
     <div>
       Season: {season.season}, Episode: {season.episode}, {season.title},{" "}
       {season.description}
+      <button
+        onClick={() =>
+          setModal(
+            <EpisodeEdit stateSeries={[series, setSeries]} episode={season} />
+          )
+        }
+      >
+        Edit episode
+      </button>
     </div>
   ));
 
@@ -60,10 +59,8 @@ export default function SeriesPage() {
       </button>
 
       <h2>Seasons</h2>
+      <button>Add new episode</button>
       {episode}
-      <button onClick={() => setModal(<EpisodeEdit seriesID={series.id} />)}>
-        Edit episode
-      </button>
     </div>
   );
 }
