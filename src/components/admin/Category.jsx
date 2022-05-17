@@ -23,11 +23,11 @@ export default function Category({ category }) {
 
   async function onDelete(event, id) {
     event.preventDefault();
-    await deleteDocument(`netflixClone/${category.id}/content`);
+    await deleteDocument(`netflixClone/${category.id}/content/${id}`);
     const newVideos = videos.filter((video) => video.id !== id);
     setVideos(newVideos);
   }
-
+  console.log("videos:", videos);
   const videoCards = videos.map((video) => (
     <div>
       {video.title}
@@ -40,6 +40,7 @@ export default function Category({ category }) {
                   categoryID={category.id}
                   movieID={video.id}
                   movieTitle={video.title}
+                  stateVideos={[videos, setVideos]}
                 />
               )
         }

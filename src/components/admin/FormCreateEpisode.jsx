@@ -66,12 +66,25 @@ export default function FormCreateEpisode({ stateSeries }) {
   return (
     <div className="form-content">
       <h2>Add new episode</h2>
-      <InputField setup={createFormSeries.title} state={[title, setTitle]} />
       <InputField
-        setup={createFormSeries.description}
+        setup={createFormSeries.season}
+        state={[description, setDescription]}
+      />
+      <InputField setup={createFormSeries.episode} state={[title, setTitle]} />
+
+      <InputField
+        setup={createFormSeries.episodeTitle}
+        state={[title, setTitle]}
+      />
+      <InputField
+        setup={createFormSeries.episodeDescription}
         state={[description, setDescription]}
       />
 
+      <InputField
+        setup={createFormSeries.link}
+        state={[description, setDescription]}
+      />
       <button onClick={onCreate}>Add new series</button>
     </div>
   );

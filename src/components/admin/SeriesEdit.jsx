@@ -10,41 +10,43 @@ import createFormSeries from "../../data/createFormSeries.json";
 import FormPicture from "./FormPicture";
 import InputFieldEvent from "../InputFieldEvent";
 
-export default function SeriesEdit({ seriesID }) {
+export default function SeriesEdit({ seriesID, stateSeries }) {
   const params = useParams();
+  const [series, setSeries] = stateSeries;
   const { setModal } = useModal();
-  console.log("params:", params);
+  console.log("seriesEdit:", series);
   const [status, setStatus] = useState(1);
-  const [series, setSeries] = useState(null);
+  const [newSeries, setNewSeries] = useState(null);
   const [file, setFile] = useState(null);
 
   const path = `netflixClone/series/content/${seriesID}`;
   useEffect(() => {
     async function loadData(path) {
       const data = await getDocument(path);
-      setSeries(data);
+      setNewSeries(data);
     }
     loadData(path);
   }, []);
 
-  if (series === null) return null;
+  if (newSeries === null) return null;
 
   async function onUpdate(event) {
     try {
       event.preventDefault();
 
-      if (series.imgURL === "") {
-        series.imgURL = EmptyImg;
+      if (newSeries.imgURL === "") {
+        newSeries.imgURL = EmptyImg;
       } else if (file !== null) {
         const imgURL = await createFile(
-          `series-${series.title}/${file.name}`,
+          `series-${newSeries.title}/${file.name}`,
           file
         );
-        series.imgURL = imgURL;
+        newSeries.imgURL = imgURL;
       }
 
       setStatus(0);
-      await updateDocument(path, { ...series });
+      await updateDocument(path, { ...newSeries });
+      setSeries(series.id === newSeries.id ? newSeries : series);
       setModal(null);
     } catch (error) {
       console.error("There was an error:", error);
@@ -53,33 +55,33 @@ export default function SeriesEdit({ seriesID }) {
   }
 
   function onChangeTitle(event) {
-    setSeries({ ...series, title: event.target.value });
+    setNewSeries({ ...newSeries, title: event.target.value });
   }
   function onChangeDescription(event) {
-    setSeries({ ...series, description: event.target.value });
+    setNewSeries({ ...newSeries, description: event.target.value });
   }
   function onChangeLink(event) {
-    setSeries({ ...series, link: event.target.value });
+    setNewSeries({ ...newSeries, link: event.target.value });
   }
 
   return (
     <div>
-      <h2>Edit {series.title}</h2>
+      <h2>Edit {newSeries.title}</h2>
 
       <InputFieldEvent
         setup={createFormSeries.title}
         onChange={onChangeTitle}
-        value={series.title}
+        value={newSeries.title}
       />
       <InputFieldEvent
         setup={createFormSeries.description}
         onChange={onChangeDescription}
-        value={series.description}
+        value={newSeries.description}
       />
       <InputFieldEvent
         setup={createFormSeries.link}
         onChange={onChangeLink}
-        value={series.link}
+        value={newSeries.link}
       />
 
       <FormPicture state={[file, setFile]} />

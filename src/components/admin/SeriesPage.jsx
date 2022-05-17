@@ -55,7 +55,16 @@ export default function SeriesPage() {
       <p>{series.description}</p>
       <img src={series.imgURL} className="series-page-img" />
 
-      <button onClick={() => setModal(<SeriesEdit seriesID={series.id} />)}>
+      <button
+        onClick={() =>
+          setModal(
+            <SeriesEdit
+              seriesID={series.id}
+              stateSeries={[series, setSeries]}
+            />
+          )
+        }
+      >
         Edit series
       </button>
 

@@ -10,12 +10,18 @@ import createFormMovie from "../../data/createFormMovie.json";
 import FormPicture from "./FormPicture";
 import InputFieldEvent from "../InputFieldEvent";
 
-export default function MovieEdit({ categoryID, movieID, movieTitle }) {
+export default function MovieEdit({
+  categoryID,
+  movieID,
+  movieTitle,
+  stateVideos,
+}) {
+  const [videos, setVideos] = stateVideos;
   const { setModal } = useModal();
   const [status, setStatus] = useState(1);
   const [movie, setMovie] = useState(null);
   const [file, setFile] = useState(null);
-
+  console.log("videosME:", videos);
   const path = `netflixClone/${categoryID}/content/${movieID}`;
   useEffect(() => {
     async function loadData(path) {
@@ -46,7 +52,7 @@ export default function MovieEdit({ categoryID, movieID, movieTitle }) {
       await updateDocument(path, {
         ...movie,
       });
-
+      setVideos(videos.map((video) => (video.id === movie.id ? movie : video)));
       setModal(null);
     } catch (error) {
       console.error("There was an error:", error);
