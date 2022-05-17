@@ -26,12 +26,16 @@ export default function SeriesPage() {
 
   if (series === null) return null;
 
-  const season = series.seasons.map((season) => (
+  const uniqueSeasons = [
+    ...new Set(series.seasons.map((season) => season.season)),
+  ];
+
+  const season = uniqueSeasons.map((season) => (
     <div
       className="series-page-dropdown-link"
-      onClick={() => setCurrentSeason(season.season)}
+      onClick={() => setCurrentSeason(season)}
     >
-      {season.season}
+      {season}
     </div>
   ));
 
