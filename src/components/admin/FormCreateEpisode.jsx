@@ -19,7 +19,7 @@ export default function FormCreateEpisode({ stateSeries }) {
   const [episode, setEpisode] = useState("1");
   const [season, setSeason] = useState("2");
   const [link, setLink] = useState("y4WR6HKNeyg");
-
+  console.log("series.length:", series.seasons.length);
   function clearForm() {
     setTitle("");
     setDescription("");
@@ -28,7 +28,7 @@ export default function FormCreateEpisode({ stateSeries }) {
 
   async function onCreate(event) {
     event.preventDefault();
-    const id = series.length + 1;
+    const id = series.seasons.length + 1;
 
     const newEpisode = {
       description: description,
@@ -36,15 +36,15 @@ export default function FormCreateEpisode({ stateSeries }) {
       season: season,
       title: title,
       link: link,
-      episodeImgURL: "",
+      imgURL: "",
       id: id,
     };
 
     if (file === null) {
-      newEpisode.episodeImgURL = EmptyImg;
+      newEpisode.imgURL = EmptyImg;
     } else {
       const imgURL = await createFile(`netflixClone/${file.name}`, file);
-      newEpisode.episodeImgURL = imgURL;
+      newEpisode.imgURL = imgURL;
     }
 
     if (newEpisode.title === "") return;
@@ -66,11 +66,11 @@ export default function FormCreateEpisode({ stateSeries }) {
   return (
     <div className="form-content">
       <h2>Add new episode</h2>
+      <InputField setup={createFormSeries.season} state={[season, setSeason]} />
       <InputField
-        setup={createFormSeries.season}
-        state={[description, setDescription]}
+        setup={createFormSeries.episode}
+        state={[episode, setEpisode]}
       />
-      <InputField setup={createFormSeries.episode} state={[title, setTitle]} />
 
       <InputField
         setup={createFormSeries.episodeTitle}
@@ -81,10 +81,8 @@ export default function FormCreateEpisode({ stateSeries }) {
         state={[description, setDescription]}
       />
 
-      <InputField
-        setup={createFormSeries.link}
-        state={[description, setDescription]}
-      />
+      <InputField setup={createFormSeries.link} state={[link, setLink]} />
+      <FormPicture state={[file, setFile]} />
       <button onClick={onCreate}>Add new series</button>
     </div>
   );

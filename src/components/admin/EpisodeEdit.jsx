@@ -5,7 +5,7 @@ import { useModal } from "../../state/ModalProvider";
 import { useState } from "react";
 import createFormSeries from "../../data/createFormSeries.json";
 import EmptyImg from "../../images/empty.jpg";
-import FormPicture from "./FormPicture";
+import FormPictureEdit from "./FormPictureEdit";
 import InputFieldEvent from "../InputFieldEvent";
 
 export default function EpisodeEdit({ stateSeries, episode }) {
@@ -13,6 +13,7 @@ export default function EpisodeEdit({ stateSeries, episode }) {
   const { setModal } = useModal();
   const [file, setFile] = useState(null);
   const [currentEpisode, setCurrentEpisode] = useState(episode);
+  const [image, setImage] = useState(currentEpisode.imgURL);
 
   if (series === null) return null;
 
@@ -72,7 +73,7 @@ export default function EpisodeEdit({ stateSeries, episode }) {
         onChange={onChangeLink}
         value={currentEpisode.link}
       />
-      <FormPicture state={[file, setFile]} />
+      <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
       <button onClick={onUpdate}>Edit episode</button>
     </div>
   );

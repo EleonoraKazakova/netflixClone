@@ -29,7 +29,6 @@ export default function SeriesPage() {
     }
     loadData(path);
   }, []);
-  console.log("series:", series);
 
   if (series === null) return null;
 

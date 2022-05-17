@@ -40,14 +40,15 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
       id: id,
       description: description,
       seasons: [
-        {
+        /*{
           description: episodeDescription,
           episode: episode,
           season: season,
           title: episodeTitle,
           link: link,
-          episodeImgURL: "",
-        },
+          imgURL: "",
+          id: 1,
+        },*/
       ],
       imgURL: "",
     };
@@ -76,32 +77,8 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
         setup={createFormSeries.description}
         state={[description, setDescription]}
       />
+      <FormPicture state={[file, setFile]} />
 
-      <button onClick={() => setAddEpisode(!addEpisode)}>Add episode</button>
-      {addEpisode ? (
-        <>
-          <div className="form-episode">
-            <InputField
-              setup={createFormSeries.season}
-              state={[season, setSeason]}
-            />
-            <InputField
-              setup={createFormSeries.episode}
-              state={[episode, setEpisode]}
-            />
-          </div>
-          <InputField
-            setup={createFormSeries.episodeTitle}
-            state={[episodeTitle, setEpisodeTitle]}
-          />
-          <InputField
-            setup={createFormSeries.episodeDescription}
-            state={[episodeDescription, setEpisodeDescription]}
-          />
-          <InputField setup={createFormSeries.link} state={[link, setLink]} />
-          <FormPicture state={[file, setFile]} />
-        </>
-      ) : null}
       <button onClick={onCreate}>Add new series</button>
     </div>
   );

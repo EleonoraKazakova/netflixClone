@@ -7,7 +7,7 @@ import { useModal } from "../../state/ModalProvider";
 import "../../styles/form.sass";
 import InputField from "../InputField";
 import createFormMovie from "../../data/createFormMovie.json";
-import FormPicture from "./FormPicture";
+import FormPictureEdit from "./FormPictureEdit";
 import InputFieldEvent from "../InputFieldEvent";
 
 export default function MovieEdit({
@@ -21,12 +21,14 @@ export default function MovieEdit({
   const [status, setStatus] = useState(1);
   const [movie, setMovie] = useState(null);
   const [file, setFile] = useState(null);
-  console.log("videosME:", videos);
+  const [image, setImage] = useState("");
+
   const path = `netflixClone/${categoryID}/content/${movieID}`;
   useEffect(() => {
     async function loadData(path) {
       const data = await getDocument(path);
       setMovie(data);
+      setImage(data.imgURL);
     }
     loadData(path);
   }, []);
@@ -92,7 +94,7 @@ export default function MovieEdit({
         value={movie.link}
       />
 
-      <FormPicture state={[file, setFile]} />
+      <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
 
       <button onClick={onUpdate}>Edit video</button>
     </div>

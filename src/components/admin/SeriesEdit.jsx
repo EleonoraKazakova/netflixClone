@@ -7,23 +7,24 @@ import uploadFiles from "../../scripts/uploadFile";
 import { useModal } from "../../state/ModalProvider";
 import "../../styles/form.sass";
 import createFormSeries from "../../data/createFormSeries.json";
-import FormPicture from "./FormPicture";
 import InputFieldEvent from "../InputFieldEvent";
+import FormPictureEdit from "./FormPictureEdit";
 
 export default function SeriesEdit({ seriesID, stateSeries }) {
   const params = useParams();
   const [series, setSeries] = stateSeries;
   const { setModal } = useModal();
-  console.log("seriesEdit:", series);
   const [status, setStatus] = useState(1);
   const [newSeries, setNewSeries] = useState(null);
   const [file, setFile] = useState(null);
+  const [image, setImage] = useState("");
 
   const path = `netflixClone/series/content/${seriesID}`;
   useEffect(() => {
     async function loadData(path) {
       const data = await getDocument(path);
       setNewSeries(data);
+      setImage(data.imgURL);
     }
     loadData(path);
   }, []);
@@ -84,7 +85,7 @@ export default function SeriesEdit({ seriesID, stateSeries }) {
         value={newSeries.link}
       />
 
-      <FormPicture state={[file, setFile]} />
+      <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
       <button onClick={onUpdate}>Edit series</button>
     </div>
   );
