@@ -20,6 +20,7 @@ export default function SeriesPage() {
   console.log("params:", params);
   const [status, setStatus] = useState(1);
   const [series, setSeries] = useState(null);
+  const [episodes, setEpisodes] = useState([]);
 
   const path = `netflixClone/series/content/${params.seriesTitle}`;
   useEffect(() => {
@@ -34,12 +35,43 @@ export default function SeriesPage() {
 
   const episode = series.seasons.map((season) => (
     <div>
-      Season: {season.season}, Episode: {season.episode}, {season.title},{" "}
+      <img src={season.imgURL} className="series-page-img" />
+      Season: {season.season}, Episode: {season.episode}, {season.title},
       {season.description}
       <button
         onClick={() =>
           setModal(
             <EpisodeEdit stateSeries={[series, setSeries]} episode={season} />
+          )
+        }
+      >
+        Edit episode
+      </button>
+    </div>
+  ));
+
+  const season = series.seasons.map((season) => (
+    <div
+      className="series-page-dropdown-link"
+      onClick={() => filterSeasons(season.season)}
+    >
+      {season.season}
+    </div>
+  ));
+  function filterSeasons(currentSeason) {
+    console.log("currentSeason:", currentSeason);
+    setEpisodes(
+      series.seasons.filter((season) => season.season === currentSeason)
+    );
+  }
+  console.log("episodes:", episodes);
+  const episodeCard = episodes.map((episode) => (
+    <div>
+      {episode.title}, {episode.season}, {episode.episode}
+      <button
+        onClick={() =>
+          setModal(
+            <EpisodeEdit stateSeries={[series, setSeries]} episode={episode} />
           )
         }
       >
@@ -68,6 +100,12 @@ export default function SeriesPage() {
       </button>
 
       <h2>Seasons</h2>
+
+      <div className="series-page-dropdown">
+        <button>Choose season</button>
+        <div className="series-page-dropdown-content">{season}</div>
+      </div>
+
       <button
         onClick={() =>
           setModal(<FormCreateEpisode stateSeries={[series, setSeries]} />)
@@ -75,7 +113,8 @@ export default function SeriesPage() {
       >
         Add new episode
       </button>
-      {episode}
+      {episodeCard}
+      {/*episode*/}
     </div>
   );
 }
