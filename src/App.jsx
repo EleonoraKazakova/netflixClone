@@ -1,4 +1,5 @@
 import LoggedRoutes from "./routes/LoggedRoutes";
+import LoggedRoutesUser from "./routes/LoggedRoutesUser";
 import UnLoggedRoutes from "./routes/UnLoggedRoutes";
 import { BrowserRouter } from "react-router-dom";
 import { useUID } from "./state/UIDProvider";
@@ -16,6 +17,7 @@ export function App() {
           <BrowserRouter>
             <main className="app-content ">
               {uid && <LoggedRoutes />}
+
               {!uid && <UnLoggedRoutes />}
             </main>
           </BrowserRouter>

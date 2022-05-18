@@ -5,7 +5,7 @@ import Category from "./Category";
 
 export default function AdminPage() {
   const [categories, setCategories] = useState([]);
-
+  console.log("categories:", categories);
   const path = "netflixClone";
 
   useEffect(() => {
@@ -20,5 +20,13 @@ export default function AdminPage() {
     <Category category={category} />
   ));
 
-  return <div>{blockVideos}</div>;
+  return (
+    <div>
+      {blockVideos}
+
+      <button>
+        <Link to="user-page">Go to user page</Link>
+      </button>
+    </div>
+  );
 }

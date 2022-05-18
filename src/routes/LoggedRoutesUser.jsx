@@ -25,9 +25,7 @@ export default function LoggedRoutes() {
     <section className="lougedRoutes-grid">
       <div className="lougedRoutes-content">
         <Routes>
-          <Route path="/" element={<AdminPage />} />
-          <Route path="admin/series/:seriesTitle" element={<SeriesPage />} />
-          <Route path="user-page" element={<UserPage />} />
+          <Route path="/" element={<UserPage />} />
         </Routes>
       </div>
     </section>
