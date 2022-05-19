@@ -5,20 +5,23 @@ import { getDocument } from "../scripts/fireStore";
 const Context = createContext(null);
 
 export function UIDProvider({ children }) {
+  const currentUser =
+    authentication.currentUser === null ? null : authentication.currentUser.uid;
   const [uid, setUID] = useState(null);
   const [user, setUser] = useState({});
 
-  const currentUser =
-    authentication.currentUser === null ? null : authentication.currentUser.uid;
-
   useEffect(() => {
     async function loadData(path) {
-      const data = await getDocument(path);
-      setUser(data);
+      if (uid) {
+        const data = await getDocument(path);
+        setUser(data);
+      }
     }
     loadData(`users/${currentUser}`);
-  }, [user]);
+  }, [uid]);
 
+  console.log("user:", user);
+  console.log("uid:", uid);
   const value = { uid, setUID, user };
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }

@@ -5,7 +5,7 @@ export default async function uploadFiles(documents, title) {
   for (let doc of documents) {
     if (doc === null) continue;
     let documentName = doc.name;
-    let documentPath = `artSchool/${title}/${documentName}`;
+    let documentPath = `netflixClone/${title}/${documentName}`;
 
     const documentURL = await createFile(documentPath, doc);
     collectedURL.push(documentURL);
