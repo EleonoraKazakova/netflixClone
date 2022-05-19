@@ -27,7 +27,7 @@ export default function Category({ category }) {
     const newVideos = videos.filter((video) => video.id !== id);
     setVideos(newVideos);
   }
-  console.log("videos:", videos);
+
   const videoCards = videos.map((video) => (
     <div>
       {video.title}

@@ -18,19 +18,15 @@ export default function UserPage() {
     loadData(path);
   }, []);
 
-  /*const searchingBlock = categories.map((category) => (
-    <Searching category={category} />
-  ));*/
-
-  function modalMessage() {
-    setModal("Eleonora");
-  }
+  const videoBlock = categories.map((category) => (
+    <UserCategory category={category} />
+  ));
 
   return (
     <div>
       Hello user!
-      <button onClick={modalMessage}>Click</button>
       <Searching categories={categories} />
+      {videoBlock}
     </div>
   );
 }
