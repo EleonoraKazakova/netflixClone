@@ -27,7 +27,6 @@ export default function LoggedRoutes() {
         <Routes>
           <Route path="/" element={<AdminPage />} />
           <Route path="admin/series/:seriesTitle" element={<SeriesPage />} />
-          <Route path="user-page" element={<UserPage />} />
         </Routes>
       </div>
     </section>

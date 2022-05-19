@@ -17,9 +17,9 @@ export function App() {
         <ContentProvider>
           <BrowserRouter>
             <main className="app-content ">
+              {!uid && <UnLoggedRoutes />}
               {uid && user.role === "admin" && <AdminLoggedRoutes />}
               {uid && user.role === "user" && <UserLoggedRoutes />}
-              {!uid && <UnLoggedRoutes />}
             </main>
           </BrowserRouter>
           <Modal />

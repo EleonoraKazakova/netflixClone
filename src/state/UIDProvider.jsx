@@ -17,7 +17,7 @@ export function UIDProvider({ children }) {
       setUser(data);
     }
     loadData(`users/${currentUser}`);
-  }, user);
+  }, [user]);
 
   const value = { uid, setUID, user };
   return <Context.Provider value={value}>{children}</Context.Provider>;
