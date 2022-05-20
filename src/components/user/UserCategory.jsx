@@ -26,6 +26,15 @@ export default function UserCategory({ category }) {
     loadData(path);
   }, []);
 
+  /*const series = videos.map((season) => (
+    <div className="user-category-series">
+      <img src={season.imgURL} />
+      {season.title}
+      {season.description}
+    </div>
+  ));*/
+
+  console.log("videos:", videos);
   function openModal(event, video) {
     event.preventDefault();
     setModal(
@@ -46,13 +55,43 @@ export default function UserCategory({ category }) {
     );
   }
 
+  function openModalSeries(event, video) {
+    event.preventDefault();
+    setModal(
+      <div>
+        <VideoBlock
+          link={video.link}
+          titleID={video.id}
+          category={category.id}
+          title={video.title}
+        />
+        <div className="user-category-match-year">
+          <p className="user-category-match">{video.match}% Match</p>
+          {video.year}
+        </div>
+        <p className="user-category-match-year"> {video.description}</p>
+
+        {video.seasons.map((season) => (
+          <div className="user-category-series">
+            <img src={season.imgURL} className="user-category-img" />
+            {season.title}
+            {season.description}
+          </div>
+        ))}
+      </div>
+    );
+  }
   const videoCards = videos.map((video) => (
     <div>
       {video.title}
       <img
         src={video.imgURL}
         className="card-img"
-        onClick={(event) => openModal(event, video)}
+        onClick={(event) =>
+          "seasons" in video
+            ? openModalSeries(event, video)
+            : openModal(event, video)
+        }
       />
     </div>
   ));
