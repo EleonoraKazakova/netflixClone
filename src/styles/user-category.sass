@@ -1,11 +1,12 @@
 @use '_colors' 
 
 .user-category-button
-  width: 100px
-  height: 30px
+  width: 150px
+  height: 40px
   background-color: colors.$colorWhite
   color: colors.$colorBlack
   border-radius: 5px
+  padding: 3px
 
 .user-category-icon
   border-radius: 50%
@@ -13,4 +14,23 @@
   height: 40px
   width: 40px
   padding: 5px
+
+.user-category-buttons-block
+  display: flex
+  flex-direction: row
+  gap: 10px
+  align-items: center
+  padding: 40px
+
+.user-category-match
+  color: colors.$colorGreen
+  font-weight: bold
+
+.user-category-match-year
+  display: flex
+  flex-direction: row
+  gap: 10px
+  padding: 0 40px 0 40px
+
+
 

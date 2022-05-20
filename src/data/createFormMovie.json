@@ -16,5 +16,17 @@
     "placeholder": "4S2Ruqhcz78",
     "type": "text",
     "required": true
+  },
+  "match": {
+    "label": "Match",
+    "placeholder": "97%",
+    "type": "text",
+    "required": true
+  },
+  "year": {
+    "label": "Year",
+    "placeholder": "2022",
+    "type": "text",
+    "required": true
   }
 }

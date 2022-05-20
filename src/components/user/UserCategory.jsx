@@ -30,17 +30,18 @@ export default function UserCategory({ category }) {
     event.preventDefault();
     setModal(
       <div>
-        {/*<Youtube link={video.link} play={play} />
-        <img
-          src={Play}
-          className="user-category-button"
-          onClick={() => setPlay(true)}
+        <VideoBlock
+          link={video.link}
+          titleID={video.id}
+          category={category.id}
+          title={video.title}
         />
-        <img src={Plus} className="user-category-icon" />
-        <ThumbsBlock />*/}
-        <VideoBlock link={video.link} title={video.id} category={category.id} />
-        {video.title}
-        {video.description}
+        <div className="user-category-match-year">
+          <p className="user-category-match">{video.match}% Match</p>
+          {video.year}
+        </div>
+
+        <p className="user-category-match-year"> {video.description}</p>
       </div>
     );
   }

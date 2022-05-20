@@ -15,6 +15,8 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
   const [description, setDescription] = useState("It is very good movie");
   const [file, setFile] = useState(null);
   const [link, setLink] = useState("y4WR6HKNeyg");
+  const [match, setMatch] = useState("97");
+  const [year, setYear] = useState("1997");
 
   function clearForm() {
     setTitle("");
@@ -32,6 +34,8 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
       description: description,
       imgURL: "",
       link: link,
+      match: match,
+      year: year,
     };
 
     if (file === null) {
@@ -58,7 +62,10 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
         setup={createFormMovie.description}
         state={[description, setDescription]}
       />
+      <InputField setup={createFormMovie.match} state={[match, setMatch]} />
+      <InputField setup={createFormMovie.year} state={[year, setYear]} />
       <InputField setup={createFormMovie.link} state={[link, setLink]} />
+
       <FormPicture state={[file, setFile]} />
 
       <button onClick={onCreate}>Add new video</button>
