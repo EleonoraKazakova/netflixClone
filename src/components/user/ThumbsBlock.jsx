@@ -37,9 +37,9 @@ export default function ThumbsBlock() {
   }
 
   return (
-    <div className="thumbsblock-block">
+    <>
       {openThumb ? (
-        <div onClick={() => setOpenThumb(false)}>
+        <div onClick={() => setOpenThumb(false)} className="thumbsblock-block">
           <img
             src={openThumbUp ? ThumbsUpActive : ThumbsUp}
             className="user-category-icon"
@@ -58,6 +58,6 @@ export default function ThumbsBlock() {
           onClick={() => setOpenThumb(!openThumb)}
         />
       )}
-    </div>
+    </>
   );
 }

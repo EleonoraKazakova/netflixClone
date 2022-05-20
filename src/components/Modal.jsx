@@ -11,14 +11,16 @@ export default function Modal() {
   return ReactDOM.createPortal(
     <section>
       <div className="modal-overlay" />
-      <div className="modal-styles">
-        <div className="modal-name-tech">{modal}</div>
 
-        <img
-          onClick={() => setModal(null)}
-          src={Xmark}
-          className="modal-mark"
-        />
+      <div className="modal-styles">
+        <div>
+          <div className="modal-name-tech">{modal}</div>
+          <img
+            onClick={() => setModal(null)}
+            src={Xmark}
+            className="modal-mark"
+          />
+        </div>
       </div>
     </section>,
     document.getElementById("portal")
