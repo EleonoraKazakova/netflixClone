@@ -12,13 +12,12 @@ import VideoPage from "../components/user/VideoPage";
 
 export default function UserLoggedRoutes() {
   return (
-    <section className="lougedRoutes-grid">
-      <div className="lougedRoutes-content">
-        <Routes>
-          <Route path="/:category/:videoID" element={<VideoPage />} />
-          <Route path="/" element={<UserPage />} />
-        </Routes>
-      </div>
+    <section /*className="lougedRoutes-grid"*/>
+      {/* <div className="lougedRoutes-content">*/}
+      <Routes>
+        <Route path="/:category/:videoID" element={<VideoPage />} />
+        <Route path="/" element={<UserPage />} />
+      </Routes>
     </section>
   );
 }

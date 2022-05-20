@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDocument } from "../../scripts/fireStore";
 import "../../styles/youtube.sass";
+import ArrowLeft from "../../images/modal/arrow-left.svg";
 
 export default function VideoPage() {
   const params = useParams();
+  const navigate = useNavigate();
 
   const [movie, setMovie] = useState({});
   const path = `netflixClone/${params.category}/content/${params.videoID}`;
@@ -15,19 +17,24 @@ export default function VideoPage() {
     }
     loadData(path);
   }, []);
-  /*const url = play
-    ? `https://www.youtube.com/embed/${link}?autoplay=1`
-    : `https://www.youtube.com/embed/${link}`;*/
-  console.log("movieVP:", movie);
+
   return (
-    <div className="youtube-responsive">
-      <iframe
-        src={`https://www.youtube.com/embed/${movie}`}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="Embedded youtube"
+    <div className="youtube-content">
+      <img
+        src={ArrowLeft}
+        onClick={() => navigate(-2)}
+        className="youtube-button"
       />
+
+      <div className="youtube-responsive-page">
+        <iframe
+          src={`https://www.youtube.com/embed/${movie}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="Embedded youtube"
+        />
+      </div>
     </div>
   );
 }
