@@ -21,8 +21,8 @@ export function App() {
               {uid && user.role === "admin" && <AdminLoggedRoutes />}
               {uid && user.role === "user" && <UserLoggedRoutes />}
             </main>
+            <Modal />
           </BrowserRouter>
-          <Modal />
         </ContentProvider>
       </ModalProvider>
     </div>
