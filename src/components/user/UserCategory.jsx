@@ -10,12 +10,15 @@ import { useModal } from "../../state/ModalProvider";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import VideoBlock from "./VideoBlock";
+import "../../styles/series-page.sass";
+import BlockModalSeries from "./BlockModalSeries";
 
 export default function UserCategory({ category }) {
   const history = useNavigate();
   const { setModal } = useModal();
   const [videos, setVideos] = useState([]);
   const [play, setPlay] = useState(false);
+  console.log("videos:", videos);
   const path = `netflixClone/${category.id}/content`;
 
   useEffect(() => {
@@ -25,14 +28,6 @@ export default function UserCategory({ category }) {
     }
     loadData(path);
   }, []);
-
-  /*const series = videos.map((season) => (
-    <div className="user-category-series">
-      <img src={season.imgURL} />
-      {season.title}
-      {season.description}
-    </div>
-  ));*/
 
   console.log("videos:", videos);
   function openModal(event, video) {
@@ -55,32 +50,6 @@ export default function UserCategory({ category }) {
     );
   }
 
-  function openModalSeries(event, video) {
-    event.preventDefault();
-    setModal(
-      <div>
-        <VideoBlock
-          link={video.link}
-          titleID={video.id}
-          category={category.id}
-          title={video.title}
-        />
-        <div className="user-category-match-year">
-          <p className="user-category-match">{video.match}% Match</p>
-          {video.year}
-        </div>
-        <p className="user-category-match-year"> {video.description}</p>
-
-        {video.seasons.map((season) => (
-          <div className="user-category-series">
-            <img src={season.imgURL} className="user-category-img" />
-            {season.title}
-            {season.description}
-          </div>
-        ))}
-      </div>
-    );
-  }
   const videoCards = videos.map((video) => (
     <div>
       {video.title}
@@ -88,8 +57,8 @@ export default function UserCategory({ category }) {
         src={video.imgURL}
         className="card-img"
         onClick={(event) =>
-          "seasons" in video
-            ? openModalSeries(event, video)
+          video.hasOwnProperty("seasons")
+            ? setModal(<BlockModalSeries video={video} category={category} />)
             : openModal(event, video)
         }
       />
