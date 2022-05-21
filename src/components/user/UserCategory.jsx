@@ -51,8 +51,7 @@ export default function UserCategory({ category }) {
   }
 
   const videoCards = videos.map((video) => (
-    <div>
-      {video.title}
+    <div className="card-content">
       <img
         src={video.imgURL}
         className="card-img"
@@ -62,6 +61,8 @@ export default function UserCategory({ category }) {
             : openModal(event, video)
         }
       />
+
+      <div className="card-block">123</div>
     </div>
   ));
 
