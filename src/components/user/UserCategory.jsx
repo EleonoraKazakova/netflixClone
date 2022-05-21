@@ -66,5 +66,5 @@ export default function UserCategory({ category }) {
     </div>
   ));
 
-  return <div>{videoCards}</div>;
+  return <div className="user-category-block">{videoCards}</div>;
 }
