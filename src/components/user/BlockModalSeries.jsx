@@ -1,5 +1,6 @@
 import { useState } from "react";
 import VideoBlock from "./VideoBlock";
+import CaretDown from "../../images/modal/caret-down.svg";
 
 export default function BlockModalSeries({ video, category }) {
   const [currentSeason, setCurrentSeason] = useState("1");
@@ -33,11 +34,14 @@ export default function BlockModalSeries({ video, category }) {
       </div>
       <p className="user-category-match-year"> {video.description}</p>
 
-      <h2>Seasons</h2>
+      <div className="user-category-seasons">
+        <h2>Episodes</h2>
 
-      <div className="series-page-dropdown">
-        <button>Choose season</button>
-        <div className="series-page-dropdown-content">{season}</div>
+        <div className="series-page-dropdown">
+          <p>Choose season</p>
+          <img src={CaretDown} className="series-page-caretdown" />
+          <div className="series-page-dropdown-content">{season}</div>
+        </div>
       </div>
 
       {episodes.map((season) => (
