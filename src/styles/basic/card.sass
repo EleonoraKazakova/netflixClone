@@ -7,7 +7,6 @@
   flex-direction: column
   background-color: colors.$colorDarkGrey
   border-radius: 5px
-//position: fixed
   
 
 .card-content:hover
@@ -15,11 +14,10 @@
   height: 370px
   display: flex
   flex-direction: column
-  flex-direction: column
   background-color: colors.$colorDarkGrey
   border-top-left-radius: 10px
   border-top-right-radius: 10px
-  z-index: 1000
+  transition: width 1s, height 1s
   .card-img
     width: 430px
     height: 240px
@@ -29,13 +27,13 @@
     border-top-right-radius: 10px
     border-bottom-left-radius: 0px
     border-bottom-right-radius: 0px
-    z-index: 1000
+    transition: width 1s, height 1s
   .card-block 
     color: blue
     display: block
     width: 430px
     position: relative
-    z-index: 1000
+    transition: width 1s, height 1s
 
   
 .card-img 
@@ -45,8 +43,15 @@
   cursor: pointer
   border-radius: 5px
 
-
-
 .card-block 
   display: none
 
+.card-fixed
+  width: 300px
+  height: 170px
+  display: flex
+  justify-content: center
+  z-index: 1
+
+.card-fixed:hover
+  z-index: 2

@@ -51,18 +51,20 @@ export default function UserCategory({ category }) {
   }
 
   const videoCards = videos.map((video) => (
-    <div className="card-content">
-      <img
-        src={video.imgURL}
-        className="card-img"
-        onClick={(event) =>
-          video.hasOwnProperty("seasons")
-            ? setModal(<BlockModalSeries video={video} category={category} />)
-            : openModal(event, video)
-        }
-      />
+    <div className="card-fixed">
+      <div className="card-content">
+        <img
+          src={video.imgURL}
+          className="card-img"
+          onClick={(event) =>
+            video.hasOwnProperty("seasons")
+              ? setModal(<BlockModalSeries video={video} category={category} />)
+              : openModal(event, video)
+          }
+        />
 
-      <div className="card-block">123</div>
+        <div className="card-block">123</div>
+      </div>
     </div>
   ));
 
