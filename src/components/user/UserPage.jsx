@@ -23,10 +23,5 @@ export default function UserPage() {
     <UserCategory category={category} />
   ));
 
-  return (
-    <div className="user-page-content">
-      {videoBlock}
-      <Searching categories={categories} />
-    </div>
-  );
+  return <div className="user-page-content">{videoBlock}</div>;
 }

@@ -12,6 +12,7 @@ import ThumbsBlock from "./ThumbsBlock";
 import Play from "../../images/modal/play.svg";
 import Plus from "../../images/modal/plus.svg";
 import Chevron from "../../images/modal/chevron-down.svg";
+import VideoThumbNail from "./VideoThumbNail";
 
 export default function UserCategory({ category }) {
   const history = useNavigate();
@@ -29,41 +30,8 @@ export default function UserCategory({ category }) {
     loadData(path);
   }, []);
 
-  function openModal(event, video) {
-    event.preventDefault();
-    video.hasOwnProperty("seasons")
-      ? setModal(<BlockModalSeries video={video} category={category} />)
-      : setModal(<BlockModalMovie video={video} category={category} />);
-  }
-
   const videoCards = videos.map((video) => (
-    <div className="card-fixed">
-      <div className="card-content">
-        <img
-          src={video.imgURL}
-          className="card-img"
-          onClick={(event) => openModal(event, video)}
-        />
-
-        <div className="card-block">
-          <div className="card-small-buttons">
-            <div className="card-small-buttons">
-              <Link to={`/${category.id}/${video.id}`}>
-                <img src={Play} className="user-category-play" />
-              </Link>
-              <img src={Plus} className="user-category-plus" />
-              <ThumbsBlock />
-            </div>
-            <img
-              src={Chevron}
-              className="user-category-plus"
-              onClick={(event) => openModal(event, video)}
-            />
-          </div>
-          <p className="card-match">{video.match} % Match</p>
-        </div>
-      </div>
-    </div>
+    <VideoThumbNail video={video} category={category} />
   ));
 
   return <div className="user-category-block">{videoCards}</div>;

@@ -11,6 +11,7 @@ import EmptyImg from "../../images/empty.jpg";
 
 export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
   const { setModal } = useModal();
+  const [category, setCategory] = useState("movies");
   const [title, setTitle] = useState("The Truman show");
   const [description, setDescription] = useState("It is very good movie");
   const [file, setFile] = useState(null);
@@ -29,6 +30,7 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
     const id = textToUrl(title);
 
     const newVideo = {
+      category: categoryTitle.toLowerCase(),
       title: title,
       id: id,
       description: description,
@@ -57,6 +59,7 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
   return (
     <div className="form-content">
       <h2>Add {categoryTitle}</h2>
+
       <InputField setup={createFormMovie.title} state={[title, setTitle]} />
       <InputField
         setup={createFormMovie.description}

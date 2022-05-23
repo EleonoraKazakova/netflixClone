@@ -14,7 +14,7 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
   const [title, setTitle] = useState("The Truman show");
   const [description, setDescription] = useState("It is very good movie");
   const [file, setFile] = useState(null);
-  const [episodeFile, setEpisodeFile] = useState(null);
+  const [category, setCategory] = useState("series");
   const [episodeTitle, setEpisodeTitle] = useState("The  show");
   const [episodeDescription, setEpisodeDescription] = useState(
     "It is very good episode"
@@ -36,6 +36,7 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
     const id = textToUrl(title);
 
     const newSeries = {
+      category: categoryTitle.toLowerCase(),
       title: title,
       id: id,
       description: description,

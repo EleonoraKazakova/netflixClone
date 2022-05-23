@@ -2,9 +2,15 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getCollection } from "../../scripts/fireStore";
 import "../../styles/serched-video.sass";
+import BlockModalMovie from "./BlockModalMovie";
+import BlockModalSeries from "./BlockModalSeries";
+import UserCategory from "./UserCategory";
+import { useModal } from "../../state/ModalProvider";
+import VideoThumbNail from "./VideoThumbNail";
 
 export default function SearchedVideo() {
   const params = useParams();
+  const { setModal } = useModal();
   const [searchedVideo, setSearchedVideo] = useState([]);
   const [categories, setCategories] = useState([]);
   const [searching, setSearching] = useState([]);
@@ -37,12 +43,14 @@ export default function SearchedVideo() {
 
   console.log("filteredMovies:", filteredMovies);
 
+  const movieCard = filteredMovies.map((video) => (
+    <VideoThumbNail category={video.category} video={video} />
+  ));
+
   return (
     <div className="serched-video-content">
-      {params.videoTitle}
-      {filteredMovies.map((el) => (
-        <img src={el.imgURL} className="serched-video-img" />
-      ))}
+      Results for: {params.videoTitle}
+      {movieCard}
     </div>
   );
 }

@@ -1,4 +1,10 @@
 {
+  "category": {
+    "label": "Category",
+    "placeholder": "Movies",
+    "type": "text",
+    "required": true
+  },
   "title": {
     "label": "Title",
     "placeholder": "Titanic",
