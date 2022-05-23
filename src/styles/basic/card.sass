@@ -17,7 +17,7 @@
   background-color: colors.$colorDarkGrey
   border-top-left-radius: 10px
   border-top-right-radius: 10px
-  transition: width 1s, height 1s
+  transition: width 0.5s, height 0.5s
   .card-img
     width: 430px
     height: 240px
@@ -27,13 +27,17 @@
     border-top-right-radius: 10px
     border-bottom-left-radius: 0px
     border-bottom-right-radius: 0px
-    transition: width 1s, height 1s
+    transition: width 0.5s, height 0.5s
   .card-block 
-    color: blue
-    display: block
+    color: colors.$colorGreen
+    font-weight: bold
+    display: flex
     width: 430px
-    position: relative
-    transition: width 1s, height 1s
+    transition: width 0.5s, height 0.5s
+    justify-content: space-between
+    padding: 20px
+    width: 100%
+    flex-direction: column
 
   
 .card-img 
@@ -45,6 +49,8 @@
 
 .card-block 
   display: none
+  width: 100px
+  
 
 .card-fixed
   width: 300px
@@ -55,3 +61,14 @@
 
 .card-fixed:hover
   z-index: 2
+
+.card-small-buttons
+  display: flex
+  gap: 10px
+  flex-direction: row
+  width: 100%
+
+.card-match
+  display: flex
+  justify-content: flex-start
+  padding-top: 10px  

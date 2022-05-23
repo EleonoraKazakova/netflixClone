@@ -8,6 +8,10 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/series-page.sass";
 import BlockModalSeries from "./BlockModalSeries";
 import BlockModalMovie from "./BlockModalMovie";
+import ThumbsBlock from "./ThumbsBlock";
+import Play from "../../images/modal/play.svg";
+import Plus from "../../images/modal/plus.svg";
+import Chevron from "../../images/modal/chevron-down.svg";
 
 export default function UserCategory({ category }) {
   const history = useNavigate();
@@ -41,7 +45,21 @@ export default function UserCategory({ category }) {
           onClick={(event) => openModal(event, video)}
         />
 
-        <div className="card-block">123</div>
+        <div className="card-block">
+          <div className="card-small-buttons">
+            <div className="card-small-buttons">
+              <img src={Play} className="user-category-play" />
+              <img src={Plus} className="user-category-plus" />
+              <ThumbsBlock />
+            </div>
+            <img
+              src={Chevron}
+              className="user-category-plus"
+              onClick={(event) => openModal(event, video)}
+            />
+          </div>
+          <p className="card-match">{video.match} % Match</p>
+        </div>
       </div>
     </div>
   ));
