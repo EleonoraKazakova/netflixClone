@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import FormSeries from "./FormSeries";
 import FormMovie from "./FormMovie";
 import { useNavigate } from "react-router-dom";
+import "../../styles/admin/category.sass";
 
 export default function Category({ category }) {
   const history = useNavigate();
@@ -29,8 +30,8 @@ export default function Category({ category }) {
   }
 
   const videoCards = videos.map((video) => (
-    <div>
-      {video.title}
+    <div className="category-video">
+      <img src={video.imgURL} className="category-img" />
       <button
         onClick={() =>
           category.id === "series"
@@ -72,11 +73,15 @@ export default function Category({ category }) {
   }
 
   return (
-    <div>
+    <div className="category-content">
       {category.id === "series" ? (
-        <button onClick={openFormSeries}>Add {category.title}</button>
+        <button onClick={openFormSeries} className="category-add-button">
+          Add {category.title}
+        </button>
       ) : (
-        <button onClick={openFormMovie}>Add {category.title}</button>
+        <button onClick={openFormMovie} className="category-add-button">
+          Add {category.title}
+        </button>
       )}
       {videoCards}
     </div>
