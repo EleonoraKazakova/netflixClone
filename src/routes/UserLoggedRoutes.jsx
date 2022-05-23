@@ -10,10 +10,12 @@ import "../styles/lougedRoutes.sass";
 import SeriesPage from "../components/admin/SeriesPage";
 import VideoPage from "../components/user/VideoPage";
 import Footer from "../components/Footer";
+import NavigationBar from "../components/NavigationBar";
 
 export default function UserLoggedRoutes() {
   return (
     <section className="lougedRoutes-grid">
+      <NavigationBar />
       <div className="lougedRoutes-content">
         <Routes>
           <Route path="/:category/:videoID" element={<VideoPage />} />
