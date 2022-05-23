@@ -48,7 +48,9 @@ export default function UserCategory({ category }) {
         <div className="card-block">
           <div className="card-small-buttons">
             <div className="card-small-buttons">
-              <img src={Play} className="user-category-play" />
+              <Link to={`/${category.id}/${video.id}`}>
+                <img src={Play} className="user-category-play" />
+              </Link>
               <img src={Plus} className="user-category-plus" />
               <ThumbsBlock />
             </div>
