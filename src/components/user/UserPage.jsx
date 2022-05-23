@@ -25,7 +25,6 @@ export default function UserPage() {
 
   return (
     <div className="user-page-content">
-      Hello user!
       <Searching categories={categories} />
       {videoBlock}
     </div>
