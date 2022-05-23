@@ -10,7 +10,8 @@ import "../styles/lougedRoutes.sass";
 import SeriesPage from "../components/admin/SeriesPage";
 import VideoPage from "../components/user/VideoPage";
 import Footer from "../components/Footer";
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "../components/user/NavigationBar";
+import SearchedVideo from "../components/user/SearchedVideo";
 
 export default function UserLoggedRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function UserLoggedRoutes() {
       <div className="lougedRoutes-content">
         <Routes>
           <Route path="/:category/:videoID" element={<VideoPage />} />
+          <Route path="/search/:videoTitle" element={<SearchedVideo />} />
           <Route path="/" element={<UserPage />} />
         </Routes>
       </div>
