@@ -8,5 +8,6 @@
     "Investor Relations",
     "Corporate Information",
     "Contact Us"
-  ]
+  ],
+  "media": ["facebook.svg", "instagram.svg", "twitter.svg", "youtube.svg"]
 }

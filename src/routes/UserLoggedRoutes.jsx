@@ -9,15 +9,20 @@ import UserPage from "../components/user/UserPage";
 import "../styles/lougedRoutes.sass";
 import SeriesPage from "../components/admin/SeriesPage";
 import VideoPage from "../components/user/VideoPage";
+import Footer from "../components/Footer";
 
 export default function UserLoggedRoutes() {
   return (
-    <section /*className="lougedRoutes-grid"*/>
-      {/* <div className="lougedRoutes-content">*/}
-      <Routes>
-        <Route path="/:category/:videoID" element={<VideoPage />} />
-        <Route path="/" element={<UserPage />} />
-      </Routes>
+    <section className="lougedRoutes-grid">
+      <div className="lougedRoutes-content">
+        <Routes>
+          <Route path="/:category/:videoID" element={<VideoPage />} />
+          <Route path="/" element={<UserPage />} />
+        </Routes>
+      </div>
+      <div className="lougedRoutes-footer">
+        <Footer />
+      </div>
     </section>
   );
 }

@@ -1,0 +1,31 @@
+@use '_colors'
+
+.footer-content
+  display: flex
+  justify-content: center
+  background-color: colors.$colorBlack
+  color: colors.$colorGrey
+  width: 100%
+  align-items: center
+
+.footer-block
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-column-gap: 40px
+  grid-row-gap: 20px
+
+.footer-element
+  text-align: left
+
+.footer-media
+  width: 20px
+
+.footer-media-block
+  display: flex
+  flex-direction: row
+  gap: 20px
+
+.footer-media-list
+  display: flex
+  flex-direction: column
+  gap: 20px

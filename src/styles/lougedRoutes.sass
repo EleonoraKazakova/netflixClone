@@ -1,26 +1,31 @@
 @media (max-width: 499px)
   .lougedRoutes-grid
     display: grid
-    grid-template-rows: auto 
-    grid-template-columns:  20px auto 20px
+    grid-template-rows: auto 200px
+    grid-template-columns:   100% 
     min-height: 100vh
 
 @media (min-width: 500px) and (max-width: 999px)
   .lougedRoutes-grid
     display: grid
-    grid-template-rows: auto 
-    grid-template-columns:  100px auto 100px
-    min-height: 100vh
+    grid-template-rows: auto 200px
+    grid-template-columns:   100% 
 
 @media (min-width: 1000px)  
   .lougedRoutes-grid
     display: grid
-    grid-template-rows: auto 
-    grid-template-columns:  250px auto 250px
+    grid-template-rows: auto 200px
+    grid-template-columns:  100% 
     min-height: 100vh
 
 .lougedRoutes-content
   display: flex
   justify-content: center
-  grid-column: 2 / 3
+  grid-column: 1 / 2
   grid-row: 1 / 2
+
+.lougedRoutes-footer
+  display: flex
+  justify-content: center
+  grid-column: 1 / 2
+  grid-row: 2 / 3
