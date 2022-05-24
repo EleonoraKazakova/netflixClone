@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/admin/category.sass";
 import Pen from "../../images/pen.svg";
 import Trash from "../../images/trash.svg";
+import Plus from "../../images/modal/plus.svg";
+import BlockVideo from "./BlockVideo";
 
 export default function Category({ category }) {
   const history = useNavigate();
@@ -24,42 +26,13 @@ export default function Category({ category }) {
     loadData(path);
   }, []);
 
-  async function onDelete(event, id) {
-    event.preventDefault();
-    await deleteDocument(`netflixClone/${category.id}/content/${id}`);
-    const newVideos = videos.filter((video) => video.id !== id);
-    setVideos(newVideos);
-  }
-
   const videoCards = videos.map((video) => (
-    <div className="category-video">
-      <img src={video.imgURL} className="category-img" />
-      <div className="category-icon-block">
-        <button
-          className="category-pen"
-          onClick={() =>
-            category.id === "series"
-              ? history(`/admin/${category.id}/${video.id}`)
-              : setModal(
-                  <MovieEdit
-                    categoryID={category.id}
-                    movieID={video.id}
-                    movieTitle={video.title}
-                    stateVideos={[videos, setVideos]}
-                  />
-                )
-          }
-        >
-          <img src={Pen} />
-        </button>
-        <button
-          onClick={(event) => onDelete(event, video.id)}
-          className="category-trash"
-        >
-          <img src={Trash} />
-        </button>
-      </div>
-    </div>
+    <BlockVideo
+      video={video}
+      videos={videos}
+      category={category}
+      setVideos={setVideos}
+    />
   ));
 
   function openFormSeries() {
@@ -82,15 +55,22 @@ export default function Category({ category }) {
     );
   }
 
+  const buttonText = (
+    <div className="category-add-block">
+      <img src={Plus} className="category-plus" />
+      Add {category.title}
+    </div>
+  );
+
   return (
     <div className="category-content">
       {category.id === "series" ? (
         <button onClick={openFormSeries} className="category-add-button">
-          Add {category.title}
+          {buttonText}
         </button>
       ) : (
         <button onClick={openFormMovie} className="category-add-button">
-          Add {category.title}
+          {buttonText}
         </button>
       )}
       {videoCards}

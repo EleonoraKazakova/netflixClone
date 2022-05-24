@@ -44,6 +44,16 @@
   background-color: colors.$colorWhite
   padding: 5px
 
+.category-plus
+  width: 35px
+  height: 35px  
+
+.category-add-block
+  display: flex
+  flex-direction: column
+  align-items: center
+  
+
 .category-icon-block
   display: flex
   gap: 30px
@@ -53,3 +63,37 @@
   bottom: 45px
   padding: 0 10px 0 10px
   justify-content: space-between
+
+
+.tooltip 
+  position: relative
+  display: inline-block
+
+.tooltip .tooltiptext 
+  visibility: hidden
+  width: 67px
+  background-color: black
+  color: #fff
+  text-align: center
+  border-radius: 6px
+  padding: 5px 0
+  position: absolute
+  z-index: 1
+  bottom: 150%
+  left: 170%
+  margin-left: -70px
+
+
+.tooltip .tooltiptext::after 
+  content: ""
+  position: absolute
+  top: 100%
+  left: 50%
+  margin-left: -5px
+  border-width: 5px
+  border-style: solid
+  border-color: black transparent transparent transparent
+
+
+.tooltip:hover .tooltiptext 
+  visibility: visible
