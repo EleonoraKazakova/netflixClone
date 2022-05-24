@@ -7,6 +7,8 @@ import FormSeries from "./FormSeries";
 import FormMovie from "./FormMovie";
 import { useNavigate } from "react-router-dom";
 import "../../styles/admin/category.sass";
+import Pen from "../../images/pen.svg";
+import Trash from "../../images/trash.svg";
 
 export default function Category({ category }) {
   const history = useNavigate();
@@ -32,23 +34,31 @@ export default function Category({ category }) {
   const videoCards = videos.map((video) => (
     <div className="category-video">
       <img src={video.imgURL} className="category-img" />
-      <button
-        onClick={() =>
-          category.id === "series"
-            ? history(`/admin/${category.id}/${video.id}`)
-            : setModal(
-                <MovieEdit
-                  categoryID={category.id}
-                  movieID={video.id}
-                  movieTitle={video.title}
-                  stateVideos={[videos, setVideos]}
-                />
-              )
-        }
-      >
-        Edit
-      </button>
-      <button onClick={(event) => onDelete(event, video.id)}>Delete</button>
+      <div className="category-icon-block">
+        <button
+          className="category-pen"
+          onClick={() =>
+            category.id === "series"
+              ? history(`/admin/${category.id}/${video.id}`)
+              : setModal(
+                  <MovieEdit
+                    categoryID={category.id}
+                    movieID={video.id}
+                    movieTitle={video.title}
+                    stateVideos={[videos, setVideos]}
+                  />
+                )
+          }
+        >
+          <img src={Pen} />
+        </button>
+        <button
+          onClick={(event) => onDelete(event, video.id)}
+          className="category-trash"
+        >
+          <img src={Trash} />
+        </button>
+      </div>
     </div>
   ));
 

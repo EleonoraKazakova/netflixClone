@@ -1,24 +1,55 @@
 @use '../_colors'
 
 .category-content
-  display: flex
-  flex-direction: row
-  gap: 10px
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-column-gap: 20px
+  grid-row-gap: 20px
+  padding: 40px
+  align-self: center
 
 .category-add-button
   background-color: colors.$colorRed
-  width: 200px
-  height: 100px
+  width: 300px
+  height: 170px
   border-radius: 7px
+  color: colors.$colorWhite
 
 .category-video
   background-color: blue
-  width: 200px
-  height: 100px
+  width: 300px
+  height: 170px
   border-radius: 7px
 
 .category-img
-  width: 200px
-  height: 70px  
+  width: 300px
+  height: 170px  
   border-radius: 7px
   object-fit: cover
+  position: relative
+  top: 0
+  left: 0
+
+.category-trash
+  width: 35px
+  height: 35px  
+  border-radius: 7px
+  background-color: colors.$colorWhite
+  padding: 7px 
+
+.category-pen
+  width: 35px
+  height: 35px  
+  border-radius: 7px
+  background-color: colors.$colorWhite
+  padding: 5px
+
+.category-icon-block
+  display: flex
+  gap: 30px
+  flex-direction: row
+  z-index: 200  
+  position: relative
+  bottom: 45px
+  padding: 0 10px 0 10px
+  justify-content: space-between

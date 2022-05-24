@@ -20,13 +20,5 @@ export default function AdminPage() {
     <Category category={category} />
   ));
 
-  return (
-    <div>
-      {blockVideos}
-
-      <button>
-        <Link to="user-page">Go to user page</Link>
-      </button>
-    </div>
-  );
+  return <div>{blockVideos}</div>;
 }
