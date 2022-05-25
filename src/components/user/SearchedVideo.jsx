@@ -47,6 +47,8 @@ export default function SearchedVideo() {
     <VideoThumbNail category={video.category} video={video} />
   ));
 
+  console.log("movieCard:", movieCard);
+
   return (
     <div className="serched-video-content">
       Results for: {params.videoTitle}

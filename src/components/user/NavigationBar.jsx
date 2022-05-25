@@ -42,20 +42,22 @@ export default function NavigationBar() {
         <Link to="/">Movies</Link>
         <Link to="/">Documentaries</Link>
       </div>
-      <Searching categories={categories} />
-      <div className="navigation-bar-dropdown">
-        <div onClick={() => setOpenProfile(!openProfile)}>{userLogo}</div>
-        {openProfile && (
-          <div className="navigation-bar-dropdown-content">
-            <p className="navigation-bar-dropdown-link">{userName}</p>
-            <p
-              onClick={() => setUID(null)}
-              className="navigation-bar-dropdown-link"
-            >
-              Sign out of Netflix
-            </p>
-          </div>
-        )}
+      <div>
+        <Searching categories={categories} />
+        <div className="navigation-bar-dropdown">
+          <div onClick={() => setOpenProfile(!openProfile)}>{userLogo}</div>
+          {openProfile && (
+            <div className="navigation-bar-dropdown-content">
+              <p className="navigation-bar-dropdown-link">{userName}</p>
+              <p
+                onClick={() => setUID(null)}
+                className="navigation-bar-dropdown-link"
+              >
+                Sign out of Netflix
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

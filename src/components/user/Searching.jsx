@@ -9,8 +9,13 @@ export default function Searching() {
 
   const [title, setTitle] = useState("");
 
+  function search(event) {
+    event.preventDefault();
+    history(`/search/${title}`);
+  }
+
   return (
-    <div>
+    <form onSubmit={search}>
       <input
         type="text"
         id="myInput"
@@ -18,12 +23,6 @@ export default function Searching() {
         placeholder="Search for title..."
         title="Type in a title"
       />
-      <button
-        onClick={() => history(`/search/${title}`)}
-        className="searching-content"
-      >
-        Click
-      </button>
-    </div>
+    </form>
   );
 }
