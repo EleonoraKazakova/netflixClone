@@ -64,17 +64,20 @@ export default function Category({ category }) {
   );
 
   return (
-    <div className="category-content">
-      {category.id === "series" ? (
-        <button onClick={openFormSeries} className="category-add-button">
-          {buttonText}
-        </button>
-      ) : (
-        <button onClick={openFormMovie} className="category-add-button">
-          {buttonText}
-        </button>
-      )}
-      {videoCards}
+    <div className="category-title-block">
+      <p className="category-title">{category.title}</p>
+      <div className="category-content">
+        {category.id === "series" ? (
+          <button onClick={openFormSeries} className="category-add-button">
+            {buttonText}
+          </button>
+        ) : (
+          <button onClick={openFormMovie} className="category-add-button">
+            {buttonText}
+          </button>
+        )}
+        {videoCards}
+      </div>
     </div>
   );
 }
