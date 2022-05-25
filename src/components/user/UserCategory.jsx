@@ -30,6 +30,7 @@ export default function UserCategory({ category }) {
     loadData(path);
   }, []);
 
+  console.log("videos:", videos);
   const videoCards = videos.map((video) => (
     <VideoThumbNail video={video} category={category} />
   ));
