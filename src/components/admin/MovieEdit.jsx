@@ -4,11 +4,12 @@ import { getDocument, updateDocument } from "../../scripts/fireStore";
 import EmptyImg from "../../images/empty.jpg";
 import uploadFiles from "../../scripts/uploadFile";
 import { useModal } from "../../state/ModalProvider";
-import "../../styles/form.sass";
+import "../../styles/admin/form.sass";
 import InputField from "../InputField";
 import createFormMovie from "../../data/createFormMovie.json";
 import FormPictureEdit from "./FormPictureEdit";
 import InputFieldEvent from "../InputFieldEvent";
+import "../../styles/admin/movie-edit.sass";
 
 export default function MovieEdit({
   categoryID,
@@ -74,7 +75,7 @@ export default function MovieEdit({
   }
 
   return (
-    <div>
+    <div className="movie-edit">
       <h2>Edit {movieTitle}</h2>
       <InputFieldEvent
         setup={createFormMovie.title}
@@ -95,8 +96,11 @@ export default function MovieEdit({
       />
 
       <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
-
-      <button onClick={onUpdate}>Edit video</button>
+      <div className="movie-edit-button-block">
+        <button onClick={onUpdate} className="movie-edit-button">
+          Edit video
+        </button>
+      </div>
     </div>
   );
 }

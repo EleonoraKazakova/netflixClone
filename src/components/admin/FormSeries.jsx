@@ -3,7 +3,7 @@ import { createFile } from "../../scripts/cloudStorage";
 import { deleteDocument, addDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
 import createFormSeries from "../../data/createFormSeries.json";
-import "../../styles/form.sass";
+import "../../styles/admin/form.sass";
 import FormPicture from "./FormPicture";
 import { useModal } from "../../state/ModalProvider";
 import textToUrl from "../../scripts/textToUrl";
@@ -80,7 +80,11 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
       />
       <FormPicture state={[file, setFile]} />
 
-      <button onClick={onCreate}>Add new series</button>
+      <div className="movie-edit-button-block">
+        <button onClick={onCreate} className="movie-edit-button">
+          Add new series
+        </button>
+      </div>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import AdminPage from "../components/admin/AdminPage";
 import UserPage from "../components/user/UserPage";
 import "../styles/lougedRoutes.sass";
 import SeriesPage from "../components/admin/SeriesPage";
+import NavigationBar from "../components/user/NavigationBar";
 
 export default function LoggedRoutes() {
   const currentUser = authentication.currentUser.uid;
@@ -22,8 +23,9 @@ export default function LoggedRoutes() {
   }, []);
 
   return (
-    <section className="lougedRoutes-grid">
-      <div className="lougedRoutes-content">
+    <section>
+      <div>
+        <NavigationBar />
         <Routes>
           <Route path="/" element={<AdminPage />} />
           <Route path="admin/series/:seriesTitle" element={<SeriesPage />} />

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDocument, updateDocument } from "../../scripts/fireStore";
 import { useModal } from "../../state/ModalProvider";
-import "../../styles/form.sass";
+import "../../styles/admin/form.sass";
 import "../../styles/series-page.sass";
 import SeriesEdit from "./SeriesEdit";
 import FormCreateEpisode from "./FormCreateEpisode";
@@ -14,6 +14,7 @@ export default function SeriesPage() {
   const [status, setStatus] = useState(1);
   const [series, setSeries] = useState(null);
   const [currentSeason, setCurrentSeason] = useState("1");
+  const [openSeasons, setOpenSeasons] = useState(false);
 
   const path = `netflixClone/series/content/${params.seriesTitle}`;
   useEffect(() => {
@@ -79,8 +80,12 @@ export default function SeriesPage() {
       <h2>Seasons</h2>
 
       <div className="series-page-dropdown">
-        <button>Choose season</button>
-        <div className="series-page-dropdown-content">{season}</div>
+        <button onClick={() => setOpenSeasons(!openSeasons)}>
+          Choose season
+        </button>
+        {openSeasons && (
+          <div className="series-page-dropdown-content">{season}</div>
+        )}
       </div>
 
       <button

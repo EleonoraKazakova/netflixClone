@@ -3,7 +3,7 @@ import { createFile } from "../../scripts/cloudStorage";
 import { deleteDocument, addDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
 import createFormMovie from "../../data/createFormMovie.json";
-import "../../styles/form.sass";
+import "../../styles/admin/form.sass";
 import FormPicture from "./FormPicture";
 import { useModal } from "../../state/ModalProvider";
 import textToUrl from "../../scripts/textToUrl";

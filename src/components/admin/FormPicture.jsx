@@ -1,6 +1,6 @@
 import EmptyImg from "../../images/empty.jpg";
-import "../../styles/formPicture.sass";
-import "../../styles/courseCreate.sass";
+import "../../styles/admin/formPicture.sass";
+import "../../styles/admin/courseCreate.sass";
 
 export default function FormPicture({ state }) {
   const [file, setFile] = state;

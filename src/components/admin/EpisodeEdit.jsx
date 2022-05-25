@@ -1,4 +1,4 @@
-import "../../styles/form.sass";
+import "../../styles/admin/form.sass";
 import { createFile } from "../../scripts/cloudStorage";
 import { updateDocument } from "../../scripts/fireStore";
 import { useModal } from "../../state/ModalProvider";
@@ -7,6 +7,7 @@ import createFormSeries from "../../data/createFormSeries.json";
 import EmptyImg from "../../images/empty.jpg";
 import FormPictureEdit from "./FormPictureEdit";
 import InputFieldEvent from "../InputFieldEvent";
+import "../../styles/admin/movie-edit.sass";
 
 export default function EpisodeEdit({ stateSeries, episode }) {
   const [series, setSeries] = stateSeries;
@@ -56,7 +57,7 @@ export default function EpisodeEdit({ stateSeries, episode }) {
   }
 
   return (
-    <div>
+    <div className="movie-edit">
       <h2>Edit {episode.title}</h2>
       <InputFieldEvent
         setup={createFormSeries.episodeTitle}
@@ -74,7 +75,12 @@ export default function EpisodeEdit({ stateSeries, episode }) {
         value={currentEpisode.link}
       />
       <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
-      <button onClick={onUpdate}>Edit episode</button>
+
+      <div className="movie-edit-button-block">
+        <button onClick={onUpdate} className="movie-edit-button">
+          Edit episode
+        </button>
+      </div>
     </div>
   );
 }

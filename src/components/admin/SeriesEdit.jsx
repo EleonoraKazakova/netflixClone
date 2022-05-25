@@ -5,10 +5,11 @@ import { getDocument, updateDocument } from "../../scripts/fireStore";
 import EmptyImg from "../../images/empty.jpg";
 import uploadFiles from "../../scripts/uploadFile";
 import { useModal } from "../../state/ModalProvider";
-import "../../styles/form.sass";
+import "../../styles/admin/form.sass";
 import createFormSeries from "../../data/createFormSeries.json";
 import InputFieldEvent from "../InputFieldEvent";
 import FormPictureEdit from "./FormPictureEdit";
+import "../../styles/admin/movie-edit.sass";
 
 export default function SeriesEdit({ seriesID, stateSeries }) {
   const params = useParams();
@@ -66,7 +67,7 @@ export default function SeriesEdit({ seriesID, stateSeries }) {
   }
 
   return (
-    <div>
+    <div className="movie-edit">
       <h2>Edit {newSeries.title}</h2>
 
       <InputFieldEvent
@@ -86,7 +87,12 @@ export default function SeriesEdit({ seriesID, stateSeries }) {
       />
 
       <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
-      <button onClick={onUpdate}>Edit series</button>
+
+      <div className="movie-edit-button-block">
+        <button onClick={onUpdate} className="movie-edit-button">
+          Edit series
+        </button>
+      </div>
     </div>
   );
 }
