@@ -42,7 +42,7 @@ export default function NavigationBar() {
         <Link to="/">Movies</Link>
         <Link to="/">Documentaries</Link>
       </div>
-      <div>
+      <div className="navigation-bar-right">
         <Searching categories={categories} />
         <div className="navigation-bar-dropdown">
           <div onClick={() => setOpenProfile(!openProfile)}>{userLogo}</div>

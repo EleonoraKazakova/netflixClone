@@ -17,11 +17,12 @@ export default function Searching() {
   return (
     <form onSubmit={search}>
       <input
-        type="text"
+        type="search"
         id="myInput"
         onChange={(event) => setTitle(event.target.value)}
         placeholder="Search for title..."
         title="Type in a title"
+        className="searching-content"
       />
     </form>
   );
