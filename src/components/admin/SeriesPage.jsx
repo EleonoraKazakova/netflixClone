@@ -78,14 +78,16 @@ export default function SeriesPage() {
       <button onClick={edit}>Edit series</button>
 
       <h2>Seasons</h2>
-
-      <div className="series-page-dropdown">
-        <button onClick={() => setOpenSeasons(!openSeasons)}>
+      <div className="series-page-button-block">
+        <button
+          className="series-page-dropdown"
+          onClick={() => setOpenSeasons(!openSeasons)}
+        >
           Choose season
+          {openSeasons && (
+            <div className="series-page-dropdown-content">{season}</div>
+          )}
         </button>
-        {openSeasons && (
-          <div className="series-page-dropdown-content">{season}</div>
-        )}
       </div>
 
       <button

@@ -17,3 +17,58 @@
 .episode-card
   background-color: colors.$colorDarkGrey
   color: colors.$colorWhite
+  width: 100%
+  border-radius: 7px
+  padding: 10px
+  display: flex
+  flex-direction: row
+  gap: 20px
+  justify-content: flex-start
+
+.episode-card-content
+  display: flex
+  justify-content: space-between
+  width: 100%
+
+.episode-card-buttons
+  display: flex
+  flex-direction: row
+  gap: 10px
+
+.episode-tooltip 
+  position: relative
+  display: inline-block
+
+.episode-tooltip .episode-tooltiptext 
+  visibility: hidden
+  width: 67px
+  background-color: black
+  color: #fff
+  text-align: center
+  border-radius: 6px
+  padding: 5px 0
+  position: absolute
+  z-index: 1
+  bottom: 150%
+  left: 170%
+  margin-left: -70px
+
+
+.episode-tooltip .episode-tooltiptext::after 
+  content: ""
+  position: absolute
+  top: 100%
+  left: 50%
+  margin-left: -5px
+  border-width: 5px
+  border-style: solid
+  border-color: black transparent transparent transparent
+
+
+.episode-tooltip:hover .episode-tooltiptext 
+  visibility: visible
+
+.episode-img
+  width: 250px
+  height: 100px
+  object-fit: cover

@@ -9,6 +9,8 @@ import UserPage from "../components/user/UserPage";
 import "../styles/lougedRoutes.sass";
 import SeriesPage from "../components/admin/SeriesPage";
 import NavigationBar from "../components/user/NavigationBar";
+import "../styles/lougedRoutes.sass";
+import Footer from "../components/Footer";
 
 export default function LoggedRoutes() {
   const currentUser = authentication.currentUser.uid;
@@ -23,13 +25,16 @@ export default function LoggedRoutes() {
   }, []);
 
   return (
-    <section>
-      <div>
-        <NavigationBar />
+    <section className="lougedRoutes-grid">
+      <NavigationBar />
+      <div className="lougedRoutes-content">
         <Routes>
           <Route path="/" element={<AdminPage />} />
           <Route path="admin/series/:seriesTitle" element={<SeriesPage />} />
         </Routes>
+      </div>
+      <div className="lougedRoutes-footer">
+        <Footer />
       </div>
     </section>
   );
