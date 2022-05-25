@@ -31,19 +31,19 @@ export default function EpisodeEdit({ stateSeries, episode }) {
       currentEpisode.imgURL = imgURL;
     }
 
-    setSeries({
+    const updatedSeries = {
       ...series,
       seasons: series.seasons.map((el) =>
         el.id === currentEpisode.id ? currentEpisode : el
       ),
-    });
+    };
 
-    await updateDocument(`netflixClone/series/content/${series.id}`, {
-      ...series,
-      seasons: series.seasons.map((el) =>
-        el.id === currentEpisode.id ? currentEpisode : el
-      ),
-    });
+    setSeries(updatedSeries);
+
+    await updateDocument(
+      `netflixClone/series/content/${series.id}`,
+      updatedSeries
+    );
 
     setModal(null);
   }

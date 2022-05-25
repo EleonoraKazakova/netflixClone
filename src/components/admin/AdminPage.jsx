@@ -18,7 +18,7 @@ export default function AdminPage() {
   }, []);
 
   const blockVideos = categories.map((category) => (
-    <Category category={category} />
+    <Category category={category} key={category.id} />
   ));
 
   return <div className="admin-page-content">{blockVideos}</div>;

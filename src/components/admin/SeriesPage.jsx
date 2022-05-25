@@ -61,6 +61,7 @@ export default function SeriesPage() {
       episode={episode}
       stateSeries={[series, setSeries]}
       onUpdateEpisodes={onUpdateEpisodes}
+      key={episode.id}
     />
   ));
 
