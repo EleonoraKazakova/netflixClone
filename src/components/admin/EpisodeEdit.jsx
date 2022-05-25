@@ -40,6 +40,9 @@ export default function EpisodeEdit({ stateSeries, episode }) {
 
     await updateDocument(`netflixClone/series/content/${series.id}`, {
       ...series,
+      seasons: series.seasons.map((el) =>
+        el.id === currentEpisode.id ? currentEpisode : el
+      ),
     });
 
     setModal(null);
