@@ -12,30 +12,37 @@ export default function Episode({ episode, stateSeries, onUpdateEpisodes }) {
       <img src={episode.imgURL} className="episode-img" />
 
       <div className="episode-card-content">
-        {episode.title}, {episode.season},{episode.episode}
-        <div className="episode-card-buttons">
-          <button
-            className="episode-tooltip"
-            onClick={() =>
-              setModal(
-                <EpisodeEdit
-                  stateSeries={[series, setSeries]}
-                  episode={episode}
-                />
-              )
-            }
-          >
-            <img src={Pen} className="episode-pen" />
-            <div className="episode-tooltiptext">Edit episode</div>
-          </button>
-          <button
-            className="episode-tooltip"
-            onClick={(event) => onUpdateEpisodes(event, episode)}
-          >
-            <img src={Trash} className="episode-trash" />
-            <div className="episode-tooltiptext"> Delete episode</div>
-          </button>
+        <div className="episode-card-description">
+          <div className="episode-card-details">
+            <p>Season: {episode.season}</p>
+            <p>Episode: {episode.episode}</p>
+          </div>
+          <p>{episode.title}</p>
+          <p className="episode-description">{episode.description}</p>
         </div>
+      </div>
+      <div className="episode-card-buttons">
+        <button
+          className="episode-tooltip"
+          onClick={() =>
+            setModal(
+              <EpisodeEdit
+                stateSeries={[series, setSeries]}
+                episode={episode}
+              />
+            )
+          }
+        >
+          <img src={Pen} className="episode-pen" />
+          <div className="episode-tooltiptext">Edit episode</div>
+        </button>
+        <button
+          className="episode-tooltip"
+          onClick={(event) => onUpdateEpisodes(event, episode)}
+        >
+          <img src={Trash} className="episode-trash" />
+          <div className="episode-tooltiptext"> Delete episode</div>
+        </button>
       </div>
     </div>
   );

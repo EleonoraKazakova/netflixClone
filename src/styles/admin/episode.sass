@@ -1,15 +1,15 @@
 @use '../_colors'
 
 .episode-pen
-  width: 35px
-  height: 35px
+  width: 40px
+  height: 40px
   border-radius: 7px
   background-color: colors.$colorGreen
   padding: 5px
 
 .episode-trash
-  width: 35px
-  height: 35px
+  width: 40px
+  height: 40px
   border-radius: 7px
   background-color: colors.$colorRedLight
   padding: 5px
@@ -19,7 +19,7 @@
   color: colors.$colorWhite
   width: 100%
   border-radius: 7px
-  padding: 10px
+  padding: 40px
   display: flex
   flex-direction: row
   gap: 20px
@@ -29,6 +29,20 @@
   display: flex
   justify-content: space-between
   width: 100%
+
+.episode-card-description
+  display: flex
+  flex-direction: column
+  gap: 10px
+  align-items: flex-start
+
+.episode-description
+  text-align: left
+
+.episode-card-details
+  display: flex
+  flex-direction: row
+  gap: 10px
 
 .episode-card-buttons
   display: flex
@@ -41,7 +55,7 @@
 
 .episode-tooltip .episode-tooltiptext 
   visibility: hidden
-  width: 67px
+  width: 80px
   background-color: black
   color: #fff
   text-align: center
@@ -49,8 +63,8 @@
   padding: 5px 0
   position: absolute
   z-index: 1
-  bottom: 150%
-  left: 170%
+  bottom: 85%
+  left: 130%
   margin-left: -70px
 
 
