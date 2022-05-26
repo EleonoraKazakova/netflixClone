@@ -9,5 +9,11 @@
     "Corporate Information",
     "Contact Us"
   ],
-  "media": ["facebook.svg", "instagram.svg", "twitter.svg", "youtube.svg"]
+  "media": ["facebook.svg", "instagram.svg", "twitter.svg", "youtube.svg"],
+  "mediaDark": [
+    "facebookDark.svg",
+    "instagramDark.svg",
+    "twitterDark.svg",
+    "youtubeDark.svg"
+  ]
 }

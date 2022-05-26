@@ -30,7 +30,7 @@ export default function UserLoggedRoutes() {
         </Routes>
       </div>
       <div className="lougedRoutes-footer">
-        <Footer />
+        <Footer light={false} />
       </div>
     </section>
   );

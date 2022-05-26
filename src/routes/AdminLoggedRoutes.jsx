@@ -34,7 +34,7 @@ export default function LoggedRoutes() {
         </Routes>
       </div>
       <div className="lougedRoutes-footer">
-        <Footer />
+        <Footer light={false} />
       </div>
     </section>
   );
