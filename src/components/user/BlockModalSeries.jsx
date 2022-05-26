@@ -1,11 +1,14 @@
 import { useState } from "react";
 import VideoBlock from "./VideoBlock";
 import CaretDown from "../../images/modal/caret-down.svg";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function BlockModalSeries({ video, category }) {
+  const history = useNavigate();
   const [currentSeason, setCurrentSeason] = useState("1");
   const [openSeasons, setOpenSeasons] = useState(false);
-  console.log("openSeasons:", openSeasons);
+  console.log("category:", category);
+  console.log("video:", video);
   const uniqueSeasons = [...new Set(video.seasons.map((vid) => vid.season))];
 
   const season = uniqueSeasons.map((season) => (
@@ -21,6 +24,11 @@ export default function BlockModalSeries({ video, category }) {
     (season) => season.season === currentSeason
   );
   console.log("episodes:", episodes);
+
+  function openEpisode(event, season) {
+    event.preventDefault();
+    history(`/${category.id}/${video.id}/${season.id}`);
+  }
   return (
     <>
       <VideoBlock
@@ -56,7 +64,11 @@ export default function BlockModalSeries({ video, category }) {
 
       {episodes.map((season) => (
         <div className="user-category-series">
-          <img src={season.imgURL} className="user-category-img" />
+          <img
+            src={season.imgURL}
+            className="user-category-img"
+            onClick={(event) => openEpisode(event, season)}
+          />
           <div className="user-category-series-content">
             <div className="user-category-number">
               <p>Season: {season.season}</p>
