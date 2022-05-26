@@ -3,11 +3,13 @@ import LogIn from "../components/authentication/LogIn";
 import WelcomePage from "../components/WelcomePage";
 import RecoverPassword from "../components/authentication/RecoverPasssword";
 import SignUp from "../components/authentication/SignUp";
-import AdminPage from "../components/admin/AdminPage";
+import Footer from "../components/Footer";
+import NavigationBarUnloged from "../components/NavigationBarUnloged";
 
 export default function UnLoggedRoutes() {
   return (
     <section>
+      <NavigationBarUnloged />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/login" element={<LogIn />} />
@@ -15,6 +17,7 @@ export default function UnLoggedRoutes() {
         <Route path="/recover-password" element={<RecoverPassword />} />
         <Route path="*" element={<WelcomePage />} />
       </Routes>
+      <Footer />
     </section>
   );
 }
