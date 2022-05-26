@@ -65,6 +65,9 @@ export default function SeriesEdit({ seriesID, stateSeries }) {
   function onChangeLink(event) {
     setNewSeries({ ...newSeries, link: event.target.value });
   }
+  function onChangeMatch(event) {
+    setNewSeries({ ...newSeries, match: event.target.value });
+  }
 
   return (
     <div className="movie-edit">
@@ -79,6 +82,11 @@ export default function SeriesEdit({ seriesID, stateSeries }) {
         setup={createFormSeries.description}
         onChange={onChangeDescription}
         value={newSeries.description}
+      />
+      <InputFieldEvent
+        setup={createFormSeries.match}
+        onChange={onChangeMatch}
+        value={newSeries.match}
       />
       <InputFieldEvent
         setup={createFormSeries.link}

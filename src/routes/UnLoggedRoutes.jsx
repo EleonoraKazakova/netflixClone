@@ -13,6 +13,7 @@ export default function UnLoggedRoutes() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/recover-password" element={<RecoverPassword />} />
+        <Route path="*" element={<WelcomePage />} />
       </Routes>
     </section>
   );

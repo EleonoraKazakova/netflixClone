@@ -9,7 +9,7 @@
     "label": "Description",
     "placeholder": "This movie is about...",
     "type": "text",
-    "required": false
+    "required": true
   },
   "episodeTitle": {
     "label": "Title of episode",
@@ -26,6 +26,12 @@
   "episode": {
     "label": "Number of episode",
     "placeholder": "1",
+    "type": "text",
+    "required": true
+  },
+  "match": {
+    "label": "Match",
+    "placeholder": "97",
     "type": "text",
     "required": true
   },

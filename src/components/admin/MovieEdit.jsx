@@ -74,6 +74,10 @@ export default function MovieEdit({
     setMovie({ ...movie, link: event.target.value });
   }
 
+  function onChangeMatch(event) {
+    setMovie({ ...movie, match: event.target.value });
+  }
+
   return (
     <div className="movie-edit">
       <h2>Edit {movieTitle}</h2>
@@ -87,6 +91,11 @@ export default function MovieEdit({
         setup={createFormMovie.description}
         onChange={onChangeDescription}
         value={movie.description}
+      />
+      <InputFieldEvent
+        setup={createFormMovie.match}
+        onChange={onChangeMatch}
+        value={movie.match}
       />
 
       <InputFieldEvent

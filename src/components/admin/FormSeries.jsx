@@ -22,6 +22,7 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
   const [episode, setEpisode] = useState("1");
   const [season, setSeason] = useState("2");
   const [link, setLink] = useState("y4WR6HKNeyg");
+  const [match, setMatch] = useState("97");
 
   const [addEpisode, setAddEpisode] = useState(false);
 
@@ -41,6 +42,7 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
       id: id,
       description: description,
       link: link,
+      match: match,
       seasons: [
         /*{
           description: episodeDescription,
@@ -79,6 +81,7 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
         setup={createFormSeries.description}
         state={[description, setDescription]}
       />
+      <InputField setup={createFormSeries.match} state={[match, setMatch]} />
       <InputField setup={createFormSeries.link} state={[link, setLink]} />
       <FormPicture state={[file, setFile]} />
 

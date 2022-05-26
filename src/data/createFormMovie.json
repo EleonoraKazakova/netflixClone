@@ -15,7 +15,7 @@
     "label": "Description",
     "placeholder": "This movie is about...",
     "type": "text",
-    "required": false
+    "required": true
   },
   "link": {
     "label": "Link",
@@ -25,7 +25,7 @@
   },
   "match": {
     "label": "Match",
-    "placeholder": "97%",
+    "placeholder": "97",
     "type": "text",
     "required": true
   },
