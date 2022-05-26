@@ -6,14 +6,16 @@
     flex-direction: column
     justify-content: space-between
     //width: 350px
+    min-height: 80%
     position: fixed
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
     background-color:  colors.$colorDarkGrey
     color: colors.$colorWhite
-    z-index: 2000
+    z-index: 5000
     padding: 20px
+    -webkit-scrollbar: 6px
 
   .modal-mark 
     width: 35px
@@ -27,6 +29,8 @@
     border-radius: 50%
     padding: 5px
 
+  
+
 
 @media (min-width: 900px) 
   .modal-styles 
@@ -34,13 +38,17 @@
     flex-direction: row
     justify-content: center 
     width: 900px
+    min-height: 80%
     position: fixed
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
     background-color:  colors.$colorDarkGrey
     color: colors.$colorWhite
-    z-index: 2000
+    z-index: 5000
+    overflow-y: scroll
+ 
+      
 
   .modal-mark 
     width: 35px
@@ -65,13 +73,17 @@
   right: 0
   bottom: 0
   background-color: rgba(0, 0, 0, 0.7)
-  z-index: 1000
+  z-index: 5000
+  overflow-y: scroll
 
 
 .modal-name-tech 
   display: flex
   flex-direction: column
   padding-bottom: 40px
+  overflow-y: scroll
+  position: fixed
+  background-color: colors.$colorDarkGrey
 
   
 
@@ -81,3 +93,13 @@
   border: 1px solid yellow
   border-radius: 3px
   width: auto
+
+.scroller 
+  width: 300px
+  height: 100px
+  overflow-y: scroll
+  scrollbar-color: rebeccapurple green
+  scrollbar-width: thin
+
+
+

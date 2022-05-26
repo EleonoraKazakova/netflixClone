@@ -40,6 +40,7 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
       title: title,
       id: id,
       description: description,
+      link: link,
       seasons: [
         /*{
           description: episodeDescription,
@@ -78,6 +79,7 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
         setup={createFormSeries.description}
         state={[description, setDescription]}
       />
+      <InputField setup={createFormSeries.link} state={[link, setLink]} />
       <FormPicture state={[file, setFile]} />
 
       <div className="movie-edit-button-block">

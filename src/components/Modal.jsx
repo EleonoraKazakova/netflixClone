@@ -13,14 +13,13 @@ export default function Modal() {
       <div className="modal-overlay" />
 
       <div className="modal-styles">
-        <div>
-          <div className="modal-name-tech">{modal}</div>
-          <img
-            onClick={() => setModal(null)}
-            src={Xmark}
-            className="modal-mark"
-          />
-        </div>
+        <div className="modal-name-tech">{modal}</div>
+        <img
+          onClick={() => setModal(null)}
+          src={Xmark}
+          className="modal-mark"
+        />
+        <div className="scroller"></div>
       </div>
     </section>,
     document.getElementById("portal")

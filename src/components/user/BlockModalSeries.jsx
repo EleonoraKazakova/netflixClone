@@ -22,7 +22,7 @@ export default function BlockModalSeries({ video, category }) {
   );
   console.log("episodes:", episodes);
   return (
-    <div>
+    <>
       <VideoBlock
         link={video.link}
         titleID={video.id}
@@ -64,6 +64,6 @@ export default function BlockModalSeries({ video, category }) {
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 }
