@@ -1,3 +1,5 @@
+@use '../_colors'
+
 .form-content
   display: flex
   flex-direction: column
@@ -9,3 +11,16 @@
   display: flex
   flex-direction: row
   gap: 20px
+
+.form-button
+  background-color: colors.$colorRed
+  width: 150px
+  height: 33px
+  color: colors.$colorWhite
+  font-weight: bold
+  border-radius: 15px
+  border: 1px solid colors.$colorWhite
+
+.form-button-block
+  display: flex
+  justify-content: center

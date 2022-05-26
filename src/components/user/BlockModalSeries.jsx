@@ -58,8 +58,11 @@ export default function BlockModalSeries({ video, category }) {
         <div className="user-category-series">
           <img src={season.imgURL} className="user-category-img" />
           <div className="user-category-series-content">
-            <p>{season.episode}</p>
-            <p>{season.title}</p>
+            <div className="user-category-number">
+              <p>Season: {season.season}</p>
+              <p>Episode: {season.episode}</p>
+            </div>
+            <p className="user-category-title">{season.title}</p>
             <p>{season.description}</p>
           </div>
         </div>

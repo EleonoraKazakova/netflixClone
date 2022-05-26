@@ -83,7 +83,12 @@ export default function FormCreateEpisode({ stateSeries }) {
 
       <InputField setup={createFormSeries.link} state={[link, setLink]} />
       <FormPicture state={[file, setFile]} />
-      <button onClick={onCreate}>Add new series</button>
+
+      <div className="form-button-block">
+        <button onClick={onCreate} className="form-button">
+          Add new episode
+        </button>
+      </div>
     </div>
   );
 }
