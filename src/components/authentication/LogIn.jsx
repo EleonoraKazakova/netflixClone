@@ -15,11 +15,16 @@ export default function LogIn() {
 
   async function onLogin(event) {
     event.preventDefault();
-    const returningUID = await loginUser(email.trim(), password);
-    if (returningUID) {
-      setUID(returningUID);
-      navigate("/");
-    } else alert("Could not login, try again");
+    try {
+      const returningUID = await loginUser(email.trim(), password);
+
+      if (returningUID) {
+        setUID(returningUID);
+        navigate("/");
+      }
+    } catch (error) {
+      alert("Could not login, try again");
+    }
   }
 
   return (
