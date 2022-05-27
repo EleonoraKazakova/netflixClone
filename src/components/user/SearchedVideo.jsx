@@ -36,7 +36,13 @@ export default function SearchedVideo() {
   return (
     <div className="serched-video-content">
       <h3>Results:</h3>
-      {movieCard.length >= 1 ? movieCard : <p>Sorry, we did not find movies</p>}
+      <div className="serched-video-block">
+        {movieCard.length >= 1 ? (
+          movieCard
+        ) : (
+          <p>Sorry, we did not find movies</p>
+        )}
+      </div>
     </div>
   );
 }

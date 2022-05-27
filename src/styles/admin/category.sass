@@ -1,12 +1,50 @@
 @use '../_colors'
 
-.category-content
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  grid-column-gap: 20px
-  grid-row-gap: 20px
-  padding: 15px 40px  40px 40px
-  align-self: center
+@media (max-width: 499px) 
+  .category-content
+    display: grid
+    grid-template-columns: repeat(1, 1fr)
+    grid-column-gap: 20px
+    grid-row-gap: 20px
+    padding: 15px 40px  40px 40px
+    align-self: center
+
+  .category-title-block
+    display: flex
+    justify-content: flex-start
+    flex-direction: column
+    width: fit-content
+    padding-top: 60px
+
+@media (min-width: 500px) and (max-width: 899px) 
+  .category-content
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-column-gap: 20px
+    grid-row-gap: 20px
+    padding: 15px 40px  40px 40px
+    align-self: center
+
+  .category-title-block
+    display: flex
+    justify-content: flex-start
+    flex-direction: column
+    width: fit-content
+
+@media (min-width: 900px)
+  .category-content
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-column-gap: 20px
+    grid-row-gap: 20px
+    padding: 15px 40px  40px 40px
+    align-self: center
+
+  .category-title-block
+    display: flex
+    justify-content: flex-start
+    flex-direction: column
+    width: fit-content
 
 .category-add-button
   background-color: colors.$colorRed
@@ -104,8 +142,3 @@
   padding-left: 40px
   font-weight: bold
 
-.category-title-block
-  display: flex
-  justify-content: flex-start
-  flex-direction: column
-  width: fit-content

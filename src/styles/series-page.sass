@@ -1,15 +1,69 @@
 @use 'colors' 
 
-.series-page-img
-  width: 200px
+@media (max-width: 499px) 
+  .series-page-content
+    display: flex
+    flex-direction: column
+    padding-top: 200px
+    width: 80%
+    color: white
+    gap: 10px
 
-.series-page-content
-  display: flex
-  flex-direction: column
-  padding-top: 100px
-  width: 50%
-  color: white
-  gap: 10px
+  .series-page-block
+    display: flex  
+    flex-direction: column
+    gap: 20px
+    justify-content: space-between
+    background-color: colors.$colorDarkGrey
+    border-radius: 7px
+    padding: 40px
+
+  .series-page-img
+    width: 100%
+
+@media (min-width: 500px) and (max-width: 899px) 
+  .series-page-content
+    display: flex
+    flex-direction: column
+    padding-top: 100px
+    width: 80%
+    color: white
+    gap: 10px
+
+  .series-page-block
+    display: flex  
+    flex-direction: row
+    gap: 20px
+    justify-content: space-between
+    background-color: colors.$colorDarkGrey
+    border-radius: 7px
+    padding: 40px
+
+  .series-page-img
+    width: 200px
+
+@media (min-width: 900px)
+  .series-page-content
+    display: flex
+    flex-direction: column
+    padding-top: 100px
+    width: 50%
+    color: white
+    gap: 10px
+
+  .series-page-block
+    display: flex  
+    flex-direction: row
+    gap: 20px
+    justify-content: space-between
+    background-color: colors.$colorDarkGrey
+    border-radius: 7px
+    padding: 40px
+
+  .series-page-img
+    width: 200px
+
+
 
 .series-page-dropdown 
   position: relative
@@ -74,14 +128,7 @@
   color: colors.$colorWhite
   font-weight: bold
 
-.series-page-block
-  display: flex  
-  flex-direction: row
-  gap: 20px
-  justify-content: space-between
-  background-color: colors.$colorDarkGrey
-  border-radius: 7px
-  padding: 40px
+
 
 .series-page-description
   text-align: left

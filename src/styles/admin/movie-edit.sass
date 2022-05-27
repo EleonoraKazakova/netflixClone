@@ -1,11 +1,25 @@
 @use '../_colors'
 
-.movie-edit
-  padding: 40px 0 40px 0
-  width: 600px
-  display: flex
-  flex-direction: column
-  gap: 40px
+@media (max-width: 499px) 
+  .movie-edit
+    display: flex
+    flex-direction: column
+    gap: 40px
+
+@media (min-width: 500px) and (max-width: 899px) 
+  .movie-edit
+    padding: 20px
+    display: flex
+    flex-direction: column
+    gap: 40px
+
+@media (min-width: 900px)
+  .movie-edit
+    padding: 40px 0 40px 0
+    width: 600px
+    display: flex
+    flex-direction: column
+    gap: 40px
 
 .movie-edit-button
   background-color: colors.$colorRed
