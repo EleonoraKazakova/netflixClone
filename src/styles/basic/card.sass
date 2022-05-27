@@ -1,134 +1,395 @@
 @use '../_colors' 
 
-.card-content
-  width: 300px
-  height: 170px
-  display: flex
-  flex-direction: column
-  background-color: colors.$colorDarkGrey
-  border-radius: 5px
 
-.card-small-content
-  width: 300px
-  height: 170px
-  display: flex
-  flex-direction: row
-  background-color: colors.$colorDarkGrey
-  border-radius: 5px
-  z-index: 100
-  
-.card-small-content:hover
-  width: 430px
-  height: 370px
-  display: flex
-  flex-direction: column
-  background-color: colors.$colorDarkGrey
-  border-top-left-radius: 10px
-  border-top-right-radius: 10px
-  transition: width 0.5s, height 0.5s
+@media (max-width: 499px) 
+  .card-content
+    width: 300px
+    height: 170px
+    display: flex
+    flex-direction: column
+    background-color: colors.$colorDarkGrey
+    border-radius: 5px
+
+  .card-small-content
+    width: 300px
+    height: 170px
+    display: flex
+    flex-direction: row
+    background-color: colors.$colorDarkGrey
+    border-radius: 5px
+    z-index: 100
+    
+  .card-small-content:hover
+    width: 300px
+    height: 370px
+    display: flex
+    flex-direction: column
+    background-color: colors.$colorDarkGrey
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+    transition: width 0.5s, height 0.5s
+    .card-number
+      font-size: 0
+      width: 0
+      height: 0
+    .card-img-small
+      width: 300px
+      height: 240px
+      object-fit: cover
+      cursor: pointer
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+      border-bottom-left-radius: 0px
+      border-bottom-right-radius: 0px
+      transition: width 0.5s, height 0.5s
+    .card-block 
+      color: colors.$colorGreen
+      font-weight: bold
+      display: flex
+      width: 300px
+      transition: width 0.5s, height 0.5s
+      justify-content: space-between
+      padding: 20px
+      width: 100%
+      flex-direction: column
+
+  .card-content:hover
+    min-width: 300px
+    height: 370px
+    display: flex
+    flex-direction: column
+    background-color: colors.$colorDarkGrey
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+    transition: width 0.5s, height 0.5s
+    .card-img
+      min-width: 300px
+      height: 240px
+      object-fit: cover
+      cursor: pointer
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+      border-bottom-left-radius: 0px
+      border-bottom-right-radius: 0px
+      transition: width 0.5s, height 0.5s
+    .card-block 
+      color: colors.$colorGreen
+      font-weight: bold
+      display: flex
+      width: 300px
+      transition: width 0.5s, height 0.5s
+      justify-content: space-between
+      padding: 20px
+      width: 100%
+      flex-direction: column
+    
+  .card-img 
+    width: 300px
+    height: 170px
+    object-fit: cover
+    cursor: pointer
+    border-radius: 5px
+
+  .card-img-small 
+    width: 200px
+    height: 170px
+    object-fit: cover
+    cursor: pointer
+    border-top-right-radius: 5px
+    border-bottom-right-radius: 5px
+
+  .card-block 
+    display: none
+    width: 100px    
+
+  .card-fixed
+    width: 300px
+    height: 170px
+    display: flex
+    justify-content: center
+    z-index: 1
+
+  .card-fixed:hover
+    z-index: 2
+
+  .card-small-buttons
+    display: flex
+    gap: 10px
+    flex-direction: row
+    width: 100%
+
+  .card-match
+    display: flex
+    justify-content: flex-start
+    padding-top: 10px  
+
   .card-number
-    font-size: 0
-    width: 0
-    height: 0
-  .card-img-small
+    color:  colors.$colorWhite
+    background-color: #8f8f8f5b
+    font-size: 116px
+    width: 100px
+    height: 170px
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+
+@media (min-width: 500px) and (max-width: 899px) 
+  .card-content
+    width: 300px
+    height: 170px
+    display: flex
+    flex-direction: column
+    background-color: colors.$colorDarkGrey
+    border-radius: 5px
+
+  .card-small-content
+    width: 300px
+    height: 170px
+    display: flex
+    flex-direction: row
+    background-color: colors.$colorDarkGrey
+    border-radius: 5px
+    z-index: 100
+    
+  .card-small-content:hover
     width: 430px
-    height: 240px
-    object-fit: cover
-    cursor: pointer
+    height: 370px
+    display: flex
+    flex-direction: column
+    background-color: colors.$colorDarkGrey
     border-top-left-radius: 10px
     border-top-right-radius: 10px
-    border-bottom-left-radius: 0px
-    border-bottom-right-radius: 0px
     transition: width 0.5s, height 0.5s
-  .card-block 
-    color: colors.$colorGreen
-    font-weight: bold
-    display: flex
-    width: 430px
-    transition: width 0.5s, height 0.5s
-    justify-content: space-between
-    padding: 20px
-    width: 100%
-    flex-direction: column
+    .card-number
+      font-size: 0
+      width: 0
+      height: 0
+    .card-img-small
+      width: 430px
+      height: 240px
+      object-fit: cover
+      cursor: pointer
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+      border-bottom-left-radius: 0px
+      border-bottom-right-radius: 0px
+      transition: width 0.5s, height 0.5s
+    .card-block 
+      color: colors.$colorGreen
+      font-weight: bold
+      display: flex
+      width: 430px
+      transition: width 0.5s, height 0.5s
+      justify-content: space-between
+      padding: 20px
+      width: 100%
+      flex-direction: column
 
-.card-content:hover
-  width: 430px
-  height: 370px
-  display: flex
-  flex-direction: column
-  background-color: colors.$colorDarkGrey
-  border-top-left-radius: 10px
-  border-top-right-radius: 10px
-  transition: width 0.5s, height 0.5s
-  .card-img
+  .card-content:hover
     width: 430px
-    height: 240px
-    object-fit: cover
-    cursor: pointer
+    height: 370px
+    display: flex
+    flex-direction: column
+    background-color: colors.$colorDarkGrey
     border-top-left-radius: 10px
     border-top-right-radius: 10px
-    border-bottom-left-radius: 0px
-    border-bottom-right-radius: 0px
     transition: width 0.5s, height 0.5s
+    .card-img
+      width: 430px
+      height: 240px
+      object-fit: cover
+      cursor: pointer
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+      border-bottom-left-radius: 0px
+      border-bottom-right-radius: 0px
+      transition: width 0.5s, height 0.5s
+    .card-block 
+      color: colors.$colorGreen
+      font-weight: bold
+      display: flex
+      width: 430px
+      transition: width 0.5s, height 0.5s
+      justify-content: space-between
+      padding: 20px
+      width: 100%
+      flex-direction: column
+    
+  .card-img 
+    width: 300px
+    height: 170px
+    object-fit: cover
+    cursor: pointer
+    border-radius: 5px
+
+  .card-img-small 
+    width: 200px
+    height: 170px
+    object-fit: cover
+    cursor: pointer
+    border-top-right-radius: 5px
+    border-bottom-right-radius: 5px
+
   .card-block 
-    color: colors.$colorGreen
-    font-weight: bold
+    display: none
+    width: 100px    
+
+  .card-fixed
+    width: 300px
+    height: 170px
     display: flex
-    width: 430px
-    transition: width 0.5s, height 0.5s
-    justify-content: space-between
-    padding: 20px
+    justify-content: center
+    z-index: 1
+
+  .card-fixed:hover
+    z-index: 2
+
+  .card-small-buttons
+    display: flex
+    gap: 10px
+    flex-direction: row
     width: 100%
+
+  .card-match
+    display: flex
+    justify-content: flex-start
+    padding-top: 10px  
+
+  .card-number
+    color:  colors.$colorWhite
+    background-color: #8f8f8f5b
+    font-size: 116px
+    width: 100px
+    height: 170px
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+
+@media (min-width: 900px)
+  .card-content
+    width: 300px
+    height: 170px
+    display: flex
     flex-direction: column
+    background-color: colors.$colorDarkGrey
+    border-radius: 5px
 
-  
-.card-img 
-  width: 300px
-  height: 170px
-  object-fit: cover
-  cursor: pointer
-  border-radius: 5px
+  .card-small-content
+    width: 300px
+    height: 170px
+    display: flex
+    flex-direction: row
+    background-color: colors.$colorDarkGrey
+    border-radius: 5px
+    z-index: 100
+    
+  .card-small-content:hover
+    width: 430px
+    height: 370px
+    display: flex
+    flex-direction: column
+    background-color: colors.$colorDarkGrey
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+    transition: width 0.5s, height 0.5s
+    .card-number
+      font-size: 0
+      width: 0
+      height: 0
+    .card-img-small
+      width: 430px
+      height: 240px
+      object-fit: cover
+      cursor: pointer
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+      border-bottom-left-radius: 0px
+      border-bottom-right-radius: 0px
+      transition: width 0.5s, height 0.5s
+    .card-block 
+      color: colors.$colorGreen
+      font-weight: bold
+      display: flex
+      width: 430px
+      transition: width 0.5s, height 0.5s
+      justify-content: space-between
+      padding: 20px
+      width: 100%
+      flex-direction: column
 
-.card-img-small 
-  width: 200px
-  height: 170px
-  object-fit: cover
-  cursor: pointer
-  border-top-right-radius: 5px
-  border-bottom-right-radius: 5px
+  .card-content:hover
+    width: 430px
+    height: 370px
+    display: flex
+    flex-direction: column
+    background-color: colors.$colorDarkGrey
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+    transition: width 0.5s, height 0.5s
+    .card-img
+      width: 430px
+      height: 240px
+      object-fit: cover
+      cursor: pointer
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+      border-bottom-left-radius: 0px
+      border-bottom-right-radius: 0px
+      transition: width 0.5s, height 0.5s
+    .card-block 
+      color: colors.$colorGreen
+      font-weight: bold
+      display: flex
+      width: 430px
+      transition: width 0.5s, height 0.5s
+      justify-content: space-between
+      padding: 20px
+      width: 100%
+      flex-direction: column
+    
+  .card-img 
+    width: 300px
+    height: 170px
+    object-fit: cover
+    cursor: pointer
+    border-radius: 5px
 
+  .card-img-small 
+    width: 200px
+    height: 170px
+    object-fit: cover
+    cursor: pointer
+    border-top-right-radius: 5px
+    border-bottom-right-radius: 5px
 
-.card-block 
-  display: none
-  width: 100px
-  
+  .card-block 
+    display: none
+    width: 100px    
 
-.card-fixed
-  width: 300px
-  height: 170px
-  display: flex
-  justify-content: center
-  z-index: 1
+  .card-fixed
+    width: 300px
+    height: 170px
+    display: flex
+    justify-content: center
+    z-index: 1
 
-.card-fixed:hover
-  z-index: 2
+  .card-fixed:hover
+    z-index: 2
 
-.card-small-buttons
-  display: flex
-  gap: 10px
-  flex-direction: row
-  width: 100%
+  .card-small-buttons
+    display: flex
+    gap: 10px
+    flex-direction: row
+    width: 100%
 
-.card-match
-  display: flex
-  justify-content: flex-start
-  padding-top: 10px  
+  .card-match
+    display: flex
+    justify-content: flex-start
+    padding-top: 10px  
 
-.card-number
-  color:  colors.$colorWhite
-  background-color: #8f8f8f5b
-  font-size: 116px
-  width: 100px
-  height: 170px
-  border-top-left-radius: 5px
-  border-bottom-left-radius: 5px
+  .card-number
+    color:  colors.$colorWhite
+    background-color: #8f8f8f5b
+    font-size: 116px
+    width: 100px
+    height: 170px
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px

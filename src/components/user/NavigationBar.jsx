@@ -31,10 +31,10 @@ export default function NavigationBar() {
 
   return (
     <div className="navigation-bar-content">
+      <Link to="/">
+        <img src={Logo} className="navigation-bar-logo" />
+      </Link>
       <div className="navigation-bar-menu">
-        <Link to="/">
-          <img src={Logo} className="navigation-bar-logo" />
-        </Link>
         <Link to="/">Home</Link>
         <Link to="/series">Series</Link>
         <Link to="/movies">Movies</Link>
