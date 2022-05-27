@@ -1,17 +1,14 @@
-import { useState, useEffect } from "react";
-import { getCollection } from "../../scripts/fireStore";
-import "../../styles/basic/card.sass";
-import "../../styles/user-category.sass";
-import { useModal } from "../../state/ModalProvider";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import "../../styles/series-page.sass";
-import BlockModalSeries from "./BlockModalSeries";
-import BlockModalMovie from "./BlockModalMovie";
-import ThumbsBlock from "./ThumbsBlock";
+import Chevron from "../../images/modal/chevron-down.svg";
 import Play from "../../images/modal/play.svg";
 import Plus from "../../images/modal/plus.svg";
-import Chevron from "../../images/modal/chevron-down.svg";
+import { useModal } from "../../state/ModalProvider";
+import "../../styles/basic/card.sass";
+import "../../styles/series-page.sass";
+import "../../styles/user-category.sass";
+import BlockModalMovie from "./BlockModalMovie";
+import BlockModalSeries from "./BlockModalSeries";
+import ThumbsBlock from "./ThumbsBlock";
 
 export default function VideoThumbNail({ video, category }) {
   const { setModal } = useModal();

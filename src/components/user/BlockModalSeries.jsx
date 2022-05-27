@@ -1,7 +1,7 @@
 import { useState } from "react";
 import VideoBlock from "./VideoBlock";
 import CaretDown from "../../images/modal/caret-down.svg";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useModal } from "../../state/ModalProvider";
 
 export default function BlockModalSeries({ video, category }) {
@@ -9,14 +9,13 @@ export default function BlockModalSeries({ video, category }) {
   const { setModal } = useModal();
   const [currentSeason, setCurrentSeason] = useState("1");
   const [openSeasons, setOpenSeasons] = useState(false);
-  console.log("category:", category);
-  console.log("video:", video);
   const uniqueSeasons = [...new Set(video.seasons.map((vid) => vid.season))];
 
   const season = uniqueSeasons.map((season) => (
     <div
       className="series-page-dropdown-link"
       onClick={() => setCurrentSeason(season)}
+      key={season.id}
     >
       {season}
     </div>
@@ -25,7 +24,6 @@ export default function BlockModalSeries({ video, category }) {
   const episodes = video.seasons.filter(
     (season) => season.season === currentSeason
   );
-  console.log("episodes:", episodes);
 
   function openEpisode(event, season) {
     event.preventDefault();
@@ -70,6 +68,7 @@ export default function BlockModalSeries({ video, category }) {
           <div
             className="user-category-series"
             onClick={(event) => openEpisode(event, season)}
+            key={season.id}
           >
             <img src={season.imgURL} className="user-category-img" />
             <div className="user-category-series-content">

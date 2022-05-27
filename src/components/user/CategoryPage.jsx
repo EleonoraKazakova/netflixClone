@@ -8,7 +8,6 @@ import heroData from "../../data/heroData.json";
 
 export default function CategoryPage() {
   const params = useParams();
-  console.log("params:", params);
   const [videos, setVideos] = useState([]);
   const path = `netflixClone/${params.category}/content`;
 
@@ -21,7 +20,7 @@ export default function CategoryPage() {
   }, [params.category]);
 
   const videoCard = videos.map((video) => (
-    <div className="category-page-block">
+    <div className="category-page-block" key={video.id}>
       <VideoThumbNail video={video} category={params.category} />
     </div>
   ));

@@ -1,15 +1,12 @@
-import { useModal } from "../../state/ModalProvider";
 import { useState, useEffect } from "react";
 import { getCollection } from "../../scripts/fireStore";
-import Searching from "./Searching";
+
 import UserCategory from "./UserCategory";
 import "../../styles/user-page.sass";
 import TopTen from "../user/TopTen";
 
 export default function UserPage() {
-  const { setModal } = useModal();
   const [categories, setCategories] = useState([]);
-  console.log("categories:", categories);
   const path = "netflixClone";
 
   useEffect(() => {
@@ -20,9 +17,9 @@ export default function UserPage() {
     loadData(path);
   }, []);
 
-  const videoBlock = categories.map((category) => (
-    <div className="user-page-block">
-      <p className="user-page-title">{category.title}</p>{" "}
+  const videoBlock = categories.map((category, index) => (
+    <div className="user-page-block" key={index}>
+      <p className="user-page-title">{category.title}</p>
       <UserCategory category={category} />
     </div>
   ));

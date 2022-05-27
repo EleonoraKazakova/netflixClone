@@ -1,18 +1,12 @@
-import { Routes, Route } from "react-router-dom";
-import LogIn from "../components/authentication/LogIn";
-import SignUp from "../components/authentication/SignUp";
-import { authentication } from "../scripts/firesbase";
-import { getDocument } from "../scripts/fireStore";
-import { useState, useEffect } from "react";
-import AdminPage from "../components/admin/AdminPage";
-import UserPage from "../components/user/UserPage";
-import "../styles/lougedRoutes.sass";
-import CategoryPage from "../components/user/CategoryPage";
-import VideoPage from "../components/user/VideoPage";
+import { Route, Routes } from "react-router-dom";
 import Footer from "../components/Footer";
+import CategoryPage from "../components/user/CategoryPage";
+import EpisodePage from "../components/user/EpisodePage";
 import NavigationBar from "../components/user/NavigationBar";
 import SearchedVideo from "../components/user/SearchedVideo";
-import EpisodePage from "../components/user/EpisodePage";
+import UserPage from "../components/user/UserPage";
+import VideoPage from "../components/user/VideoPage";
+import "../styles/lougedRoutes.sass";
 
 export default function UserLoggedRoutes() {
   return (

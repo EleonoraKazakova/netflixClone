@@ -20,8 +20,6 @@ export function UIDProvider({ children }) {
     loadData(`users/${currentUser}`);
   }, [uid]);
 
-  console.log("user:", user);
-  console.log("uid:", uid);
   const value = { uid, setUID, user };
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }

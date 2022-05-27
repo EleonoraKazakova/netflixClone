@@ -1,25 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createFile } from "../../scripts/cloudStorage";
-import { deleteDocument, addDocument } from "../../scripts/fireStore";
 import { updateDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
 import createFormSeries from "../../data/createFormSeries.json";
 import "../../styles/admin/form.sass";
 import FormPicture from "./FormPicture";
 import { useModal } from "../../state/ModalProvider";
-import textToUrl from "../../scripts/textToUrl";
 import EmptyImg from "../../images/empty.jpg";
 
 export default function FormCreateEpisode({ stateSeries }) {
   const { setModal } = useModal();
   const [series, setSeries] = stateSeries;
-  const [title, setTitle] = useState("Episode of series");
-  const [description, setDescription] = useState("description of episode");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
-  const [episode, setEpisode] = useState("1");
-  const [season, setSeason] = useState("2");
-  const [link, setLink] = useState("y4WR6HKNeyg");
-  console.log("series.length:", series.seasons.length);
+  const [episode, setEpisode] = useState("");
+  const [season, setSeason] = useState("");
+  const [link, setLink] = useState("");
+
   function clearForm() {
     setTitle("");
     setDescription("");

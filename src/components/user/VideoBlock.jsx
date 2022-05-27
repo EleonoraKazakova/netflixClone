@@ -1,14 +1,12 @@
-import { useState, useEffect } from "react";
-import { getCollection } from "../../scripts/fireStore";
-import "../../styles/basic/card.sass";
-import Youtube from "../Youtube";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Play from "../../images/modal/play.svg";
 import Plus from "../../images/modal/plus.svg";
-import "../../styles/user-category.sass";
-import ThumbsBlock from "./ThumbsBlock";
 import { useModal } from "../../state/ModalProvider";
-import { Link } from "react-router-dom";
-import { useNavigate, useParams } from "react-router-dom";
+import "../../styles/basic/card.sass";
+import "../../styles/user-category.sass";
+import Youtube from "../Youtube";
+import ThumbsBlock from "./ThumbsBlock";
 
 export default function VideoBlock({ link, titleID, category, title }) {
   const { setModal } = useModal();

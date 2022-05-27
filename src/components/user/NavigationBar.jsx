@@ -6,7 +6,6 @@ import Profile from "../../images/profile.jpg";
 import { useState, useEffect } from "react";
 import { getCollection } from "../../scripts/fireStore";
 import Searching from "./Searching";
-import UserCategory from "./UserCategory";
 import "../../styles/user-page.sass";
 
 export default function NavigationBar() {
@@ -14,7 +13,6 @@ export default function NavigationBar() {
   const [openProfile, setOpenProfile] = useState(false);
 
   const [categories, setCategories] = useState([]);
-  console.log("categories:", categories);
   const path = "netflixClone";
 
   useEffect(() => {

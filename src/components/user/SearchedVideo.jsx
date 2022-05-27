@@ -2,19 +2,12 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getCollection } from "../../scripts/fireStore";
 import "../../styles/serched-video.sass";
-import { useModal } from "../../state/ModalProvider";
 import VideoThumbNail from "./VideoThumbNail";
 
 export default function SearchedVideo() {
   const params = useParams();
-  const { setModal } = useModal();
-  const [searchedVideo, setSearchedVideo] = useState([]);
   const [categories, setCategories] = useState([]);
   const [searching, setSearching] = useState([]);
-
-  console.log("params:", params);
-  console.log("categories:", categories);
-  console.log("searchedVideo:", searchedVideo);
 
   const path = "netflixClone";
 
@@ -34,17 +27,15 @@ export default function SearchedVideo() {
     loadData(path);
   }, []);
 
-  const filteredMovies = searching.filter(
-    (el) => el.title === params.videoTitle
-  );
+  const filteredMovies = searching.filter((el) => el.id === params.videoTitle);
 
   const movieCard = filteredMovies.map((video) => (
-    <VideoThumbNail category={video.category} video={video} />
+    <VideoThumbNail category={video.category} video={video} key={video.id} />
   ));
 
   return (
     <div className="serched-video-content">
-      Results for: {params.videoTitle}
+      <h3>Results:</h3>
       {movieCard.length >= 1 ? movieCard : <p>Sorry, we did not find movies</p>}
     </div>
   );

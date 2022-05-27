@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import textToUrl from "../../scripts/textToUrl";
 import "../../styles/searching.sass";
-import SearchedVideo from "./SearchedVideo";
 import { useNavigate } from "react-router-dom";
 
 export default function Searching() {
@@ -11,7 +10,7 @@ export default function Searching() {
 
   function search(event) {
     event.preventDefault();
-    history(`/search/${title}`);
+    history(`/search/${textToUrl(title)}`);
   }
 
   return (

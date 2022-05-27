@@ -1,16 +1,12 @@
-import { Routes, Route } from "react-router-dom";
-import LogIn from "../components/authentication/LogIn";
-import SignUp from "../components/authentication/SignUp";
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import AdminPage from "../components/admin/AdminPage";
+import SeriesPage from "../components/admin/SeriesPage";
+import Footer from "../components/Footer";
+import NavigationBar from "../components/user/NavigationBar";
 import { authentication } from "../scripts/firesbase";
 import { getDocument } from "../scripts/fireStore";
-import { useState, useEffect } from "react";
-import AdminPage from "../components/admin/AdminPage";
-import UserPage from "../components/user/UserPage";
 import "../styles/lougedRoutes.sass";
-import SeriesPage from "../components/admin/SeriesPage";
-import NavigationBar from "../components/user/NavigationBar";
-import "../styles/lougedRoutes.sass";
-import Footer from "../components/Footer";
 
 export default function LoggedRoutes() {
   const currentUser = authentication.currentUser.uid;

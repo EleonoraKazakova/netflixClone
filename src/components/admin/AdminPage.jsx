@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { getCollection } from "../../scripts/fireStore";
-import { Link } from "react-router-dom";
 import Category from "./Category";
 import "../../styles/admin/admin-page.sass";
 
 export default function AdminPage() {
   const [categories, setCategories] = useState([]);
-  console.log("categories:", categories);
   const path = "netflixClone";
 
   useEffect(() => {

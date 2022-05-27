@@ -13,11 +13,9 @@ import Plus from "../../images/modal/plus.svg";
 import BlockVideo from "./BlockVideo";
 
 export default function Category({ category }) {
-  const history = useNavigate();
   const { setModal } = useModal();
   const [videos, setVideos] = useState([]);
   const path = `netflixClone/${category.id}/content`;
-  console.log("videos:", videos);
   useEffect(() => {
     async function loadData(path) {
       const data = await getCollection(path);
