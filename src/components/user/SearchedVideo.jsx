@@ -38,18 +38,14 @@ export default function SearchedVideo() {
     (el) => el.title === params.videoTitle
   );
 
-  console.log("filteredMovies:", filteredMovies);
-
   const movieCard = filteredMovies.map((video) => (
     <VideoThumbNail category={video.category} video={video} />
   ));
 
-  console.log("movieCard:", movieCard);
-
   return (
     <div className="serched-video-content">
       Results for: {params.videoTitle}
-      {movieCard}
+      {movieCard.length >= 1 ? movieCard : <p>Sorry, we did not find movies</p>}
     </div>
   );
 }

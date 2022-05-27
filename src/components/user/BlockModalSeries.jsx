@@ -65,22 +65,26 @@ export default function BlockModalSeries({ video, category }) {
         </div>
       </div>
 
-      {episodes.map((season) => (
-        <div
-          className="user-category-series"
-          onClick={(event) => openEpisode(event, season)}
-        >
-          <img src={season.imgURL} className="user-category-img" />
-          <div className="user-category-series-content">
-            <div className="user-category-number">
-              <p>Season: {season.season}</p>
-              <p>Episode: {season.episode}</p>
+      {episodes.length >= 1 ? (
+        episodes.map((season) => (
+          <div
+            className="user-category-series"
+            onClick={(event) => openEpisode(event, season)}
+          >
+            <img src={season.imgURL} className="user-category-img" />
+            <div className="user-category-series-content">
+              <div className="user-category-number">
+                <p>Season: {season.season}</p>
+                <p>Episode: {season.episode}</p>
+              </div>
+              <p className="user-category-title">{season.title}</p>
+              <p>{season.description}</p>
             </div>
-            <p className="user-category-title">{season.title}</p>
-            <p>{season.description}</p>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <p className="user-category-series">Content coming soon appears</p>
+      )}
     </>
   );
 }
