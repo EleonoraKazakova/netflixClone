@@ -1,28 +1,82 @@
 @use '_colors'
 
-.footer-content
-  display: flex
-  justify-content: center
-  background-color: colors.$colorBlack
-  color: colors.$colorGrey
-  width: 100%
-  align-items: center
-  padding: 40px 0 40px 0
+@media (max-width: 499px) 
+  .footer-content
+    display: flex
+    justify-content: center
+    background-color: colors.$colorBlack
+    color: colors.$colorGrey
+    width: 100%
+    align-items: center
+    padding: 40px 0 40px 0
 
-.footer-content-light
-  display: flex
-  justify-content: center
-  background-color: #eee
-  color: colors.$colorDarkGrey
-  width: 100%
-  align-items: center
-  padding: 40px 0 40px 0
+  .footer-content-light
+    display: flex
+    justify-content: center
+    background-color: #eee
+    color: colors.$colorDarkGrey
+    width: 100%
+    align-items: center
+    padding: 40px 0 40px 0
 
-.footer-block
-  display: grid
-  grid-template-columns: repeat(4, 1fr)
-  grid-column-gap: 40px
-  grid-row-gap: 20px
+  .footer-block
+    display: grid
+    grid-template-columns: repeat(1, 1fr)
+    grid-column-gap: 40px
+    grid-row-gap: 20px
+
+
+@media (min-width: 500px) and (max-width: 899px) 
+  .footer-content
+    display: flex
+    justify-content: center
+    background-color: colors.$colorBlack
+    color: colors.$colorGrey
+    width: 100%
+    align-items: center
+    padding: 40px 0 40px 50px
+
+  .footer-content-light
+    display: flex
+    justify-content: center
+    background-color: #eee
+    color: colors.$colorDarkGrey
+    width: 100%
+    align-items: center
+    padding: 40px 0 40px 50px
+    
+  .footer-block
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-column-gap: 40px
+    grid-row-gap: 20px
+  
+
+
+@media (min-width: 900px)
+  .footer-content
+    display: flex
+    justify-content: center
+    background-color: colors.$colorBlack
+    color: colors.$colorGrey
+    width: 100%
+    align-items: center
+    padding: 40px 0 40px 0
+
+  .footer-content-light
+    display: flex
+    justify-content: center
+    background-color: #eee
+    color: colors.$colorDarkGrey
+    width: 100%
+    align-items: center
+    padding: 40px 0 40px 0
+
+  .footer-block
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-column-gap: 40px
+    grid-row-gap: 20px
 
 .footer-element
   text-align: left

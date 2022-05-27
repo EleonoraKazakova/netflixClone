@@ -3,6 +3,7 @@ import form from "../../data/recoverPasswordForm.json";
 import { useState } from "react";
 import { recoverUser } from "../../scripts/firebaseAuth";
 import Footer from "../Footer";
+import NavigationBarUnloged from "../NavigationBarUnloged";
 
 export default function RecoverPassword() {
   const [email, setEmail] = useState("");
@@ -15,6 +16,7 @@ export default function RecoverPassword() {
 
   return (
     <>
+      <NavigationBarUnloged />
       <div className="login-grid">
         <div className="login-content-light">
           <h2>Please login to access to our platform.</h2>

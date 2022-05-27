@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useUID } from "../../state/UIDProvider";
 import "../../styles/login.sass";
 import Footer from "../Footer";
+import NavigationBarUnloged from "../NavigationBarUnloged";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ export default function SignUp() {
 
   return (
     <>
+      <NavigationBarUnloged />
       <div className="login-grid">
         <div className="login-content-light">
           <h1>Create account</h1>

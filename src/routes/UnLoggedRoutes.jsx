@@ -8,7 +8,6 @@ import "../styles/footer.sass";
 export default function UnLoggedRoutes() {
   return (
     <section>
-      <NavigationBarUnloged />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/signup" element={<SignUp />} />
