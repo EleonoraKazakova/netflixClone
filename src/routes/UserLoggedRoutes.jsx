@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import AdminPage from "../components/admin/AdminPage";
 import UserPage from "../components/user/UserPage";
 import "../styles/lougedRoutes.sass";
-import SeriesPage from "../components/admin/SeriesPage";
+import CategoryPage from "../components/user/CategoryPage";
 import VideoPage from "../components/user/VideoPage";
 import Footer from "../components/Footer";
 import NavigationBar from "../components/user/NavigationBar";
@@ -26,6 +26,7 @@ export default function UserLoggedRoutes() {
           />
           <Route path="/:category/:videoID" element={<VideoPage />} />
           <Route path="/search/:videoTitle" element={<SearchedVideo />} />
+          <Route path="/:category" element={<CategoryPage />} />
           <Route path="/" element={<UserPage />} />
         </Routes>
       </div>

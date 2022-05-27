@@ -38,9 +38,9 @@ export default function NavigationBar() {
           <img src={Logo} className="navigation-bar-logo" />
         </Link>
         <Link to="/">Home</Link>
-        <Link to="/">Series</Link>
-        <Link to="/">Movies</Link>
-        <Link to="/">Documentaries</Link>
+        <Link to="/series">Series</Link>
+        <Link to="/movies">Movies</Link>
+        <Link to="/documentaries">Documentaries</Link>
       </div>
       <div className="navigation-bar-right">
         <Searching categories={categories} />
