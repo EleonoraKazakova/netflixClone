@@ -1,0 +1,74 @@
+@use '_colors'
+  
+.category-page-content
+  background-color: colors.$colorBlack
+  color: colors.$colorWhite
+  width: 100%
+  display: flex
+  align-items: center
+  flex-direction: column
+
+.category-page-block
+  display: flex
+  width: fit-content
+  flex-direction: column
+
+.category-page-title
+  text-align: left
+  padding-left: 40px
+  font-size: 26px
+  font-weight: bold
+
+.category-page-img
+  background-position: absolute
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: 50%
+  min-height: 100vh
+  width: 100%
+  display: flex
+  gap: 10px
+  flex-direction: column
+
+.category-page-series
+  background-image: url(../images/movies/series.jpg)
+
+.category-page-movies
+  background-image: url(../images/movies/movies.png)
+
+.category-page-documentaries
+  background-image: url(../images/movies/documentaries.jpg)
+
+.category-page-position
+  position: relative
+  top: -100px
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-column-gap: 20px
+  grid-row-gap: 20px
+  padding: 20px 40px 40px 40px
+  align-self: center
+
+.category-page-maintitle
+  width: 30%
+  display: flex
+  color: #ffffff
+  position: relative
+  top: 65%
+  left: 5%
+  font-size: 50px
+  font-weight: bold
+  line-height: 100%
+  text-align: left
+
+.category-page-text
+  width: 30%
+  display: flex
+  color: #ffffff
+  position: relative
+  top: 65%
+  left: 5%
+  font-size: 20px
+  font-weight: bold
+  line-height: 100%
+  text-align: left

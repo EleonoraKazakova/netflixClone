@@ -1,0 +1,14 @@
+{
+  "series": {
+    "title": "Downton Abbey",
+    "description": "Exposing the snobbery and machinations of a vanishing class system, this series chronicles events in the lives of the Crawley family and their servants."
+  },
+  "movies": {
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."
+  },
+  "documentaries": {
+    "title": "Formula 1. Drive and survive",
+    "description": "Drivers, managers and team owners live life in the fast lane — both on and off the track — during each cutthroat season of Formula 1 racing."
+  }
+}
