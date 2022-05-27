@@ -34,5 +34,11 @@
     "placeholder": "2022",
     "type": "text",
     "required": true
+  },
+  "rating": {
+    "label": "Rating",
+    "placeholder": "From 1 to 10",
+    "type": "number",
+    "required": true
   }
 }

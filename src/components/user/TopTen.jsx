@@ -1,20 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getCollection } from "../../scripts/fireStore";
-import "../../styles/serched-video.sass";
+import "../../styles/top-ten.sass";
 import { useModal } from "../../state/ModalProvider";
-import VideoThumbNail from "./VideoThumbNail";
+import ThumbNailTopTen from "./ThumbNailTopTen";
 
 export default function SearchedVideo() {
   const params = useParams();
   const { setModal } = useModal();
-  const [searchedVideo, setSearchedVideo] = useState([]);
+
   const [categories, setCategories] = useState([]);
-  const [searching, setSearching] = useState([]);
+  const [allMovies, setAllMovies] = useState([]);
 
   console.log("params:", params);
   console.log("categories:", categories);
-  console.log("searchedVideo:", searchedVideo);
+  console.log("allMovies:", allMovies);
 
   const path = "netflixClone";
 
@@ -27,29 +27,32 @@ export default function SearchedVideo() {
         const categoryData = await getCollection(
           `netflixClone/${category.id}/content`
         );
-        setSearching((oldData) => [...oldData, ...categoryData]);
+        setAllMovies((oldData) => [...oldData, ...categoryData]);
       }
     }
 
     loadData(path);
   }, []);
 
-  const filteredMovies = searching.filter(
-    (el) => el.title === params.videoTitle
-  );
-
-  console.log("filteredMovies:", filteredMovies);
-
-  const movieCard = filteredMovies.map((video) => (
-    <VideoThumbNail category={video.category} video={video} />
+  const copyAllMovies = [...allMovies];
+  const topTen = copyAllMovies
+    .sort((a, b) => (a.rating > b.rating ? 1 : -1))
+    .slice(0, 10);
+  console.log("topTen:", topTen);
+  const movieCard = topTen.map((video, index) => (
+    <ThumbNailTopTen
+      category={video.category}
+      video={video}
+      number={index + 1}
+    />
   ));
 
   console.log("movieCard:", movieCard);
 
   return (
-    <div className="serched-video-content">
-      Results for: {params.videoTitle}
-      {movieCard}
-    </div>
+    <>
+      <p className="top-ten-title">Top 10 in Sweden</p>
+      <div className="top-ten-block">{movieCard}</div>
+    </>
   );
 }

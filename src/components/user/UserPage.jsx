@@ -4,6 +4,7 @@ import { getCollection } from "../../scripts/fireStore";
 import Searching from "./Searching";
 import UserCategory from "./UserCategory";
 import "../../styles/user-page.sass";
+import TopTen from "../user/TopTen";
 
 export default function UserPage() {
   const { setModal } = useModal();
@@ -38,7 +39,10 @@ export default function UserPage() {
           book in school.
         </p>
       </div>
-      <div className="user-page-position">{videoBlock}</div>
+      <div className="user-page-position">
+        {videoBlock}
+        <TopTen />
+      </div>
     </div>
   );
 }

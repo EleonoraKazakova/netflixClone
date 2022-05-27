@@ -78,6 +78,10 @@ export default function MovieEdit({
     setMovie({ ...movie, match: event.target.value });
   }
 
+  function onChangeRating(event) {
+    setMovie({ ...movie, rating: event.target.value });
+  }
+
   return (
     <div className="movie-edit">
       <h2>Edit {movieTitle}</h2>
@@ -102,6 +106,12 @@ export default function MovieEdit({
         setup={createFormMovie.link}
         onChange={onChangeLink}
         value={movie.link}
+      />
+
+      <InputFieldEvent
+        setup={createFormMovie.rating}
+        onChange={onChangeRating}
+        value={movie.rating}
       />
 
       <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />

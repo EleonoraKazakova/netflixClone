@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createFile } from "../../scripts/cloudStorage";
-import { deleteDocument, addDocument } from "../../scripts/fireStore";
+import { addDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
 import createFormSeries from "../../data/createFormSeries.json";
 import "../../styles/admin/form.sass";
@@ -11,20 +11,13 @@ import EmptyImg from "../../images/empty.jpg";
 
 export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
   const { setModal } = useModal();
+
   const [title, setTitle] = useState("The Truman show");
   const [description, setDescription] = useState("It is very good movie");
   const [file, setFile] = useState(null);
-  const [category, setCategory] = useState("series");
-  const [episodeTitle, setEpisodeTitle] = useState("The  show");
-  const [episodeDescription, setEpisodeDescription] = useState(
-    "It is very good episode"
-  );
-  const [episode, setEpisode] = useState("1");
-  const [season, setSeason] = useState("2");
   const [link, setLink] = useState("y4WR6HKNeyg");
   const [match, setMatch] = useState("97");
-
-  const [addEpisode, setAddEpisode] = useState(false);
+  const [rating, setRating] = useState(10);
 
   function clearForm() {
     setTitle("");
@@ -43,17 +36,8 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
       description: description,
       link: link,
       match: match,
-      seasons: [
-        /*{
-          description: episodeDescription,
-          episode: episode,
-          season: season,
-          title: episodeTitle,
-          link: link,
-          imgURL: "",
-          id: 1,
-        },*/
-      ],
+      rating: rating,
+      seasons: [],
       imgURL: "",
     };
 
@@ -83,6 +67,7 @@ export default function FormSeries({ categoryTitle, categoryID, setVideos }) {
       />
       <InputField setup={createFormSeries.match} state={[match, setMatch]} />
       <InputField setup={createFormSeries.link} state={[link, setLink]} />
+      <InputField setup={createFormSeries.rating} state={[rating, setRating]} />
       <FormPicture state={[file, setFile]} />
 
       <div className="movie-edit-button-block">

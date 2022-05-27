@@ -68,6 +68,9 @@ export default function SeriesEdit({ seriesID, stateSeries }) {
   function onChangeMatch(event) {
     setNewSeries({ ...newSeries, match: event.target.value });
   }
+  function onChangeRating(event) {
+    setNewSeries({ ...newSeries, rating: event.target.value });
+  }
 
   return (
     <div className="movie-edit">
@@ -92,6 +95,11 @@ export default function SeriesEdit({ seriesID, stateSeries }) {
         setup={createFormSeries.link}
         onChange={onChangeLink}
         value={newSeries.link}
+      />
+      <InputFieldEvent
+        setup={createFormSeries.rating}
+        onChange={onChangeRating}
+        value={newSeries.rating}
       />
 
       <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
