@@ -36,7 +36,9 @@ export default function SearchedVideo() {
     loadData(path);
   }, []);
 
-  const filteredMovies = searching.filter((el) => el.id === params.videoTitle);
+  const filteredMovies = searching.filter((el) =>
+    el.id.includes(params.videoTitle)
+  );
 
   const movieCard = filteredMovies.map((video) => (
     <VideoThumbNail category={video.category} video={video} key={video.id} />
