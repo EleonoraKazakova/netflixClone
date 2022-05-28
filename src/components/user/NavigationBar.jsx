@@ -7,8 +7,10 @@ import { useState, useEffect } from "react";
 import { getCollection } from "../../scripts/fireStore";
 import Searching from "./Searching";
 import "../../styles/user-page.sass";
+import StatusError from "../status/StatusError";
+import StatusLoading from "../status/StatusLoading";
 
-export default function NavigationBar() {
+export default function NavigationBar({ menu }) {
   const { uid, user, setUID } = useUID();
   const [openProfile, setOpenProfile] = useState(false);
 
@@ -30,18 +32,24 @@ export default function NavigationBar() {
     ) : null;
 
   return (
-    <div className="navigation-bar-content">
+    <div
+      className={
+        menu ? "navigation-bar-content" : "navigation-bar-content-admin"
+      }
+    >
       <Link to="/">
         <img src={Logo} className="navigation-bar-logo" />
       </Link>
-      <div className="navigation-bar-menu">
-        <Link to="/">Home</Link>
-        <Link to="/series">Series</Link>
-        <Link to="/movies">Movies</Link>
-        <Link to="/documentaries">Documentaries</Link>
-      </div>
+      {menu && (
+        <div className="navigation-bar-menu">
+          <Link to="/">Home</Link>
+          <Link to="/series">Series</Link>
+          <Link to="/movies">Movies</Link>
+          <Link to="/documentaries">Documentaries</Link>
+        </div>
+      )}
       <div className="navigation-bar-right">
-        <Searching categories={categories} />
+        {menu && <Searching categories={categories} />}
         <div className="navigation-bar-dropdown">
           <div onClick={() => setOpenProfile(!openProfile)}>{userLogo}</div>
           {openProfile && (

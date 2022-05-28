@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createFile } from "../../scripts/cloudStorage";
-import { deleteDocument, addDocument } from "../../scripts/fireStore";
+import { addDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
 import createFormMovie from "../../data/createFormMovie.json";
 import "../../styles/admin/form.sass";
@@ -11,7 +11,6 @@ import EmptyImg from "../../images/empty.jpg";
 
 export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
   const { setModal } = useModal();
-  const [category, setCategory] = useState("movies");
   const [title, setTitle] = useState("The Truman show");
   const [description, setDescription] = useState("It is very good movie");
   const [file, setFile] = useState(null);

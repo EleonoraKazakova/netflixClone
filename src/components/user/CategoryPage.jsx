@@ -5,16 +5,25 @@ import "../../styles/category-page.sass";
 import { useEffect, useState } from "react";
 import { getCollection } from "../../scripts/fireStore";
 import heroData from "../../data/heroData.json";
+import StatusError from "../status/StatusError";
+import StatusLoading from "../status/StatusLoading";
 
 export default function CategoryPage() {
   const params = useParams();
+  const [status, setStatus] = useState(0);
   const [videos, setVideos] = useState([]);
   const path = `netflixClone/${params.category}/content`;
 
   useEffect(() => {
     async function loadData(path) {
-      const data = await getCollection(path);
-      setVideos(data);
+      try {
+        const data = await getCollection(path);
+        setVideos(data);
+        setStatus(1);
+      } catch (error) {
+        console.error("There was an error:", error);
+        setStatus(2);
+      }
     }
     loadData(path);
   }, [params.category]);
@@ -26,6 +35,7 @@ export default function CategoryPage() {
   ));
   return (
     <div className="category-page-content">
+      {status === 0 && <StatusLoading />}
       <div className={`category-page-img category-page-${params.category}`}>
         <p className="category-page-maintitle">
           {heroData[params.category].title}
@@ -35,6 +45,7 @@ export default function CategoryPage() {
         </p>
       </div>
       <div className="category-page-position">{videoCard}</div>
+      {status && <StatusError />}
     </div>
   );
 }

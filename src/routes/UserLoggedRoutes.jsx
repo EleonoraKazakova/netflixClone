@@ -11,7 +11,7 @@ import "../styles/lougedRoutes.sass";
 export default function UserLoggedRoutes() {
   return (
     <section className="lougedRoutes-grid">
-      <NavigationBar />
+      <NavigationBar menu={true} />
       <div className="lougedRoutes-content">
         <Routes>
           <Route

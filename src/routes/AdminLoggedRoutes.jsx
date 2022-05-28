@@ -22,7 +22,7 @@ export default function LoggedRoutes() {
 
   return (
     <section className="lougedRoutes-grid">
-      <NavigationBar />
+      <NavigationBar menu={false} />
       <div className="lougedRoutes-content">
         <Routes>
           <Route path="/" element={<AdminPage />} />

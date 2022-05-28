@@ -3,23 +3,32 @@ import { useEffect, useState } from "react";
 import { getDocument } from "../../scripts/fireStore";
 import "../../styles/youtube.sass";
 import ArrowLeft from "../../images/modal/arrow-left.svg";
+import StatusError from "../status/StatusError";
+import StatusLoading from "../status/StatusLoading";
 
 export default function VideoPage() {
   const params = useParams();
   const navigate = useNavigate();
-
+  console.log("params:", params);
+  const [status, setStatus] = useState(0);
   const [movie, setMovie] = useState({});
   const path = `netflixClone/${params.category}/content/${params.videoID}`;
   useEffect(() => {
     async function loadData(path) {
-      const data = await getDocument(path);
-      setMovie(data.link);
+      try {
+        const data = await getDocument(path);
+        setMovie(data.link);
+      } catch (error) {
+        console.error("There was an error:", error);
+        setStatus(2);
+      }
     }
     loadData(path);
   }, []);
 
   return (
     <div className="youtube-content">
+      {status && <StatusLoading />}
       <img
         src={ArrowLeft}
         onClick={() => navigate(-2)}
@@ -35,6 +44,7 @@ export default function VideoPage() {
           title="Embedded youtube"
         />
       </div>
+      {status === 2 && <StatusError />}
     </div>
   );
 }

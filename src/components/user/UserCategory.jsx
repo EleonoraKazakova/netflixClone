@@ -19,7 +19,7 @@ export default function UserCategory({ category }) {
   }, []);
 
   const videoCards = videos.map((video, index) => (
-    <VideoThumbNail video={video} category={category} key={index} />
+    <VideoThumbNail video={video} category={category.id} key={index} />
   ));
 
   return <div className="user-category-block">{videoCards}</div>;

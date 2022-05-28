@@ -10,6 +10,8 @@ import createFormSeries from "../../data/createFormSeries.json";
 import InputFieldEvent from "../InputFieldEvent";
 import FormPictureEdit from "./FormPictureEdit";
 import "../../styles/admin/movie-edit.sass";
+import StatusError from "../status/StatusError";
+import StatusLoading from "../status/StatusLoading";
 
 export default function SeriesEdit({ seriesID, stateSeries }) {
   const params = useParams();

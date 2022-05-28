@@ -8,11 +8,13 @@ import SeriesEdit from "./SeriesEdit";
 import FormCreateEpisode from "./FormCreateEpisode";
 import Episode from "./Episode";
 import Pen from "../../images/pen.svg";
+import StatusError from "../status/StatusError";
+import StatusLoading from "../status/StatusLoading";
 
 export default function SeriesPage() {
   const params = useParams();
   const { setModal } = useModal();
-  const [status, setStatus] = useState(1);
+  const [status, setStatus] = useState(0);
   const [series, setSeries] = useState(null);
   const [currentSeason, setCurrentSeason] = useState("1");
   const [openSeasons, setOpenSeasons] = useState(false);
@@ -20,8 +22,14 @@ export default function SeriesPage() {
   const path = `netflixClone/series/content/${params.seriesTitle}`;
   useEffect(() => {
     async function loadData(path) {
-      const data = await getDocument(path);
-      setSeries(data);
+      try {
+        const data = await getDocument(path);
+        setSeries(data);
+        setStatus(1);
+      } catch (error) {
+        console.error("There was an error:", error);
+        setStatus(2);
+      }
     }
     loadData(path);
   }, []);
@@ -73,6 +81,7 @@ export default function SeriesPage() {
 
   return (
     <div className="series-page-content">
+      {status === 0 && <StatusLoading />}
       <h2> {series.title}</h2>
       <div className="series-page-block">
         <img src={series.imgURL} className="series-page-img" />
@@ -106,6 +115,8 @@ export default function SeriesPage() {
       </div>
 
       {episodeCard}
+
+      {status === 2 && <StatusError />}
     </div>
   );
 }

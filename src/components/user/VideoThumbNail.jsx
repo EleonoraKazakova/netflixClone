@@ -19,6 +19,7 @@ export default function VideoThumbNail({ video, category }) {
       ? setModal(<BlockModalSeries video={video} category={category} />)
       : setModal(<BlockModalMovie video={video} category={category} />);
   }
+
   return (
     <div className="card-fixed">
       <div className="card-content">
@@ -31,7 +32,7 @@ export default function VideoThumbNail({ video, category }) {
         <div className="card-block">
           <div className="card-small-buttons">
             <div className="card-small-buttons">
-              <Link to={`/${category.id}/${video.id}`}>
+              <Link to={`/${category}/${video.id}`}>
                 <img src={Play} className="user-category-play" />
               </Link>
               <img src={Plus} className="user-category-plus" />

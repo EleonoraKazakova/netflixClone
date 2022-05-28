@@ -19,7 +19,7 @@ export default function MovieEdit({
 }) {
   const [videos, setVideos] = stateVideos;
   const { setModal } = useModal();
-  const [status, setStatus] = useState(1);
+  const [status, setStatus] = useState(0);
   const [movie, setMovie] = useState(null);
   const [file, setFile] = useState(null);
   const [image, setImage] = useState("");
@@ -50,7 +50,7 @@ export default function MovieEdit({
         movie.imgURL = imgURL;
       }
 
-      setStatus(0);
+      setStatus(1);
 
       await updateDocument(path, {
         ...movie,
