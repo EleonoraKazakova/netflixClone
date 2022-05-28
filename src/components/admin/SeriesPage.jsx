@@ -4,7 +4,7 @@ import { getDocument, updateDocument } from "../../scripts/fireStore";
 import { useModal } from "../../state/ModalProvider";
 import "../../styles/admin/form.sass";
 import "../../styles/series-page.sass";
-import SeriesEdit from "./SeriesEdit";
+import MovieEdit from "./MovieEdit";
 import FormCreateEpisode from "./FormCreateEpisode";
 import Episode from "./Episode";
 import Pen from "../../images/pen.svg";
@@ -78,7 +78,7 @@ export default function SeriesPage() {
 
   function edit() {
     setModal(
-      <SeriesEdit seriesID={series.id} stateSeries={[series, setSeries]} />
+      <MovieEdit categoryID="series" movieID={series.id} setVideo={setSeries} />
     );
   }
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFile } from "../../scripts/cloudStorage";
 import { updateDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
-import createFormSeries from "../../data/createFormSeries.json";
+import createForm from "../../data/createForm.json";
 import "../../styles/admin/form.sass";
 import FormPicture from "./FormPicture";
 import { useModal } from "../../state/ModalProvider";
@@ -64,22 +64,16 @@ export default function FormCreateEpisode({ stateSeries }) {
   return (
     <div className="form-content">
       <h2>Add new episode</h2>
-      <InputField setup={createFormSeries.season} state={[season, setSeason]} />
-      <InputField
-        setup={createFormSeries.episode}
-        state={[episode, setEpisode]}
-      />
+      <InputField setup={createForm.season} state={[season, setSeason]} />
+      <InputField setup={createForm.episode} state={[episode, setEpisode]} />
 
+      <InputField setup={createForm.episodeTitle} state={[title, setTitle]} />
       <InputField
-        setup={createFormSeries.episodeTitle}
-        state={[title, setTitle]}
-      />
-      <InputField
-        setup={createFormSeries.episodeDescription}
+        setup={createForm.episodeDescription}
         state={[description, setDescription]}
       />
 
-      <InputField setup={createFormSeries.link} state={[link, setLink]} />
+      <InputField setup={createForm.link} state={[link, setLink]} />
       <FormPicture state={[file, setFile]} />
 
       <div className="form-button-block">

@@ -6,18 +6,12 @@ import uploadFiles from "../../scripts/uploadFile";
 import { useModal } from "../../state/ModalProvider";
 import "../../styles/admin/form.sass";
 import InputField from "../InputField";
-import createFormMovie from "../../data/createFormMovie.json";
+import createForm from "../../data/createForm.json";
 import FormPictureEdit from "./FormPictureEdit";
 import InputFieldEvent from "../InputFieldEvent";
 import "../../styles/admin/movie-edit.sass";
 
-export default function MovieEdit({
-  categoryID,
-  movieID,
-  movieTitle,
-  stateVideos,
-}) {
-  const [videos, setVideos] = stateVideos;
+export default function MovieEdit({ categoryID, movieID, setVideo }) {
   const { setModal } = useModal();
   const [status, setStatus] = useState(0);
   const [movie, setMovie] = useState(null);
@@ -44,7 +38,7 @@ export default function MovieEdit({
         movie.imgURL = EmptyImg;
       } else if (file !== null) {
         const imgURL = await createFile(
-          `movie-${movieTitle}/${file.name}`,
+          `${categoryID}-${movieID}/${file.name}`,
           file
         );
         movie.imgURL = imgURL;
@@ -55,7 +49,8 @@ export default function MovieEdit({
       await updateDocument(path, {
         ...movie,
       });
-      setVideos(videos.map((video) => (video.id === movie.id ? movie : video)));
+
+      setVideo(movie);
       setModal(null);
     } catch (error) {
       console.error("There was an error:", error);
@@ -84,32 +79,32 @@ export default function MovieEdit({
 
   return (
     <div className="movie-edit">
-      <h2>Edit {movieTitle}</h2>
+      <h2>Edit {movie.title}</h2>
       <InputFieldEvent
-        setup={createFormMovie.title}
+        setup={createForm.title}
         onChange={onChangeTitle}
         value={movie.title}
       />
 
       <InputFieldEvent
-        setup={createFormMovie.description}
+        setup={createForm.description}
         onChange={onChangeDescription}
         value={movie.description}
       />
       <InputFieldEvent
-        setup={createFormMovie.match}
+        setup={createForm.match}
         onChange={onChangeMatch}
         value={movie.match}
       />
 
       <InputFieldEvent
-        setup={createFormMovie.link}
+        setup={createForm.link}
         onChange={onChangeLink}
         value={movie.link}
       />
 
       <InputFieldEvent
-        setup={createFormMovie.rating}
+        setup={createForm.rating}
         onChange={onChangeRating}
         value={movie.rating}
       />

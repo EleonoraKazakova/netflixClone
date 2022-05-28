@@ -18,8 +18,6 @@ export default function BlockVideo({ video, videos, category, setVideos }) {
     setVideos(newVideos);
   }
 
-  function check() {}
-
   function edit(event, video) {
     event.preventDefault();
     category.id === "series"
@@ -28,8 +26,11 @@ export default function BlockVideo({ video, videos, category, setVideos }) {
           <MovieEdit
             categoryID={category.id}
             movieID={video.id}
-            movieTitle={video.title}
-            stateVideos={[videos, setVideos]}
+            setVideo={(movie) =>
+              setVideos(
+                videos.map((video) => (video.id === movie.id ? movie : video))
+              )
+            }
           />
         );
   }

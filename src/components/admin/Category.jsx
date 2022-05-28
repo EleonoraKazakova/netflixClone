@@ -1,18 +1,12 @@
-import { useState, useEffect } from "react";
-import { getCollection } from "../../scripts/fireStore";
-import MovieEdit from "./MovieEdit";
-import { useModal } from "../../state/ModalProvider";
-import { Link } from "react-router-dom";
-import FormSeries from "./FormSeries";
-import FormMovie from "./FormMovie";
-import { useNavigate } from "react-router-dom";
-import "../../styles/admin/category.sass";
-import Pen from "../../images/pen.svg";
-import Trash from "../../images/trash.svg";
+import { useEffect, useState } from "react";
 import Plus from "../../images/modal/plus.svg";
-import BlockVideo from "./BlockVideo";
+import { getCollection } from "../../scripts/fireStore";
+import { useModal } from "../../state/ModalProvider";
+import "../../styles/admin/category.sass";
 import StatusError from "../status/StatusError";
 import StatusLoading from "../status/StatusLoading";
+import BlockVideo from "./BlockVideo";
+import FormMovie from "./FormMovie";
 
 export default function Category({ category }) {
   const { setModal } = useModal();
@@ -43,16 +37,6 @@ export default function Category({ category }) {
     />
   ));
 
-  function openFormSeries() {
-    setModal(
-      <FormSeries
-        categoryTitle={category.title}
-        categoryID={category.id}
-        setVideos={setVideos}
-      />
-    );
-  }
-
   function openFormMovie() {
     setModal(
       <FormMovie
@@ -75,15 +59,10 @@ export default function Category({ category }) {
       {status === 0 && <StatusLoading />}
       <p className="category-title">{category.title}</p>
       <div className="category-content">
-        {category.id === "series" ? (
-          <button onClick={openFormSeries} className="category-add-button">
-            {buttonText}
-          </button>
-        ) : (
-          <button onClick={openFormMovie} className="category-add-button">
-            {buttonText}
-          </button>
-        )}
+        <button onClick={openFormMovie} className="category-add-button">
+          {buttonText}
+        </button>
+
         {videoCards}
       </div>
       {status === 2 && <StatusError />}

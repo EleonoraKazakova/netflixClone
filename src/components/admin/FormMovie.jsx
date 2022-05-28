@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFile } from "../../scripts/cloudStorage";
 import { addDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
-import createFormMovie from "../../data/createFormMovie.json";
+import createForm from "../../data/createForm.json";
 import "../../styles/admin/form.sass";
 import FormPicture from "./FormPicture";
 import { useModal } from "../../state/ModalProvider";
@@ -41,6 +41,10 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
       rating: rating,
     };
 
+    if (categoryID === "series") {
+      newVideo.seasons = [];
+    }
+
     if (file === null) {
       newVideo.imgURL = EmptyImg;
     } else {
@@ -61,15 +65,15 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
     <div className="form-content">
       <h2>Add {categoryTitle}</h2>
 
-      <InputField setup={createFormMovie.title} state={[title, setTitle]} />
+      <InputField setup={createForm.title} state={[title, setTitle]} />
       <InputField
-        setup={createFormMovie.description}
+        setup={createForm.description}
         state={[description, setDescription]}
       />
-      <InputField setup={createFormMovie.match} state={[match, setMatch]} />
-      <InputField setup={createFormMovie.year} state={[year, setYear]} />
-      <InputField setup={createFormMovie.link} state={[link, setLink]} />
-      <InputField setup={createFormMovie.rating} state={[rating, setRating]} />
+      <InputField setup={createForm.match} state={[match, setMatch]} />
+      <InputField setup={createForm.year} state={[year, setYear]} />
+      <InputField setup={createForm.link} state={[link, setLink]} />
+      <InputField setup={createForm.rating} state={[rating, setRating]} />
 
       <FormPicture state={[file, setFile]} />
       <div className="form-button-block">

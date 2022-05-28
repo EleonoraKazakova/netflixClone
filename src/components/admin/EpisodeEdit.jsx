@@ -3,7 +3,7 @@ import { createFile } from "../../scripts/cloudStorage";
 import { updateDocument } from "../../scripts/fireStore";
 import { useModal } from "../../state/ModalProvider";
 import { useState } from "react";
-import createFormSeries from "../../data/createFormSeries.json";
+import createForm from "../../data/createForm.json";
 import EmptyImg from "../../images/empty.jpg";
 import FormPictureEdit from "./FormPictureEdit";
 import InputFieldEvent from "../InputFieldEvent";
@@ -63,17 +63,17 @@ export default function EpisodeEdit({ stateSeries, episode }) {
     <div className="movie-edit">
       <h2>Edit {episode.title}</h2>
       <InputFieldEvent
-        setup={createFormSeries.episodeTitle}
+        setup={createForm.episodeTitle}
         onChange={onChangeTitle}
         value={currentEpisode.title}
       />
       <InputFieldEvent
-        setup={createFormSeries.episodeDescription}
+        setup={createForm.episodeDescription}
         onChange={onChangeDescription}
         value={currentEpisode.description}
       />
       <InputFieldEvent
-        setup={createFormSeries.episodeLink}
+        setup={createForm.episodeLink}
         onChange={onChangeLink}
         value={currentEpisode.link}
       />

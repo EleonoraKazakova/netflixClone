@@ -53,6 +53,12 @@
     "type": "number",
     "required": true
   },
+  "year": {
+    "label": "Year",
+    "placeholder": "2022",
+    "type": "text",
+    "required": true
+  },
   "episodeLink": {
     "label": "Link of episode",
     "placeholder": "4S2Ruqhcz78",
