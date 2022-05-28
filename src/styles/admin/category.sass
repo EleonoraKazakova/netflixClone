@@ -142,3 +142,50 @@
   padding-left: 40px
   font-weight: bold
 
+.category-popup
+  position: relative
+  background-color: #fefefe
+  margin: auto
+  padding: 0
+  border: 1px solid #888
+  width: 330px
+  height: 130px
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+  -webkit-animation-name: animatetop
+  -webkit-animation-duration: 0.4s
+  animation-name: animatetop
+  animation-duration: 0.4s
+  border: 2px solid colors.$colorRed
+  border-radius: 7px 
+  color: colors.$colorBlack
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+.category-modal
+  position: fixed
+  z-index: 500
+  padding-top: 300px
+  left: 0%
+  top: 0%
+  width: 100%
+  height: 100%
+  overflow: auto
+  background-color: rgb(0,0,0)
+  background-color: rgba(0,0,0,0.4)
+
+.category-modal-buttons
+  display: flex
+  flex-direction: row
+  gap: 20px
+  justify-content: center
+  padding-top: 10px
+ 
+.category-modal-button
+  background-color: #dfdfdf
+  border-radius: 3px
+  padding: 5px
+
+.category-modal-button:hover
+  background-color: #f87575
+

@@ -4,10 +4,12 @@ import { deleteDocument } from "../../scripts/fireStore";
 import { useModal } from "../../state/ModalProvider";
 import { useNavigate } from "react-router-dom";
 import MovieEdit from "./MovieEdit";
+import { useState } from "react";
 
 export default function BlockVideo({ video, videos, category, setVideos }) {
   const history = useNavigate();
   const { setModal } = useModal();
+  const [open, setOpen] = useState(false);
 
   async function onDelete(event, id) {
     event.preventDefault();
@@ -15,6 +17,8 @@ export default function BlockVideo({ video, videos, category, setVideos }) {
     const newVideos = videos.filter((video) => video.id !== id);
     setVideos(newVideos);
   }
+
+  function check() {}
 
   function edit(event, video) {
     event.preventDefault();
@@ -42,13 +46,34 @@ export default function BlockVideo({ video, videos, category, setVideos }) {
           <div className="tooltiptext">Edit</div>
         </button>
         <button
-          onClick={(event) => onDelete(event, video.id)}
+          onClick={() => setOpen(!open)}
           className="category-trash tooltip"
         >
           <img src={Trash} />
           <div className="tooltiptext">Delete</div>
         </button>
       </div>
+      {open && (
+        <div className="category-modal">
+          <div className="category-popup">
+            <p>Are you shure you want to delete movie/series?</p>
+            <div className="category-modal-buttons">
+              <button
+                onClick={(event) => onDelete(event, video.id)}
+                className="category-modal-button"
+              >
+                Yes
+              </button>
+              <button
+                onClick={() => setOpen(!open)}
+                className="category-modal-button"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
