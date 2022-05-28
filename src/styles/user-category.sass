@@ -1,6 +1,6 @@
 @use '_colors' 
 
-@media (max-width: 499px)
+@media (max-width: 749px)
   .user-category-block
     display: grid
     grid-template-columns: repeat(1, 1fr)
@@ -36,7 +36,7 @@
     align-items: center
     padding: 20px
 
-@media (min-width: 500px) and (max-width: 899px) 
+@media (min-width: 750px) and (max-width: 1099px) 
   .user-category-block
     display: grid
     grid-template-columns: repeat(2, 1fr)
@@ -73,7 +73,44 @@
     align-items: center
     padding: 40px
 
-@media (min-width: 900px)
+@media (min-width: 1100px) and (max-width: 1499px) 
+  .user-category-block
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-column-gap: 20px
+    grid-row-gap: 20px
+    padding: 20px 40px 40px 40px
+    align-self: center 
+
+  .user-category-series
+    display: flex
+    flex-direction: row
+    margin: 0 40px 0 40px  
+    gap: 20px
+    align-items: center
+    padding: 10px
+    cursor: pointer
+
+  .user-category-seasons
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    padding: 0 40px 0 40px
+
+  .user-category-match-year
+    display: flex
+    flex-direction: row
+    gap: 10px
+    padding: 0 40px 0 40px
+
+  .user-category-buttons-block
+    display: flex
+    flex-direction: row
+    gap: 10px
+    align-items: center
+    padding: 40px
+
+@media (min-width: 1500px)
   .user-category-block
     display: grid
     grid-template-columns: repeat(4, 1fr)
