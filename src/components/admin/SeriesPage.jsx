@@ -10,8 +10,11 @@ import Episode from "./Episode";
 import Pen from "../../images/pen.svg";
 import StatusError from "../status/StatusError";
 import StatusLoading from "../status/StatusLoading";
+import { useNavigate } from "react-router-dom";
+import CaretDown from "../../images/modal/caret-down.svg";
 
 export default function SeriesPage() {
+  const navigate = useNavigate();
   const params = useParams();
   const { setModal } = useModal();
   const [status, setStatus] = useState(0);
@@ -108,6 +111,7 @@ export default function SeriesPage() {
           onClick={() => setOpenSeasons(!openSeasons)}
         >
           Choose season
+          <img src={CaretDown} className="series-page-caretdown" />
           {openSeasons && (
             <div className="series-page-dropdown-content">{season}</div>
           )}
@@ -116,6 +120,11 @@ export default function SeriesPage() {
 
       {episodeCard}
 
+      <div className="series-page-button-goback">
+        <div className="series-page-button" onClick={() => navigate(-1)}>
+          Go back
+        </div>
+      </div>
       {status === 2 && <StatusError />}
     </div>
   );
