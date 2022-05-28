@@ -6,7 +6,7 @@ export default function BlockModalMovie({ video, category }) {
       <VideoBlock
         link={video.link}
         titleID={video.id}
-        category={category.id}
+        category={category}
         title={video.title}
       />
       <div className="user-category-match-year">

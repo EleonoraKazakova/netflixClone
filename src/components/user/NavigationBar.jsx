@@ -1,14 +1,12 @@
-import Logo from "../../images/logo.png";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/navigation-bar.sass";
-import { useUID } from "../../state/UIDProvider";
+import Logo from "../../images/logo.png";
 import Profile from "../../images/profile.jpg";
-import { useState, useEffect } from "react";
 import { getCollection } from "../../scripts/fireStore";
-import Searching from "./Searching";
+import { useUID } from "../../state/UIDProvider";
+import "../../styles/navigation-bar.sass";
 import "../../styles/user-page.sass";
-import StatusError from "../status/StatusError";
-import StatusLoading from "../status/StatusLoading";
+import Searching from "./Searching";
 
 export default function NavigationBar({ menu }) {
   const { uid, user, setUID } = useUID();

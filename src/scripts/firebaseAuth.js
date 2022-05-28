@@ -1,8 +1,7 @@
-import { async } from "@firebase/util";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   sendPasswordResetEmail,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { authentication } from "./firesbase";
 

@@ -1,29 +1,24 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import createForm from "../../data/createForm.json";
+import EmptyImg from "../../images/empty.jpg";
 import { createFile } from "../../scripts/cloudStorage";
 import { getDocument, updateDocument } from "../../scripts/fireStore";
-import EmptyImg from "../../images/empty.jpg";
-import uploadFiles from "../../scripts/uploadFile";
 import { useModal } from "../../state/ModalProvider";
 import "../../styles/admin/form.sass";
-import InputField from "../InputField";
-import createForm from "../../data/createForm.json";
-import FormPictureEdit from "./FormPictureEdit";
-import InputFieldEvent from "../InputFieldEvent";
 import "../../styles/admin/movie-edit.sass";
+import InputField from "../InputField";
+import FormPictureEdit from "./FormPictureEdit";
 
 export default function MovieEdit({ categoryID, movieID, setVideo }) {
   const { setModal } = useModal();
-  const [status, setStatus] = useState(0);
   const [movie, setMovie] = useState(null);
   const [file, setFile] = useState(null);
-  const [image, setImage] = useState("");
 
   const path = `netflixClone/${categoryID}/content/${movieID}`;
   useEffect(() => {
     async function loadData(path) {
       const data = await getDocument(path);
       setMovie(data);
-      setImage(data.imgURL);
     }
     loadData(path);
   }, []);
@@ -44,72 +39,52 @@ export default function MovieEdit({ categoryID, movieID, setVideo }) {
         movie.imgURL = imgURL;
       }
 
-      setStatus(1);
-
-      await updateDocument(path, {
-        ...movie,
-      });
+      await updateDocument(path, { ...movie });
 
       setVideo(movie);
       setModal(null);
     } catch (error) {
       console.error("There was an error:", error);
-
-      setStatus(2);
     }
   }
 
-  function onChangeTitle(event) {
-    setMovie({ ...movie, title: event.target.value });
-  }
-  function onChangeDescription(event) {
-    setMovie({ ...movie, description: event.target.value });
-  }
-  function onChangeLink(event) {
-    setMovie({ ...movie, link: event.target.value });
-  }
-
-  function onChangeMatch(event) {
-    setMovie({ ...movie, match: event.target.value });
-  }
-
-  function onChangeRating(event) {
-    setMovie({ ...movie, rating: event.target.value });
+  function onChange(value, field) {
+    setMovie({ ...movie, [field]: value });
   }
 
   return (
     <div className="movie-edit">
       <h2>Edit {movie.title}</h2>
-      <InputFieldEvent
+      <InputField
         setup={createForm.title}
-        onChange={onChangeTitle}
-        value={movie.title}
+        state={[movie.title, (value) => onChange(value, "title")]}
       />
 
-      <InputFieldEvent
+      <InputField
         setup={createForm.description}
-        onChange={onChangeDescription}
-        value={movie.description}
+        state={[movie.description, (value) => onChange(value, "description")]}
       />
-      <InputFieldEvent
+      <InputField
         setup={createForm.match}
-        onChange={onChangeMatch}
-        value={movie.match}
+        state={[movie.match, (value) => onChange(value, "match")]}
       />
 
-      <InputFieldEvent
+      <InputField
+        setup={createForm.year}
+        state={[movie.year, (value) => onChange(value, "year")]}
+      />
+
+      <InputField
         setup={createForm.link}
-        onChange={onChangeLink}
-        value={movie.link}
+        state={[movie.link, (value) => onChange(value, "link")]}
       />
 
-      <InputFieldEvent
+      <InputField
         setup={createForm.rating}
-        onChange={onChangeRating}
-        value={movie.rating}
+        state={[movie.rating, (value) => onChange(value, "rating")]}
       />
 
-      <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
+      <FormPictureEdit state={[file, setFile]} image={movie.imgURL} />
       <div className="movie-edit-button-block">
         <button onClick={onUpdate} className="movie-edit-button">
           Edit video

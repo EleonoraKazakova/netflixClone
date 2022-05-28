@@ -9,17 +9,6 @@ import { getDocument } from "../scripts/fireStore";
 import "../styles/lougedRoutes.sass";
 
 export default function LoggedRoutes() {
-  const currentUser = authentication.currentUser.uid;
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    async function loadData(path) {
-      const data = await getDocument(path);
-      setUser(data);
-    }
-    loadData(`users/${currentUser}`);
-  }, []);
-
   return (
     <section className="lougedRoutes-grid">
       <NavigationBar menu={false} />

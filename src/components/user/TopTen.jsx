@@ -1,18 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCollection } from "../../scripts/fireStore";
 import "../../styles/top-ten.sass";
 import ThumbNailTopTen from "./ThumbNailTopTen";
 
-export default function SearchedVideo() {
-  const [categories, setCategories] = useState([]);
+export default function TopTen() {
   const [allMovies, setAllMovies] = useState([]);
 
-  const path = "netflixClone";
-
   useEffect(() => {
-    async function loadData(path) {
-      const data = await getCollection(path);
-      setCategories(data);
+    async function loadData() {
+      const data = await getCollection("netflixClone");
 
       for (const category of data) {
         const categoryData = await getCollection(
@@ -22,7 +18,7 @@ export default function SearchedVideo() {
       }
     }
 
-    loadData(path);
+    loadData();
   }, []);
 
   const copyAllMovies = [...allMovies];

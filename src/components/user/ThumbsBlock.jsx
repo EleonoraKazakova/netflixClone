@@ -1,10 +1,10 @@
 import { useState } from "react";
-import ThumbsUp from "../../images/modal/thumbs-up.svg";
+import ThumbsDownActive from "../../images/modal/thumbs-down-active.svg";
 import ThumbsDown from "../../images/modal/thumbs-down.svg";
 import ThumbsUpActive from "../../images/modal/thumbs-up-active.svg";
-import ThumbsDownActive from "../../images/modal/thumbs-down-active.svg";
-import "../../styles/user-category.sass";
+import ThumbsUp from "../../images/modal/thumbs-up.svg";
 import "../../styles/thumbsblock.sass";
+import "../../styles/user-category.sass";
 
 export default function ThumbsBlock() {
   const [openThumb, setOpenThumb] = useState(false);

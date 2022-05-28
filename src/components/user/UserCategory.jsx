@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCollection } from "../../scripts/fireStore";
 import "../../styles/basic/card.sass";
-import "../../styles/user-category.sass";
 import "../../styles/series-page.sass";
+import "../../styles/user-category.sass";
 import VideoThumbNail from "./VideoThumbNail";
 
 export default function UserCategory({ category }) {

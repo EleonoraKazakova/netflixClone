@@ -26,8 +26,9 @@ export default function SignUp() {
 
     const payload = await addDocumentWithId("users", newUID, newUser);
 
-    if (payload.error) alert("Couldn't create user");
-    else {
+    if (payload.error) {
+      alert("Couldn't create user");
+    } else {
       setUID(newUID);
       navigate("/");
     }

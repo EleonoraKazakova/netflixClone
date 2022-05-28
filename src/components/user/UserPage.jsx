@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCollection } from "../../scripts/fireStore";
-import UserCategory from "./UserCategory";
 import "../../styles/user-page.sass";
-import TopTen from "../user/TopTen";
 import StatusError from "../status/StatusError";
 import StatusLoading from "../status/StatusLoading";
+import TopTen from "../user/TopTen";
+import UserCategory from "./UserCategory";
 
 export default function UserPage() {
   const [categories, setCategories] = useState([]);
@@ -33,10 +33,8 @@ export default function UserPage() {
     </div>
   ));
 
-  return (
-    <div className="user-page-content">
-      {status === 0 && <StatusLoading />}
-
+  const content = (
+    <>
       <div className="user-page-img">
         <p className="user-page-maintitle">
           Fantastic Beasts and Where to Find Them
@@ -51,7 +49,13 @@ export default function UserPage() {
         {videoBlock}
         <TopTen />
       </div>
+    </>
+  );
 
+  return (
+    <div className="user-page-content">
+      {status === 0 && <StatusLoading />}
+      {status === 1 && content}
       {status === 2 && <StatusError />}
     </div>
   );

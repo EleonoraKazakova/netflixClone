@@ -26,15 +26,13 @@ export default function VideoPage() {
     loadData(path);
   }, []);
 
-  return (
-    <div className="youtube-content">
-      {status && <StatusLoading />}
+  const content = (
+    <>
       <img
         src={ArrowLeft}
         onClick={() => navigate(-2)}
         className="youtube-button"
       />
-
       <div className="youtube-responsive-page">
         <iframe
           src={`https://www.youtube.com/embed/${movie}`}
@@ -44,6 +42,13 @@ export default function VideoPage() {
           title="Embedded youtube"
         />
       </div>
+    </>
+  );
+
+  return (
+    <div className="youtube-content">
+      {status && <StatusLoading />}
+      {status && content}
       {status === 2 && <StatusError />}
     </div>
   );

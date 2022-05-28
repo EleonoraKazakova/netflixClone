@@ -1,20 +1,19 @@
-import "../../styles/admin/form.sass";
-import { createFile } from "../../scripts/cloudStorage";
-import { updateDocument } from "../../scripts/fireStore";
-import { useModal } from "../../state/ModalProvider";
 import { useState } from "react";
 import createForm from "../../data/createForm.json";
 import EmptyImg from "../../images/empty.jpg";
-import FormPictureEdit from "./FormPictureEdit";
-import InputFieldEvent from "../InputFieldEvent";
+import { createFile } from "../../scripts/cloudStorage";
+import { updateDocument } from "../../scripts/fireStore";
+import { useModal } from "../../state/ModalProvider";
+import "../../styles/admin/form.sass";
 import "../../styles/admin/movie-edit.sass";
+import InputField from "../InputField";
+import FormPictureEdit from "./FormPictureEdit";
 
 export default function EpisodeEdit({ stateSeries, episode }) {
   const [series, setSeries] = stateSeries;
   const { setModal } = useModal();
   const [file, setFile] = useState(null);
   const [currentEpisode, setCurrentEpisode] = useState(episode);
-  const [image, setImage] = useState(currentEpisode.imgURL);
 
   if (series === null) return null;
 
@@ -48,36 +47,29 @@ export default function EpisodeEdit({ stateSeries, episode }) {
     setModal(null);
   }
 
-  function onChangeTitle(event) {
-    setCurrentEpisode({ ...currentEpisode, title: event.target.value });
-  }
-  function onChangeDescription(event) {
-    setCurrentEpisode({ ...currentEpisode, description: event.target.value });
-  }
-
-  function onChangeLink(event) {
-    setCurrentEpisode({ ...currentEpisode, link: event.target.value });
+  function onChange(value, field) {
+    setCurrentEpisode({ ...currentEpisode, [field]: value });
   }
 
   return (
     <div className="movie-edit">
       <h2>Edit {episode.title}</h2>
-      <InputFieldEvent
+      <InputField
         setup={createForm.episodeTitle}
-        onChange={onChangeTitle}
-        value={currentEpisode.title}
+        state={[currentEpisode.title, (value) => onChange(value, "title")]}
       />
-      <InputFieldEvent
+      <InputField
         setup={createForm.episodeDescription}
-        onChange={onChangeDescription}
-        value={currentEpisode.description}
+        state={[
+          currentEpisode.description,
+          (value) => onChange(value, "description"),
+        ]}
       />
-      <InputFieldEvent
+      <InputField
         setup={createForm.episodeLink}
-        onChange={onChangeLink}
-        value={currentEpisode.link}
+        state={[currentEpisode.link, (value) => onChange(value, "link")]}
       />
-      <FormPictureEdit state={[file, setFile]} stateImage={[image, setImage]} />
+      <FormPictureEdit state={[file, setFile]} image={currentEpisode.imgURL} />
 
       <div className="movie-edit-button-block">
         <button onClick={onUpdate} className="movie-edit-button">

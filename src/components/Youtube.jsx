@@ -1,9 +1,7 @@
 import "../styles/youtube.sass";
 
-export default function Youtube({ link, play, title }) {
-  const url = play
-    ? `https://www.youtube.com/embed/${link}?autoplay=1`
-    : `https://www.youtube.com/embed/${link}`;
+export default function Youtube({ link, title }) {
+  const url = `https://www.youtube.com/embed/${link}`;
 
   return (
     <div>

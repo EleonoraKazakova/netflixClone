@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import RecoverPassword from "../components/authentication/RecoverPasssword";
 import SignUp from "../components/authentication/SignUp";
-import NavigationBarUnloged from "../components/NavigationBarUnloged";
 import WelcomePage from "../components/WelcomePage";
 import "../styles/footer.sass";
 

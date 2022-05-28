@@ -1,10 +1,8 @@
-import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import ArrowLeft from "../../images/modal/arrow-left.svg";
 import { getDocument } from "../../scripts/fireStore";
 import "../../styles/youtube.sass";
-import ArrowLeft from "../../images/modal/arrow-left.svg";
-import StatusError from "../status/StatusError";
-import StatusLoading from "../status/StatusLoading";
 
 export default function EpisodePage() {
   const params = useParams();

@@ -12,7 +12,6 @@ export default function VideoBlock({ link, titleID, category, title }) {
   const { setModal } = useModal();
 
   const history = useNavigate();
-  const [play, setPlay] = useState(false);
 
   function openMovie() {
     history(`/${category}/${titleID}`);
@@ -21,7 +20,7 @@ export default function VideoBlock({ link, titleID, category, title }) {
 
   return (
     <div>
-      <Youtube link={link} play={play} title={title} />
+      <Youtube link={link} title={title} />
       <div className="user-category-buttons-block">
         <img src={Play} className="user-category-button" onClick={openMovie} />
 

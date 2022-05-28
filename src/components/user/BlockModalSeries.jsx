@@ -82,7 +82,7 @@ export default function BlockModalSeries({ video, category }) {
           </div>
         ))
       ) : (
-        <p className="user-category-series">Content coming soon appears</p>
+        <p className="user-category-series">Content coming soon</p>
       )}
     </>
   );

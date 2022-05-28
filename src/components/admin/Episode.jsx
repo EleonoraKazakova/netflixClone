@@ -21,6 +21,7 @@ export default function Episode({ episode, stateSeries, onUpdateEpisodes }) {
           <p className="episode-description">{episode.description}</p>
         </div>
       </div>
+
       <div className="episode-card-buttons">
         <button
           className="episode-tooltip"
@@ -36,6 +37,7 @@ export default function Episode({ episode, stateSeries, onUpdateEpisodes }) {
           <img src={Pen} className="episode-pen" />
           <div className="episode-tooltiptext">Edit episode</div>
         </button>
+
         <button
           className="episode-tooltip"
           onClick={(event) => onUpdateEpisodes(event, episode)}

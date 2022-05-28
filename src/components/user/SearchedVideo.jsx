@@ -8,7 +8,6 @@ import StatusLoading from "../status/StatusLoading";
 
 export default function SearchedVideo() {
   const params = useParams();
-  const [categories, setCategories] = useState([]);
   const [searching, setSearching] = useState([]);
   const [status, setStatus] = useState(0);
 
@@ -18,7 +17,6 @@ export default function SearchedVideo() {
     async function loadData(path) {
       try {
         const data = await getCollection(path);
-        setCategories(data);
 
         for (const category of data) {
           const categoryData = await getCollection(
@@ -44,9 +42,8 @@ export default function SearchedVideo() {
     <VideoThumbNail category={video.category} video={video} key={video.id} />
   ));
 
-  return (
-    <div className="serched-video-content">
-      {status == 0 && <StatusLoading />}
+  const content = (
+    <>
       <h3>Results:</h3>
       <div className="serched-video-block">
         {movieCard.length >= 1 ? (
@@ -55,6 +52,13 @@ export default function SearchedVideo() {
           <p>Sorry, we did not find movies</p>
         )}
       </div>
+    </>
+  );
+
+  return (
+    <div className="serched-video-content">
+      {status == 0 && <StatusLoading />}
+      {status == 0 && content}
       {status == 2 && <StatusError />}
     </div>
   );

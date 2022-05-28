@@ -4,26 +4,20 @@ import { addDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
 import createForm from "../../data/createForm.json";
 import "../../styles/admin/form.sass";
-import FormPicture from "./FormPicture";
+import FormPictureEdit from "./FormPictureEdit";
 import { useModal } from "../../state/ModalProvider";
 import textToUrl from "../../scripts/textToUrl";
 import EmptyImg from "../../images/empty.jpg";
 
 export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
   const { setModal } = useModal();
-  const [title, setTitle] = useState("The Truman show");
-  const [description, setDescription] = useState("It is very good movie");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
-  const [link, setLink] = useState("y4WR6HKNeyg");
-  const [match, setMatch] = useState("97");
-  const [year, setYear] = useState("1997");
+  const [link, setLink] = useState("");
+  const [match, setMatch] = useState("");
+  const [year, setYear] = useState("");
   const [rating, setRating] = useState(10);
-
-  function clearForm() {
-    setTitle("");
-    setDescription("");
-    setFile(null);
-  }
 
   async function onCreate(event) {
     event.preventDefault();
@@ -55,9 +49,7 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
     if (newVideo.title === "") return;
 
     await addDocument(`netflixClone/${categoryID}/content/${id}`, newVideo);
-
     setVideos((oldVideos) => [...oldVideos, newVideo]);
-    clearForm();
     setModal(null);
   }
 
@@ -75,7 +67,7 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
       <InputField setup={createForm.link} state={[link, setLink]} />
       <InputField setup={createForm.rating} state={[rating, setRating]} />
 
-      <FormPicture state={[file, setFile]} />
+      <FormPictureEdit state={[file, setFile]} image={EmptyImg} />
       <div className="form-button-block">
         <button onClick={onCreate} className="form-button">
           Add new video

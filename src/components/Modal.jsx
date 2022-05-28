@@ -1,7 +1,7 @@
-import "../styles/modal.sass";
 import ReactDOM from "react-dom";
 import Xmark from "../images/xmark.svg";
 import { useModal } from "../state/ModalProvider";
+import "../styles/modal.sass";
 
 export default function Modal() {
   const { modal, setModal } = useModal();

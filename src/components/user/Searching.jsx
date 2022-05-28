@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import textToUrl from "../../scripts/textToUrl";
 import "../../styles/searching.sass";
-import { useNavigate } from "react-router-dom";
 
 export default function Searching() {
   const history = useNavigate();

@@ -13,6 +13,7 @@ export default function Category({ category }) {
   const [videos, setVideos] = useState([]);
   const [status, setStatus] = useState(0);
   const path = `netflixClone/${category.id}/content`;
+
   useEffect(() => {
     async function loadData(path) {
       try {
@@ -30,9 +31,8 @@ export default function Category({ category }) {
   const videoCards = videos.map((video) => (
     <BlockVideo
       video={video}
-      videos={videos}
       category={category}
-      setVideos={setVideos}
+      state={[videos, setVideos]}
       key={video.id}
     />
   ));
@@ -47,24 +47,26 @@ export default function Category({ category }) {
     );
   }
 
-  const buttonText = (
-    <div className="category-add-block">
-      <img src={Plus} className="category-plus" />
-      Add {category.title}
-    </div>
+  const content = (
+    <>
+      <p className="category-title">{category.title}</p>
+      <div className="category-content">
+        <button onClick={openFormMovie} className="category-add-button">
+          <div className="category-add-block">
+            <img src={Plus} className="category-plus" />
+            Add {category.title}
+          </div>
+        </button>
+
+        {videoCards}
+      </div>
+    </>
   );
 
   return (
     <div className="category-title-block">
       {status === 0 && <StatusLoading />}
-      <p className="category-title">{category.title}</p>
-      <div className="category-content">
-        <button onClick={openFormMovie} className="category-add-button">
-          {buttonText}
-        </button>
-
-        {videoCards}
-      </div>
+      {status === 1 && content}
       {status === 2 && <StatusError />}
     </div>
   );

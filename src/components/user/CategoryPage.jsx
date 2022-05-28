@@ -33,9 +33,9 @@ export default function CategoryPage() {
       <VideoThumbNail video={video} category={params.category} />
     </div>
   ));
-  return (
-    <div className="category-page-content">
-      {status === 0 && <StatusLoading />}
+
+  const content = (
+    <>
       <div className={`category-page-img category-page-${params.category}`}>
         <p className="category-page-maintitle">
           {heroData[params.category].title}
@@ -45,6 +45,13 @@ export default function CategoryPage() {
         </p>
       </div>
       <div className="category-page-position">{videoCard}</div>
+    </>
+  );
+
+  return (
+    <div className="category-page-content">
+      {status === 0 && <StatusLoading />}
+      {status === 1 && content}
       {status && <StatusError />}
     </div>
   );

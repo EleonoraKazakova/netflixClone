@@ -1,12 +1,13 @@
-import Trash from "../../images/trash.svg";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Pen from "../../images/pen.svg";
+import Trash from "../../images/trash.svg";
 import { deleteDocument } from "../../scripts/fireStore";
 import { useModal } from "../../state/ModalProvider";
-import { useNavigate } from "react-router-dom";
 import MovieEdit from "./MovieEdit";
-import { useState } from "react";
 
-export default function BlockVideo({ video, videos, category, setVideos }) {
+export default function BlockVideo({ video, category, state }) {
+  const [videos, setVideos] = state;
   const history = useNavigate();
   const { setModal } = useModal();
   const [open, setOpen] = useState(false);

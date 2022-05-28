@@ -1,14 +1,13 @@
-import { fireStore } from "./firesbase";
 import {
   collection,
-  getDocs,
+  deleteDoc,
   doc,
   getDoc,
-  addDoc,
-  updateDoc,
+  getDocs,
   setDoc,
-  deleteDoc,
+  updateDoc,
 } from "firebase/firestore";
+import { fireStore } from "./firesbase";
 
 export async function updateDocument(path, data) {
   const documentPath = doc(fireStore, path);

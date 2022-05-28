@@ -4,7 +4,7 @@ import { updateDocument } from "../../scripts/fireStore";
 import InputField from "../InputField";
 import createForm from "../../data/createForm.json";
 import "../../styles/admin/form.sass";
-import FormPicture from "./FormPicture";
+import FormPictureEdit from "./FormPictureEdit";
 import { useModal } from "../../state/ModalProvider";
 import EmptyImg from "../../images/empty.jpg";
 
@@ -17,12 +17,6 @@ export default function FormCreateEpisode({ stateSeries }) {
   const [episode, setEpisode] = useState("");
   const [season, setSeason] = useState("");
   const [link, setLink] = useState("");
-
-  function clearForm() {
-    setTitle("");
-    setDescription("");
-    setFile(null);
-  }
 
   async function onCreate(event) {
     event.preventDefault();
@@ -47,17 +41,13 @@ export default function FormCreateEpisode({ stateSeries }) {
 
     if (newEpisode.title === "") return;
 
-    setSeries({
+    const newSeries = {
       ...series,
       seasons: [...series.seasons, newEpisode],
-    });
+    };
 
-    await updateDocument(`netflixClone/series/content/${series.id}`, {
-      ...series,
-      seasons: [...series.seasons, newEpisode],
-    });
-
-    clearForm();
+    setSeries(newSeries);
+    await updateDocument(`netflixClone/series/content/${series.id}`, newSeries);
     setModal(null);
   }
 
@@ -74,7 +64,7 @@ export default function FormCreateEpisode({ stateSeries }) {
       />
 
       <InputField setup={createForm.link} state={[link, setLink]} />
-      <FormPicture state={[file, setFile]} />
+      <FormPictureEdit state={[file, setFile]} image={EmptyImg} />
 
       <div className="form-button-block">
         <button onClick={onCreate} className="form-button">
