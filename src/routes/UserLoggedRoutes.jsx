@@ -10,9 +10,9 @@ import "../styles/lougedRoutes.sass";
 
 export default function UserLoggedRoutes() {
   return (
-    <section className="lougedRoutes-grid">
+    <div className="lougedRoutes-grid">
       <NavigationBar menu={true} />
-      <div className="lougedRoutes-content">
+      <main className="lougedRoutes-content">
         <Routes>
           <Route
             path="/:category/:seriesID/:episodeID"
@@ -23,10 +23,10 @@ export default function UserLoggedRoutes() {
           <Route path="/:category" element={<CategoryPage />} />
           <Route path="/" element={<UserPage />} />
         </Routes>
-      </div>
+      </main>
       <div className="lougedRoutes-footer">
         <Footer light={false} />
       </div>
-    </section>
+    </div>
   );
 }

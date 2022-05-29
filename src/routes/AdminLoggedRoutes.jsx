@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import AdminPage from "../components/admin/AdminPage";
 import SeriesPage from "../components/admin/SeriesPage";
 import Footer from "../components/Footer";
 import NavigationBar from "../components/user/NavigationBar";
-import { authentication } from "../scripts/firesbase";
-import { getDocument } from "../scripts/fireStore";
 import "../styles/lougedRoutes.sass";
 
 export default function LoggedRoutes() {

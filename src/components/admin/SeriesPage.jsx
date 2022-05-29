@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getDocument } from "../../scripts/fireStore";
 import "../../styles/admin/form.sass";
 import "../../styles/series-page.sass";

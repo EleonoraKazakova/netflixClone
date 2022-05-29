@@ -64,10 +64,10 @@ export default function Category({ category }) {
   );
 
   return (
-    <div className="category-title-block">
+    <section className="category-title-block">
       {status === 0 && <StatusLoading />}
       {status === 1 && content}
       {status === 2 && <StatusError />}
-    </div>
+    </section>
   );
 }

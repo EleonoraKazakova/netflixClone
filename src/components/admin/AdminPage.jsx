@@ -29,10 +29,10 @@ export default function AdminPage() {
   ));
 
   return (
-    <div className="admin-page-content">
+    <main className="admin-page-content">
       {status === 0 && <StatusLoading />}
       {status === 1 && blockVideos}
       {status === 2 && <StatusError />}
-    </div>
+    </main>
   );
 }
