@@ -35,7 +35,7 @@ export default function UserPage() {
 
   const content = (
     <>
-      <div className="user-page-img">
+      <header className="user-page-img">
         <p className="user-page-maintitle">
           Fantastic Beasts and Where to Find Them
         </p>
@@ -44,11 +44,11 @@ export default function UserPage() {
           of witches and wizards seventy years before Harry Potter reads his
           book in school.
         </p>
-      </div>
-      <div className="user-page-position">
+      </header>
+      <section className="user-page-position">
         {videoBlock}
         <TopTen />
-      </div>
+      </section>
     </>
   );
 

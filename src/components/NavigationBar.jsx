@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../images/logo.png";
-import Profile from "../../images/profile.jpg";
-import { getCollection } from "../../scripts/fireStore";
-import { useUID } from "../../state/UIDProvider";
-import "../../styles/navigation-bar.sass";
-import "../../styles/user-page.sass";
-import Searching from "./Searching";
+import Logo from "../images/logo.png";
+import Profile from "../images/profile.jpg";
+import { getCollection } from "../scripts/fireStore";
+import { useUID } from "../state/UIDProvider";
+import "../styles/navigation-bar.sass";
+import "../styles/user-page.sass";
+import Searching from "./user/Searching";
 
 export default function NavigationBar({ menu }) {
   const { uid, user, setUID } = useUID();

@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import AdminPage from "../components/admin/AdminPage";
 import SeriesPage from "../components/admin/SeriesPage";
 import Footer from "../components/Footer";
-import NavigationBar from "../components/user/NavigationBar";
+import NavigationBar from "../components/NavigationBar";
 import "../styles/lougedRoutes.sass";
 
 export default function LoggedRoutes() {

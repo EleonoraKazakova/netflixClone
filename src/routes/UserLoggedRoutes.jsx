@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "../components/Footer";
 import CategoryPage from "../components/user/CategoryPage";
 import EpisodePage from "../components/user/EpisodePage";
-import NavigationBar from "../components/user/NavigationBar";
+import NavigationBar from "../components/NavigationBar";
 import SearchedVideo from "../components/user/SearchedVideo";
 import UserPage from "../components/user/UserPage";
 import VideoPage from "../components/user/VideoPage";

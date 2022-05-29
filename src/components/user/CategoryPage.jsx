@@ -36,15 +36,15 @@ export default function CategoryPage() {
 
   const content = (
     <>
-      <div className={`category-page-img category-page-${params.category}`}>
+      <header className={`category-page-img category-page-${params.category}`}>
         <p className="category-page-maintitle">
           {heroData[params.category].title}
         </p>
         <p className="category-page-text">
           {heroData[params.category].description}
         </p>
-      </div>
-      <div className="category-page-position">{videoCard}</div>
+      </header>
+      <section className="category-page-position">{videoCard}</section>
     </>
   );
 

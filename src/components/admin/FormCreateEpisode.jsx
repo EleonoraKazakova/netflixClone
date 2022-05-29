@@ -1,15 +1,18 @@
 import { useState } from "react";
+import createForm from "../../data/createForm.json";
+import EmptyImg from "../../images/empty.jpg";
 import { createFile } from "../../scripts/cloudStorage";
 import { updateDocument } from "../../scripts/fireStore";
-import InputField from "../InputField";
-import createForm from "../../data/createForm.json";
-import "../../styles/admin/form.sass";
-import FormPictureEdit from "./FormPictureEdit";
 import { useModal } from "../../state/ModalProvider";
-import EmptyImg from "../../images/empty.jpg";
+import "../../styles/admin/form.sass";
+import InputField from "../InputField";
+import FormPictureEdit from "./FormPictureEdit";
+import StatusLoading from "../status/StatusLoading";
+import StatusError from "../status/StatusError";
 
 export default function FormCreateEpisode({ stateSeries }) {
   const { setModal } = useModal();
+  const [status, setStatus] = useState(1);
   const [series, setSeries] = stateSeries;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -19,6 +22,7 @@ export default function FormCreateEpisode({ stateSeries }) {
   const [link, setLink] = useState("");
 
   async function onCreate(event) {
+    setStatus(0);
     event.preventDefault();
     const id = series.seasons.length + 1;
 
@@ -32,23 +36,31 @@ export default function FormCreateEpisode({ stateSeries }) {
       id: id,
     };
 
-    if (file === null) {
-      newEpisode.imgURL = EmptyImg;
-    } else {
-      const imgURL = await createFile(`netflixClone/${file.name}`, file);
-      newEpisode.imgURL = imgURL;
+    try {
+      if (file === null) {
+        newEpisode.imgURL = EmptyImg;
+      } else {
+        const imgURL = await createFile(`netflixClone/${file.name}`, file);
+        newEpisode.imgURL = imgURL;
+      }
+
+      if (newEpisode.title === "") return;
+
+      const newSeries = {
+        ...series,
+        seasons: [...series.seasons, newEpisode],
+      };
+
+      setSeries(newSeries);
+      await updateDocument(
+        `netflixClone/series/content/${series.id}`,
+        newSeries
+      );
+      setModal(null);
+    } catch (error) {
+      console.error("There was an error:", error);
+      setStatus(2);
     }
-
-    if (newEpisode.title === "") return;
-
-    const newSeries = {
-      ...series,
-      seasons: [...series.seasons, newEpisode],
-    };
-
-    setSeries(newSeries);
-    await updateDocument(`netflixClone/series/content/${series.id}`, newSeries);
-    setModal(null);
   }
 
   return (
@@ -70,6 +82,8 @@ export default function FormCreateEpisode({ stateSeries }) {
         <button onClick={onCreate} className="form-button">
           Add new episode
         </button>
+        {status === 0 && <StatusLoading small={true} />}
+        {status === 2 && <StatusError small={true} />}
       </div>
     </div>
   );
