@@ -17,6 +17,70 @@
     height: 170px
     object-fit: cover
 
+  .episode-tooltip-series 
+    position: relative
+    display: inline-block
+
+  .episode-tooltip-series .episode-tooltiptext-series 
+    visibility: hidden
+    width: 80px
+    background-color: black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 85%
+    left: 130%
+    margin-left: -70px
+
+  .episode-tooltip-series .episode-tooltiptext-series::after 
+    content: ""
+    position: absolute
+    top: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: black transparent transparent transparent
+
+  .episode-tooltip-series:hover .episode-tooltiptext-series 
+    visibility: visible
+
+  .episode-tooltip 
+    position: relative
+    display: inline-block
+
+  .episode-tooltip .episode-tooltiptext 
+    visibility: hidden
+    width: 80px
+    background-color: black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 85%
+    left: 130%
+    margin-left: -70px
+
+  .episode-tooltip .episode-tooltiptext::after 
+    content: ""
+    position: absolute
+    top: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: black transparent transparent transparent
+
+  .episode-tooltip:hover .episode-tooltiptext 
+    visibility: visible
+
+ 
+
 @media (min-width: 600px) and (max-width: 899px) 
   .episode-card
     background-color: colors.$colorDarkGrey
@@ -34,6 +98,70 @@
     height: 100px
     object-fit: cover
 
+  .episode-tooltip-series 
+    position: relative
+    display: inline-block
+
+  .episode-tooltip-series .episode-tooltiptext-series 
+    visibility: hidden
+    width: 80px
+    background-color: black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 85%
+    left: 130%
+    margin-left: -70px
+
+  .episode-tooltip-series .episode-tooltiptext-series::after 
+    content: ""
+    position: absolute
+    top: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: black transparent transparent transparent
+
+  .episode-tooltip-series:hover .episode-tooltiptext-series 
+    visibility: visible
+
+  .episode-tooltip 
+    position: relative
+    display: inline-block
+
+  .episode-tooltip .episode-tooltiptext 
+    visibility: hidden
+    width: 80px
+    background-color: black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 70%
+    left: 130%
+    margin-left: -70px
+
+  .episode-tooltip .episode-tooltiptext::after 
+    content: ""
+    position: absolute
+    top: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: black transparent transparent transparent
+
+  .episode-tooltip:hover .episode-tooltiptext 
+    visibility: visible
+
+
+
 @media (min-width: 900px)
   .episode-card
     background-color: colors.$colorDarkGrey
@@ -50,6 +178,69 @@
     width: 250px
     object-fit: cover
 
+  .episode-tooltip-series 
+    position: relative
+    display: inline-block
+
+  .episode-tooltip-series .episode-tooltiptext-series 
+    visibility: hidden
+    width: 80px
+    background-color: black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 115%
+    left: 130%
+    margin-left: -70px
+
+  .episode-tooltip-series .episode-tooltiptext-series::after 
+    content: ""
+    position: absolute
+    top: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: black transparent transparent transparent
+
+  .episode-tooltip-series:hover .episode-tooltiptext-series 
+    visibility: visible
+
+  .episode-tooltip 
+    position: relative
+    display: inline-block
+
+  .episode-tooltip .episode-tooltiptext 
+    visibility: hidden
+    width: 80px
+    background-color: black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 75%
+    left: 130%
+    margin-left: -70px
+
+  .episode-tooltip .episode-tooltiptext::after 
+    content: ""
+    position: absolute
+    top: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: black transparent transparent transparent
+
+  .episode-tooltip:hover .episode-tooltiptext 
+    visibility: visible
+
+
 .episode-pen
   width: 40px
   height: 40px
@@ -63,8 +254,6 @@
   border-radius: 7px
   background-color: colors.$colorRedLight
   padding: 5px
-
-
 
 .episode-card-content
   display: flex
@@ -89,37 +278,4 @@
   display: flex
   flex-direction: row
   gap: 10px
-
-.episode-tooltip 
-  position: relative
-  display: inline-block
-
-.episode-tooltip .episode-tooltiptext 
-  visibility: hidden
-  width: 80px
-  background-color: black
-  color: #fff
-  text-align: center
-  border-radius: 6px
-  padding: 5px 0
-  position: absolute
-  z-index: 1
-  bottom: 85%
-  left: 130%
-  margin-left: -70px
-
-
-.episode-tooltip .episode-tooltiptext::after 
-  content: ""
-  position: absolute
-  top: 100%
-  left: 50%
-  margin-left: -5px
-  border-width: 5px
-  border-style: solid
-  border-color: black transparent transparent transparent
-
-
-.episode-tooltip:hover .episode-tooltiptext 
-  visibility: visible
 

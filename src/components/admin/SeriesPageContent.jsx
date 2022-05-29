@@ -22,11 +22,12 @@ export default function SeriesPageContent({ state }) {
       <div className="series-page-block">
         <img src={series.imgURL} className="series-page-img" />
         <p className="series-page-description">{series.description}</p>
-
-        <button onClick={edit} className="episode-tooltip">
-          <img src={Pen} className="episode-pen" />
-          <div className="episode-tooltiptext">Edit series</div>
-        </button>
+        <div>
+          <button onClick={edit} className="episode-tooltip-series">
+            <img src={Pen} className="episode-pen" />
+            <div className="episode-tooltiptext-series">Edit series</div>
+          </button>
+        </div>
       </div>
 
       <Seasons stateSeries={[series, setSeries]} />

@@ -19,6 +19,7 @@
 
   .series-page-img
     width: 100%
+    object-fit: cover
 
 @media (min-width: 450px) and (max-width: 899px) 
   .series-page-content
@@ -40,6 +41,7 @@
 
   .series-page-img
     width: 200px
+    object-fit: cover
 
 @media (min-width: 900px)
   .series-page-content
@@ -58,9 +60,11 @@
     background-color: colors.$colorDarkGrey
     border-radius: 7px
     padding: 40px
+    align-items: center
 
   .series-page-img
     width: 200px
+    object-fit: cover
 
 
 
@@ -127,6 +131,9 @@
   color: colors.$colorWhite
   font-weight: bold
   cursor: pointer
+  display: flex
+  justify-content: center
+  align-items: center
 
 .series-page-description
   text-align: left
