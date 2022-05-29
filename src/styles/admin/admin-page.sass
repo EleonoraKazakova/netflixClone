@@ -1,10 +1,20 @@
 @use '../_colors'
 
-.admin-page-content
-  background-color: colors.$colorBlack
-  color: #fff
-  width: 100%
-  display: flex
-  flex-direction: column
-  padding-top: 100px
-  align-items: center
+@media (max-width: 499px)
+  .admin-page-content
+    background-color: colors.$colorBlack
+    color: #fff
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+
+@media (min-width: 500px)
+  .admin-page-content
+    background-color: colors.$colorBlack
+    color: #fff
+    width: 100%
+    display: flex
+    flex-direction: column
+    padding-top: 100px
+    align-items: center
