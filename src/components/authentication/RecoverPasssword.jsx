@@ -17,7 +17,7 @@ export default function RecoverPassword() {
   return (
     <>
       <NavigationBarUnloged />
-      <div className="login-grid">
+      <main className="login-grid">
         <div className="login-content-light">
           <h2>Please login to access to our platform.</h2>
           <form onSubmit={onRecover} className="login-form">
@@ -28,7 +28,7 @@ export default function RecoverPassword() {
             </div>
           </form>
         </div>
-      </div>
+      </main>
       <Footer light={true} />
     </>
   );

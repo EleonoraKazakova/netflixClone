@@ -1,4 +1,4 @@
-import "../../styles/admin/courseCreate.sass";
+import "../../styles/admin/form-picture-edit.sass";
 import "../../styles/admin/formPicture.sass";
 
 export default function FormPictureEdit({ state, image }) {
@@ -6,15 +6,15 @@ export default function FormPictureEdit({ state, image }) {
 
   return (
     <div>
-      <div className="courseCreate-buttons-block">
+      <div className="form-picture-edit-buttons-block">
         <label
-          className="courseCreate-button-small"
+          className="form-picture-edit-button-small"
           htmlFor="formPicture-upload"
         >
           Choose image
         </label>
         <button
-          className="courseCreate-button-small "
+          className="form-picture-edit-button-small "
           onClick={() => setFile(null)}
         >
           Delete picture
@@ -22,7 +22,7 @@ export default function FormPictureEdit({ state, image }) {
       </div>
       <img
         src={file !== null ? URL.createObjectURL(file) : image}
-        className="courseCreate-img"
+        className="form-picture-edit-img"
       />
       <input
         type="file"

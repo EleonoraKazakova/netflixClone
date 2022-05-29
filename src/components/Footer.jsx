@@ -25,13 +25,13 @@ export default function Footer({ light }) {
   ));
 
   return (
-    <div className={light ? "footer-content-light" : "footer-content"}>
+    <footer className={light ? "footer-content-light" : "footer-content"}>
       <div className="footer-media-list">
         <div className="footer-media-block">
           {light ? mediaListDark : mediaList}
         </div>
         <div className="footer-block">{footerList}</div>
       </div>
-    </div>
+    </footer>
   );
 }

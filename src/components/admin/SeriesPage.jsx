@@ -31,10 +31,10 @@ export default function SeriesPage() {
   if (series === null) return null;
 
   return (
-    <div className="series-page-content">
+    <section className="series-page-content">
       {status === 0 && <StatusLoading />}
       {status === 1 && <SeriesPageContent state={[series, setSeries]} />}
       {status === 2 && <StatusError />}
-    </div>
+    </section>
   );
 }

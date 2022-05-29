@@ -28,7 +28,7 @@ export default function LogIn() {
   }
 
   return (
-    <div className="login-grid">
+    <main className="login-grid">
       <div className="login-content">
         <h2 className="login-title">Sign In</h2>
         <form onSubmit={onLogin} className="login-form">
@@ -47,6 +47,6 @@ export default function LogIn() {
           <Link to="/recover-password">Need help?</Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -49,7 +49,7 @@ export default function Seasons({ stateSeries }) {
   ));
 
   return (
-    <div>
+    <>
       <h2>Seasons</h2>
       <div className="series-page-button-block">
         <button
@@ -73,6 +73,6 @@ export default function Seasons({ stateSeries }) {
       </div>
 
       {episodeCard}
-    </div>
+    </>
   );
 }

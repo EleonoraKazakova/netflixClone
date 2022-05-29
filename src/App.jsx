@@ -5,7 +5,7 @@ import UnLoggedRoutes from "./routes/UnLoggedRoutes";
 import UserLoggedRoutes from "./routes/UserLoggedRoutes";
 import { ModalProvider } from "./state/ModalProvider";
 import { useUID } from "./state/UIDProvider";
-import "./styles/App.css";
+import "./styles/App.sass";
 
 export function App() {
   const { uid, user } = useUID();
@@ -14,11 +14,11 @@ export function App() {
     <div className="App">
       <ModalProvider>
         <BrowserRouter>
-          <main className="app-content ">
+          <div className="app-content ">
             {!uid && <UnLoggedRoutes />}
             {uid && user.role === "admin" && <AdminLoggedRoutes />}
             {uid && user.role === "user" && <UserLoggedRoutes />}
-          </main>
+          </div>
           <Modal />
         </BrowserRouter>
       </ModalProvider>

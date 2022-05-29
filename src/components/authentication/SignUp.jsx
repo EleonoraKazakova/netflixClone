@@ -37,7 +37,7 @@ export default function SignUp() {
   return (
     <>
       <NavigationBarUnloged />
-      <div className="login-grid">
+      <main className="login-grid">
         <div className="login-content-light">
           <h1>Create account</h1>
           <form onSubmit={onCreate} className="login-form">
@@ -49,7 +49,7 @@ export default function SignUp() {
             </div>
           </form>
         </div>
-      </div>
+      </main>
       <Footer light={true} />
     </>
   );

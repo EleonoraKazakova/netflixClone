@@ -52,7 +52,7 @@ export default function CategoryPage() {
     <div className="category-page-content">
       {status === 0 && <StatusLoading />}
       {status === 1 && content}
-      {status && <StatusError />}
+      {status === 2 && <StatusError />}
     </div>
   );
 }

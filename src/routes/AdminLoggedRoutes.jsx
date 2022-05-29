@@ -10,7 +10,7 @@ import "../styles/lougedRoutes.sass";
 
 export default function LoggedRoutes() {
   return (
-    <section className="lougedRoutes-grid">
+    <div className="lougedRoutes-grid">
       <NavigationBar menu={false} />
       <div className="lougedRoutes-content">
         <Routes>
@@ -21,6 +21,6 @@ export default function LoggedRoutes() {
       <div className="lougedRoutes-footer">
         <Footer light={false} />
       </div>
-    </section>
+    </div>
   );
 }

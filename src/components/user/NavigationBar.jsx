@@ -30,7 +30,7 @@ export default function NavigationBar({ menu }) {
     ) : null;
 
   return (
-    <div
+    <nav
       className={
         menu ? "navigation-bar-content" : "navigation-bar-content-admin"
       }
@@ -63,6 +63,6 @@ export default function NavigationBar({ menu }) {
           )}
         </div>
       </div>
-    </div>
+    </nav>
   );
 }

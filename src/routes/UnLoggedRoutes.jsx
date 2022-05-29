@@ -6,13 +6,13 @@ import "../styles/footer.sass";
 
 export default function UnLoggedRoutes() {
   return (
-    <section>
+    <div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/recover-password" element={<RecoverPassword />} />
         <Route path="*" element={<WelcomePage />} />
       </Routes>
-    </section>
+    </div>
   );
 }
