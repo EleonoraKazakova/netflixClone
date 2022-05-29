@@ -20,8 +20,20 @@ export default function FormCreateEpisode({ stateSeries }) {
   const [episode, setEpisode] = useState("");
   const [season, setSeason] = useState("");
   const [link, setLink] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function onCreate(event) {
+    if (
+      title === "" ||
+      description === "" ||
+      episode === "" ||
+      season === "" ||
+      link === ""
+    ) {
+      setErrorMessage("All of the fields are required");
+      return;
+    }
+
     setStatus(0);
     event.preventDefault();
     const id = series.seasons.length + 1;
@@ -79,6 +91,7 @@ export default function FormCreateEpisode({ stateSeries }) {
       <FormPictureEdit state={[file, setFile]} image={EmptyImg} />
 
       <div className="form-button-block">
+        {errorMessage}
         <button onClick={onCreate} className="form-button">
           Add new episode
         </button>

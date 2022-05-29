@@ -18,8 +18,19 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
   const [match, setMatch] = useState("");
   const [year, setYear] = useState("");
   const [rating, setRating] = useState(10);
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function onCreate(event) {
+    if (
+      title === "" ||
+      description === "" ||
+      match === "" ||
+      year === "" ||
+      link === ""
+    ) {
+      setErrorMessage("All of the fields are required");
+      return;
+    }
     event.preventDefault();
     const id = textToUrl(title);
 
@@ -69,6 +80,7 @@ export default function FormMovie({ categoryTitle, categoryID, setVideos }) {
 
       <FormPictureEdit state={[file, setFile]} image={EmptyImg} />
       <div className="form-button-block">
+        {errorMessage}
         <button onClick={onCreate} className="form-button">
           Add new video
         </button>
