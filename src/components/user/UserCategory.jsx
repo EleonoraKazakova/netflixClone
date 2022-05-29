@@ -22,5 +22,5 @@ export default function UserCategory({ category }) {
     <VideoThumbNail video={video} category={category.id} key={index} />
   ));
 
-  return <div className="user-category-block">{videoCards}</div>;
+  return <section className="user-category-block">{videoCards}</section>;
 }

@@ -23,7 +23,7 @@ export default function NavigationBar({ menu }) {
     loadData(path);
   }, []);
 
-  const userName = uid !== null ? <p>{user.name}</p> : null;
+  const userName = uid !== null ? user.name : "";
   const userLogo =
     uid !== null ? (
       <img src={Profile} className="navigation-bar-profile" />
