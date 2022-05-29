@@ -58,7 +58,7 @@ export default function SearchedVideo() {
   return (
     <div className="serched-video-content">
       {status == 0 && <StatusLoading />}
-      {status == 0 && content}
+      {status == 1 && content}
       {status == 2 && <StatusError />}
     </div>
   );

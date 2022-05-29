@@ -18,6 +18,7 @@ export default function VideoPage() {
       try {
         const data = await getDocument(path);
         setMovie(data.link);
+        setStatus(1);
       } catch (error) {
         console.error("There was an error:", error);
         setStatus(2);
@@ -47,8 +48,8 @@ export default function VideoPage() {
 
   return (
     <div className="youtube-content">
-      {status && <StatusLoading />}
-      {status && content}
+      {status === 0 && <StatusLoading />}
+      {status === 1 && content}
       {status === 2 && <StatusError />}
     </div>
   );
