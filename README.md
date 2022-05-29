@@ -44,7 +44,7 @@ http://localhost:3000/
 
 ## Public address
 
-https://lnetflix-5761b.web.app/
+https://netflix-5761b.web.app/
 
 ### `npm run build`
 
